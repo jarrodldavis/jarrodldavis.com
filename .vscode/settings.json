@@ -1,0 +1,45 @@
+{
+	// Code formatting
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.rulers": [100],
+	"editor.tabSize": 2,
+	"editor.trimAutoWhitespace": true,
+	"files.autoGuessEncoding": false,
+	"files.encoding": "utf8",
+	"files.eol": "\n",
+	"files.insertFinalNewline": true,
+	"files.trimFinalNewlines": true,
+	"files.trimTrailingWhitespace": true,
+	"javascript.preferences.quoteStyle": "single",
+	"typescript.preferences.quoteStyle": "single",
+
+	// Code formatting overrides
+	"[svelte]": {
+		"editor.defaultFormatter": "svelte.svelte-vscode",
+	},
+	"[yaml]": {
+		"editor.insertSpaces": true,
+		"diffEditor.ignoreTrimWhitespace": false,
+	},
+
+	// ESLint
+	"eslint.validate": ["javascript", "svelte", "typescript"],
+
+	// Stylelint
+	"stylelint.validate": ["css", "postcss", "svelte"],
+
+	// TypeScript
+	"svelte.enable-ts-plugin": true,
+	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
+	"typescript.check.npmIsInstalled": false,
+	"typescript.disableAutomaticTypeAcquisition": true,
+	"typescript.enablePromptUseWorkspaceTsdk": true,
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	"typescript.preferences.preferTypeOnlyAutoImports": true,
+	"typescript.tsdk": "node_modules/typescript/lib",
+
+	// Misc
+	"vitest.commandLine": "node_modules/vitest/vitest.mjs",
+}
