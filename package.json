@@ -44,6 +44,7 @@
 		"eslint-plugin-compat": "^4.2.0",
 		"eslint-plugin-svelte": "2.36.0-next.5",
 		"open-props": "^1.6.18",
+		"playwright": "^1.41.2",
 		"postcss-html": "^1.6.0",
 		"postcss-jit-props": "^1.0.14",
 		"postcss-preset-env": "^9.3.0",

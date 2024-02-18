@@ -58,6 +58,9 @@ devDependencies:
   open-props:
     specifier: ^1.6.18
     version: 1.6.18
+  playwright:
+    specifier: ^1.41.2
+    version: 1.41.2
   postcss-html:
     specifier: ^1.6.0
     version: 1.6.0
