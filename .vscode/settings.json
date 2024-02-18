@@ -27,6 +27,15 @@
 	// ESLint
 	"eslint.validate": ["javascript", "svelte", "typescript"],
 
+	// Open Props
+	"cssvar.files": [
+		"node_modules/open-props/src/index.css",
+		"node_modules/open-props/src/extra/normalize.css",
+		"node_modules/open-props/src/extra/buttons.css",
+	],
+	"cssvar.ignore": [],
+	"cssvar.mode": "error",
+
 	// Stylelint
 	"stylelint.validate": ["css", "postcss", "svelte"],
 
