@@ -61,6 +61,9 @@ devDependencies:
   eslint-plugin-svelte:
     specifier: 2.36.0-next.5
     version: 2.36.0-next.5(eslint@8.56.0)(svelte@5.0.0-next.57)
+  mrmime:
+    specifier: ^2.0.0
+    version: 2.0.0
   open-props:
     specifier: ^1.6.18
     version: 1.6.18
