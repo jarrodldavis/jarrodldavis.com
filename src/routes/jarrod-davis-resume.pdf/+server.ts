@@ -1,6 +1,10 @@
-import render_pdf from '$lib/server/pdf';
+import make_pdf_renderer from '$lib/server/pdf';
 import type { RequestHandler } from './$types';
 
 export const prerender = true;
 
-export const GET: RequestHandler = ({ fetch }) => render_pdf({ fetch, pathname: '/resume' });
+const render_pdf = make_pdf_renderer();
+
+export const GET: RequestHandler = ({ fetch, url }) => {
+	return render_pdf({ fetch, origin: url.origin, pathname: '/resume' });
+};
