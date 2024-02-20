@@ -34,7 +34,7 @@
 				"phoenisx.cssvar",
 				"stylelint.vscode-stylelint",
 				"svelte.svelte-vscode",
-				"zixuanchen.vitest-explorer"
+				"vitest.explorer"
 			],
 			"settings": {
 				"editor.codeActionsOnSave": {
