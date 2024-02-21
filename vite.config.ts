@@ -1,4 +1,5 @@
 import global_data from '@csstools/postcss-global-data';
+import { enhancedImages } from '@sveltejs/enhanced-img';
 import { sveltekit } from '@sveltejs/kit/vite';
 import browserslist from 'browserslist-to-esbuild';
 import { createRequire } from 'module';
@@ -27,7 +28,7 @@ export default defineConfig({
 	esbuild: {
 		target: 'es2022',
 	},
-	plugins: [sveltekit()],
+	plugins: [enhancedImages(), sveltekit()],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}'],
 	},

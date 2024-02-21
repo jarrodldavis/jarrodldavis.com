@@ -32,6 +32,7 @@
 		"node_modules/open-props/src/index.css",
 		"node_modules/open-props/src/extra/normalize.css",
 		"node_modules/open-props/src/extra/buttons.css",
+		"src/**/*.svelte",
 	],
 	"cssvar.ignore": [],
 	"cssvar.mode": "error",
