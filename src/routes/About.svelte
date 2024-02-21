@@ -13,13 +13,13 @@
 
 	<ul>
 		<li>
-			A “traditional” Microsoft web stack ({@render csharp()}, {@render dotnet_fx()},
-			{@render aspnet_mvc()})
+			A “traditional” Microsoft web stack ({@render csharp()}, {@render netfx()},
+			{@render aspnetmvc()})
 		</li>
 
 		<li>
-			The modern Microsoft web stack ({@render csharp()}, {@render dotnet_core()},
-			{@render aspnet_core()}, {@render efcore()})
+			The modern Microsoft web stack ({@render csharp()}, {@render dotnetcore()},
+			{@render aspnetcore()}, {@render efcore()})
 		</li>
 
 		<li>
@@ -60,118 +60,35 @@
 	</p>
 </section>
 
-{#snippet csharp()}
-	<a href="https://dotnet.microsoft.com/en-us/languages/csharp">C#</a>
+{#snippet netfx()}
+	<a href="https://learn.microsoft.com/dotnet/framework">.NET Framework</a>
 {/snippet}
 
-{#snippet dotnet_fx()}
-	<a href="https://learn.microsoft.com/en-us/dotnet/framework">.NET Framework</a>
-{/snippet}
-
-{#snippet aspnet_mvc()}
-	<a href="https://github.com/aspnet/AspNetWebStack">ASP.NET MVC</a>
-{/snippet}
-
-{#snippet dotnet_core()}
-	<a href="https://dotnet.microsoft.com">.NET (Core)</a>
-{/snippet}
-
-{#snippet aspnet_core()}
-	<a href="https://dotnet.microsoft.com/apps/aspnet">ASP.NET Core</a>
-{/snippet}
-
-{#snippet efcore()}
-	<a href="https://learn.microsoft.com/ef">Entity Framework Core</a>
-{/snippet}
-
-{#snippet nodejs()}
-	<a href="https://nodejs.org">Node.js</a>
-{/snippet}
-
-{#snippet express()}
-	<a href="https://expressjs.com">Express</a>
-{/snippet}
-
-{#snippet next()}
-	<a href="https://nextjs.org">Next.js</a>
-{/snippet}
-
-{#snippet phoenix()}
-	<a href="https://phoenixframework.org">Phoenix Framework</a>
-{/snippet}
-
-{#snippet elixir()}
-	<a href="https://elixir-lang.org">Elixir</a>
-{/snippet}
-
-{#snippet react()}
-	<a href="https://react.dev">React</a>
-{/snippet}
-
-{#snippet svelte()}
-	<a href="https://svelte.dev">Svelte</a>
-{/snippet}
-
-{#snippet vue()}
-	<a href="https://vuejs.org">Vue.js</a>
-{/snippet}
-
-{#snippet angular()}
-	<a href="https://angular.io">Angular</a>
-{/snippet}
-
-{#snippet babel()}
-	<a href="https://babeljs.io">Babel</a>
-{/snippet}
-
-{#snippet webpack()}
-	<a href="https://webpack.js.org">webpack</a>
-{/snippet}
-
-{#snippet rollup()}
-	<a href="https://rollupjs.org">Rollup</a>
-{/snippet}
-
-{#snippet vite()}
-	<a href="https://vitejs.dev">Vite</a>
-{/snippet}
-
-{#snippet stylus()}
-	<a href="https://stylus-lang.com">Stylus</a>
-{/snippet}
-
-{#snippet less()}
-	<a href="https://lesscss.org">Less</a>
-{/snippet}
-
-{#snippet sass()}
-	<a href="https://sass-lang.com">Sass/SCSS</a>
-{/snippet}
-
-{#snippet postcss()}
-	<a href="https://postcss.org">PostCSS</a>
-{/snippet}
-
-{#snippet mysql()}
-	<a href="https://www.mysql.com">MySQL</a>
-{/snippet}
-
-{#snippet postgresql()}
-	<a href="https://www.postgresql.org">PostgreSQL</a>
-{/snippet}
-
-{#snippet ruby()}
-	<a href="https://www.ruby-lang.org/">Ruby</a>
-{/snippet}
-
-{#snippet python()}
-	<a href="https://www.python.org">Python</a>
-{/snippet}
-
-{#snippet bash()}
-	<a href="https://www.gnu.org/software/bash/">Bash</a>
-{/snippet}
-
-{#snippet zsh()}
-	<a href="https://www.zsh.org">Zsh</a>
-{/snippet}
+{#snippet csharp()}<a href="https://dotnet.microsoft.com/languages/csharp">C#</a>{/snippet}
+{#snippet aspnetmvc()}<a href="https://github.com/aspnet/AspNetWebStack">ASP.NET MVC</a>{/snippet}
+{#snippet dotnetcore()}<a href="https://dotnet.microsoft.com">.NET (Core)</a>{/snippet}
+{#snippet aspnetcore()}<a href="https://dotnet.microsoft.com/apps/aspnet">ASP.NET Core</a>{/snippet}
+{#snippet efcore()}<a href="https://learn.microsoft.com/ef">Entity Framework Core</a>{/snippet}
+{#snippet nodejs()}<a href="https://nodejs.org">Node.js</a>{/snippet}
+{#snippet express()}<a href="https://expressjs.com">Express</a>{/snippet}
+{#snippet next()}<a href="https://nextjs.org">Next.js</a>{/snippet}
+{#snippet phoenix()}<a href="https://phoenixframework.org">Phoenix Framework</a>{/snippet}
+{#snippet elixir()}<a href="https://elixir-lang.org">Elixir</a>{/snippet}
+{#snippet react()}<a href="https://react.dev">React</a>{/snippet}
+{#snippet svelte()}<a href="https://svelte.dev">Svelte</a>{/snippet}
+{#snippet vue()}<a href="https://vuejs.org">Vue.js</a>{/snippet}
+{#snippet angular()}<a href="https://angular.io">Angular</a>{/snippet}
+{#snippet babel()}<a href="https://babeljs.io">Babel</a>{/snippet}
+{#snippet webpack()}<a href="https://webpack.js.org">webpack</a>{/snippet}
+{#snippet rollup()}<a href="https://rollupjs.org">Rollup</a>{/snippet}
+{#snippet vite()}<a href="https://vitejs.dev">Vite</a>{/snippet}
+{#snippet stylus()}<a href="https://stylus-lang.com">Stylus</a>{/snippet}
+{#snippet less()}<a href="https://lesscss.org">Less</a>{/snippet}
+{#snippet sass()}<a href="https://sass-lang.com">Sass/SCSS</a>{/snippet}
+{#snippet postcss()}<a href="https://postcss.org">PostCSS</a>{/snippet}
+{#snippet mysql()}<a href="https://www.mysql.com">MySQL</a>{/snippet}
+{#snippet postgresql()}<a href="https://www.postgresql.org">PostgreSQL</a>{/snippet}
+{#snippet ruby()}<a href="https://www.ruby-lang.org">Ruby</a>{/snippet}
+{#snippet python()}<a href="https://www.python.org">Python</a>{/snippet}
+{#snippet bash()}<a href="https://www.gnu.org/software/bash">Bash</a>{/snippet}
+{#snippet zsh()}<a href="https://www.zsh.org">Zsh</a>{/snippet}
