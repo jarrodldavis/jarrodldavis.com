@@ -56,7 +56,7 @@
 
 	<p>
 		Below you can see more details of my professional and educational experience. You can also
-		<a href={resume}>view</a> or <a download href={resume}>download</a> or my resume as a PDF.
+		<a href={resume}>view</a> or <a download href={resume}>download</a> my resume as a PDF.
 	</p>
 </section>
 
