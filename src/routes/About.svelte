@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DownloadLink from '$lib/DownloadLink.svelte';
+	const resume = '/jarrod-davis-resume.pdf';
 </script>
 
 <section>
@@ -56,8 +56,7 @@
 
 	<p>
 		Below you can see more details of my professional and educational experience. You can also
-		<a href="/jarrod-davis-resume.pdf">view</a> or
-		<DownloadLink href="/resume/download">download</DownloadLink> my resume as a PDF.
+		<a href={resume}>view</a> or <a download href={resume}>download</a> or my resume as a PDF.
 	</p>
 </section>
 
