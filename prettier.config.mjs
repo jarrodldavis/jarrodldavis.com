@@ -4,6 +4,7 @@ export default /** @satisfies {import('prettier').Config} */ ({
 	useTabs: true,
 	singleQuote: true,
 	printWidth: 100,
+	proseWrap: 'always',
 	plugins: ['prettier-plugin-svelte', 'prettier-plugin-organize-imports'],
 	overrides: [
 		{ files: '*.svelte', options: { parser: 'svelte' } },

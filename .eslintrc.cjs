@@ -21,7 +21,7 @@ module.exports = /** @satisfies {import('eslint').Linter.Config} */ ({
 		sourceType: 'module',
 		ecmaVersion: 2022,
 		extraFileExtensions: ['.svelte'],
-		project: true,
+		EXPERIMENTAL_useProjectService: true,
 	},
 	settings: {
 		lintAllEsApis: true,
@@ -37,6 +37,7 @@ module.exports = /** @satisfies {import('eslint').Linter.Config} */ ({
 		'no-undef': 'off',
 		'svelte/block-lang': ['error', { enforceScriptPresent: true, script: 'ts' }],
 		'svelte/experimental-require-strict-events': 'off',
+		'svelte/@typescript-eslint/no-unnecessary-condition': 'off',
 	},
 	overrides: [
 		{
@@ -57,6 +58,7 @@ module.exports = /** @satisfies {import('eslint').Linter.Config} */ ({
 			files: config_files,
 			parserOptions: {
 				project: 'tsconfig.config.json',
+				EXPERIMENTAL_useProjectService: false,
 			},
 		},
 	],

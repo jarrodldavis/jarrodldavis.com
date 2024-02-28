@@ -29,6 +29,9 @@
 		"strictNullChecks": true,
 		"strictPropertyInitialization": true,
 		"useUnknownInCatchVariables": true,
+
+		// Compatibility with `typescript-eslint`
+		"plugins": [{ "name": "typescript-svelte-plugin" }],
 	},
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
 	//
