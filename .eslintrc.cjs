@@ -35,9 +35,16 @@ module.exports = /** @satisfies {import('eslint').Linter.Config} */ ({
 		'@typescript-eslint/no-confusing-void-expression': ['error', { ignoreArrowShorthand: true }],
 		'@typescript-eslint/no-unused-vars': 'off',
 		'no-undef': 'off',
+		'svelte/@typescript-eslint/no-unnecessary-condition': 'off',
 		'svelte/block-lang': ['error', { enforceScriptPresent: true, script: 'ts' }],
 		'svelte/experimental-require-strict-events': 'off',
-		'svelte/@typescript-eslint/no-unnecessary-condition': 'off',
+		'svelte/no-restricted-html-elements': [
+			'error',
+			{
+				elements: ['section', 'h2', 'h3', 'h4', 'h5', 'h6'],
+				message: 'Use the <Section /> component.',
+			},
+		],
 	},
 	overrides: [
 		{

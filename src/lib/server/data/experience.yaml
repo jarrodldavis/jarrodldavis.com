@@ -1,0 +1,179 @@
+- company: Upwork
+  url: https://www.upwork.com/fl/jarrodldavis
+  titles:
+    - name: Freelance Software Engineer
+      dates: November 2019 - Present
+  product: >
+    Various web development, software engineering, and scripting/automation projects
+  responsibilities:
+    - description: >
+        Identified and implemented solutions to resolve issues with an open source [jekyll] site
+    - description: >
+        Configured a reference full stack [graphql] project using [react], [nextjs], [auth0],
+        [apollo], and [hasura]
+      additional_skills: [html, css]
+    - description: >
+        Developed a [python] script to collect information from [git] repository commits into a CSV
+        file for analysis
+    - description: >
+        Investigated and fixed an issue with a [nodejs] script that uses [puppeteer] to scrape data
+        from a web page
+    - description: >
+        Refactored that [nodejs] script to use the [jira_cloud_api] to generate CSV reports and
+        upload them to Confluence Spaces using the [confluence_cloud_api]
+    - description: >
+        Created a [nodejs] script that uses the [screenshot_monitor_api] and the [jira_cloud_api] to
+        generate Excel reports and upload them to Confluence Spaces using the [confluence_cloud_api]
+    - description: >
+        Developed [lambda] functions to receive webhooks, process data, and interact with
+        [step_functions] (for queuing/retry) and external REST APIs
+      additional_skills: [aws, kreezalid_rest, kreezalid_webhooks]
+    - description: >
+        Created a utility to automate system configuration management for Windows 10 machines
+      additional_skills: [pwsh, pwsh_dsc]
+    - description: >
+        Updated a [java] ([selenium] and [azsb]) app to run in [docker] for usage in [acr]
+    - description: >
+        Developed a [chrome_ext] to provide keyboard shortcuts for changing the active font color in
+        Gmail's compose editor
+      additional_skills: [js, html, css]
+    - description: >
+        Configured a boilerplate [craft] project in [docker] using [compose]
+    - description: >
+        Created a [cf_worker] using HTMLRewriter to manipulate text, anchor links, and images
+        on-the-fly for a satirical news site
+      additional_skills: [wrangler, js, html]
+    - description: >
+        Investigated issues with server-side rendering in a deployment of a [firebase_auth] and
+        [sapper] site and provided guidance on alternative deployment strategies
+      additional_skills: [svelte, js, html, css]
+    - description: >
+        Developed a script to convert Shopify blog entries to Markdown for a new [jekyll] site
+      additional_skills: [shopify_storefront_api, html]
+    - description: >
+        Created a custom [plex] plugin/agent to match TV Show and Movie media to metadata from the
+        [mydramalist_api]
+    - description: >
+        Performed various administrative and data entry tasks
+  additional_skills:
+    ts:
+    ruby:
+    liquid:
+    vscode:
+    github:
+    bitbucket:
+    gitlab:
+    webpack:
+    gulp:
+    sam:
+    sam_cli:
+    cloudformation:
+    middy:
+    openpyxl:
+    exceljs:
+    sheetjs:
+    jquery:
+    axios:
+    unifiedjs:
+
+- company: Axxess Technology Solutions
+  url: https://axxess.com
+  titles:
+    - name: Senior Web Engineer
+      dates: July 2016 - June 2018
+    - name: Web Engineer
+      dates: March 2015 - July 2016
+  product: >
+    HomeCare SaaS product for home care and private duty agencies
+  responsibilities:
+    - description: >
+        Maintained and introduced features to a complex full stack [aspnetmvc] 5 and [js]/[jqueryui]
+        web application across the frontend, backend, and database
+      additional_skills: [csharp, netfx, html, css, jquery, sql, mysql]
+    - description: >
+        Participated in peer code reviews and quality assurance (QA) testing
+    - description: >
+        Increased development efficiency through optimizations of engineering workflows
+      additional_skills: [msbuild]
+    - description: >
+        Defined and distributed a [compose] project for the backend’s data services for a consistent
+        and always-available local development environment
+      additional_skills: [docker, mysql, mongo, rabbitmq, couchbase, redis]
+    - description: >
+        Initiated the introduction of new technologies (including [vue]) for major new features
+      additional_skills: [npm, yarn, webpack, babel, sass]
+    - description: >
+        Designed and developed a new [aspnetcore] API for retrieving and updating application data
+        in coordination with mobile app engineers
+      additional_skills: [netcore, efcore]
+    - description: >
+        Transitioned to the technical team lead role
+    - description: >
+        Participated with project and product management in the refinement and prioritization of bug
+        fixes, enhancements, and features
+    - description: >
+        Managed deployments for multiple environments using [teamcity] and [octopus_deploy]
+    - description: >
+        Integrated the product with multiple systems internal and external to the company
+    - description: >
+        Onboarded and mentored new and existing team members
+    - description: >
+        Wrote documentation for project setup, version control strategies, and deployment workflows
+      additional_skills: [git]
+
+  additional_skills:
+    visual_studio:
+    resharper:
+    nuget:
+    wcf:
+    hangfire:
+    knockout:
+
+- company: Workfront
+  url: https://www.workfront.com
+  titles:
+    - name: Frontend Developer Intern
+      dates: January 2015 - March 2015
+  product: >
+    Internal tool for developers
+  responsibilities:
+    - description: >
+        Developed an internal tool used by developers
+
+  additional_skills:
+    python:
+    html:
+    css:
+    js:
+    mysql:
+    git:
+    pycharm:
+    less:
+    django:
+    angularjs:
+
+- company: MaritzCX
+  url: https://www.maritzcx.com
+  titles:
+    - name: Developer Intern (UI/UX Team)
+      dates: September 2014 - December 2014
+  product: >
+    Multiple customer-facing web-based services for VoC (Voice of Customer) and EFM (Enterprise
+    Feedback Management)
+  responsibilities:
+    - description: >
+        Assisted in the selection of the [css] preprocessor to include in an existing development
+        environment
+    - description: >
+        Integrated the [stylus] [css] preprocessor into the existing build system
+    - description: >
+        Investigated and fixed bugs of several [js] UI components
+    - description: >
+        Utilized [jqueryui] to create new widgets, including compositions of other widgets
+      additional_skills: [jquery]
+
+  additional_skills:
+    html:
+    perforce:
+    visual_studio:
+    underscore:

@@ -1,6 +1,15 @@
 <script lang="ts">
-	import About from './About.svelte';
-	import HeaderContents from './HeaderContents.svelte';
+	import About from '$lib/About.svelte';
+	import Experience from '$lib/Experience.svelte';
+	import HeaderContents from '$lib/HeaderContents.svelte';
+	import Section from '$lib/Section.svelte';
+	import { set_skills } from '$lib/SkillUsage.svelte';
+	import { set_heading_level } from '$lib/heading';
+	import type { PageData } from './$types';
+
+	const { data } = $props<{ data: PageData }>();
+	set_skills(data.skills);
+	set_heading_level(1);
 </script>
 
 <main>
@@ -9,11 +18,13 @@
 	</header>
 
 	<article>
-		<About />
-		<section>
-			<h2>Experience</h2>
-			<p>TODO</p>
-		</section>
+		<About list_entries={data.intro} />
+
+		<Section title="Experience">
+			{#each data.experience as entry, index (index)}
+				<Experience {entry} />
+			{/each}
+		</Section>
 	</article>
 </main>
 
@@ -41,15 +52,10 @@
 	article {
 		padding-block: var(--safe-area-inset-block-start) var(--safe-area-inset-block-end);
 		padding-inline: var(--safe-area-inset-inline-start) var(--safe-area-inset-inline-end);
-		display: grid;
-		place-content: center;
-		gap: var(--size-fluid-3);
-	}
-
-	article :global(section) {
-		display: grid;
-		gap: var(--size-fluid-2);
-		min-inline-size: min(100%, var(--size-content-3));
+		box-sizing: content-box;
+		font-size: var(--font-size-2);
+		max-inline-size: calc(var(--size-content-3));
+		margin: 0 auto;
 	}
 
 	article :global(li) {

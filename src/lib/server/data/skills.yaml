@@ -1,0 +1,393 @@
+software_design:
+  name: Software Design Patterns and Methodologies
+  skills:
+    oop:
+      name:
+        - OOP
+        - Object-Oriented Programming
+    mvc:
+      name:
+        - MVC
+        - Model-View-Controller
+    di:
+      name:
+        - DI
+        - Dependency Injection
+    ioc:
+      name:
+        - IoC
+        - Inversion of Control
+    rest:
+      name:
+        - REST
+        - Representational State Transfer
+    agile:
+      name:
+        - Agile
+        - Agile (including Scrum)
+
+languages:
+  name: Programming and Markup Languages
+  skills:
+    html:
+      name: HTML
+    css:
+      name: CSS
+    php:
+      name: PHP
+    js:
+      name: JavaScript
+    ts:
+      name: TypeScript
+    java:
+      name: Java
+    csharp:
+      name: C#
+      url: https://dotnet.microsoft.com/languages/csharp
+    ruby:
+      name: Ruby
+      url: https://www.ruby-lang.org
+    python:
+      name: Python
+      url: https://www.python.org
+    sql:
+      name: SQL
+    stylus:
+      name: Stylus
+      url: https://stylus-lang.com
+    less:
+      name: LESS
+      url: https://lesscss.org
+    sass:
+      name:
+        - Sass
+        - Sass/SCSS
+      url: https://sass-lang.com
+    graphql:
+      name: GraphQL
+    elixir:
+      name: Elixir
+      url: https://elixir-lang.org
+
+editors:
+  name: Integrated Development Environments and Code Editors
+  skills:
+    visual_studio:
+      name: Visual Studio
+    resharper:
+      name: ReSharper
+    intellij:
+      name: IntelliJ
+    pycharm:
+      name: PyCharm
+    clipse:
+      name: Eclipse
+    vscode:
+      name:
+        - VSCode
+        - Visual Studio Code
+
+vcs:
+  name: Version Control
+  skills:
+    git:
+      name: git
+    svn:
+      name: SVN
+    perforce:
+      name: Perforce
+    github:
+      name: GitHub
+    bitbucket:
+      name: Bitbucket
+    gitlab:
+      name: GitLab
+
+ci_cd:
+  name: CI and CD
+  skills:
+    teamcity:
+      name: TeamCity
+    octopus_deploy:
+      name: Octopus Deploy
+
+task_runners:
+  name: Task Runners and Compilers
+  skills:
+    grunt:
+      name: Grunt.js
+    gulp:
+      name: Gulp.js
+    msbuild:
+      name: MSBuild
+    babel:
+      name: Babel
+      url: https://babeljs.io
+    webpack:
+      name: webpack
+      url: https://webpack.js.org
+    rollup:
+      name: Rollup
+      url: https://rollupjs.org
+    vite:
+      name: Vite
+      url: https://vitejs.dev
+    postcss:
+      name: PostCSS
+      url: https://postcss.org
+
+package_managers:
+  name: Package and Dependency Managers
+  skills:
+    nuget:
+      name: NuGet
+    npm:
+      name: npm
+    yarn:
+      name: Yarn
+    rubygems:
+      name: RubyGems
+    bundler:
+      name: Bundler
+    pip:
+      name: pip
+
+backend_web:
+  name: Backend Web Frameworks
+  skills:
+    j2ee:
+      name:
+        - J2EE
+        - J2EE (Java Enterprise Edition)
+    aspnetmvc:
+      name: ASP.NET MVC
+      url: https://github.com/aspnet/AspNetWebStack
+    ror:
+      name: Ruby on Rails
+    phoenix:
+      name: Phoenix
+      url: https://phoenixframework.org
+    django:
+      name: Django
+    aspnetcore:
+      name: ASP.NET Core
+      url: https://dotnet.microsoft.com/apps/aspnet
+    express:
+      name: Express.js
+      url: https://expressjs.com
+    middy:
+      name: Middy.js
+
+data:
+  name: Data Servers
+  skills:
+    mysql:
+      name: MySQL
+      url: https://www.mysql.com
+    mongo:
+      name: MongoDB
+    rabbitmq:
+      name: RabbitMQ
+    couchbase:
+      name: Couchbase
+    redis:
+      name: Redis
+    hasura:
+      name:
+        - Hasura
+        - Hasura GraphQL
+    postgresql:
+      name: PostgreSQL
+      url: https://www.postgresql.org
+
+cms:
+  name: Content Management Systems
+  skills:
+    craft:
+      name: Craft CMS
+    jekyll:
+      name: Jekyll
+
+app_runtime:
+  name: Application Runtimes
+  skills:
+    tomee:
+      name:
+        - TomEE
+        - TomEE (Tomcat for Java EE)
+    iis:
+      name:
+        - IIS
+        - Internet Information Services
+    nodejs:
+      name: Node.js
+      url: https://nodejs.org
+    netfx:
+      name: .NET Framework
+      url: https://learn.microsoft.com/dotnet/framework
+    wcf:
+      name:
+        - WCF
+        - Windows Communication Foundation
+    netcore:
+      name: .NET (Core)
+      url: https://dotnet.microsoft.com
+    docker:
+      name: Docker
+    chrome_ext:
+      name:
+        - Chrome extension
+        - Chrome extensions
+    plex:
+      name:
+        - Plex Media Server
+        - Plex Media Server (plugin/agent runtime and APIs)
+
+cloud:
+  name: Cloud Services and Platforms
+  skills:
+    aws:
+      name:
+        - AWS
+        - Amazon Web Services
+    step_functions:
+      name: AWS Step Functions
+    lambda:
+      name: AWS Lambda
+    auth0:
+      name: Auth0
+    azsb:
+      name: Azure Service Bus
+    acr:
+      name: Azure Container Registry
+    cf_worker:
+      name:
+        - Cloudflare Worker
+        - Cloudflare Workers
+    firebase_auth:
+      name: Firebase Authentication
+
+frontend_web:
+  name: Frontend Web Frameworks and Libraries
+  skills:
+    ember:
+      name: Ember.js
+    knockout:
+      name: Knockout.js
+    vue:
+      name: Vue.js
+      url: https://vuejs.org
+    react:
+      name: React
+      url: https://react.dev
+    nextjs:
+      name: Next.js
+      url: https://nextjs.org
+    svelte:
+      name: Svelte
+      url: https://svelte.dev
+    sapper:
+      name: Sapper
+    jquery:
+      name: jQuery
+    jqueryui:
+      name: jQuery UI
+    angularjs:
+      name: Angular.js
+
+tools:
+  name: Additional Development Tools
+  skills:
+    unix:
+      name: Unix command line
+    sam:
+      name:
+        - AWS SAM
+        - AWS Serverless Application Model
+    sam_cli:
+      name: AWS SAM CLI
+    cloudformation:
+      name:
+        - AWS CF Templates
+        - AWS CloudFormation Templates
+    compose:
+      name: Docker Compose
+    wrangler:
+      name: Cloudflare Wrangler
+    pwsh:
+      name: Windows PowerShell
+    bash:
+      name: Bash
+      url: https://www.gnu.org/software/bash
+    zsh:
+      name: Zsh
+      url: https://www.zsh.org
+
+libraries:
+  name: Additional Libraries
+  skills:
+    underscore:
+      name: Underscore.js
+    lodash:
+      name: Lodash
+    axios:
+      name: Axios
+    hangfire:
+      name: Hangfire
+    efcore:
+      name: Entity Framework Core
+      url: https://learn.microsoft.com/ef
+    exceljs:
+      name: exceljs
+    sheetjs:
+      name: SheetJS
+    openpyxl:
+      name: openpyxl
+    apollo:
+      name:
+        - Apollo
+        - Apollo GraphQL
+    puppeteer:
+      name: Puppeteer
+    selenium:
+      name: Selenium
+    pwsh_dsc:
+      name:
+        - PowerShell DSC
+        - PowerShell Desired Configuration State
+    unifiedjs:
+      name:
+        - unified.js
+        - unified.js (vfile, mdast/remark, hast/rehype)
+    liquid:
+      name:
+        - Liquid
+        - Liquid (HTML templates)
+    handlebars:
+      name: Handlebars.js
+
+web_apis:
+  name: Web APIs
+  skills:
+    kreezalid_rest:
+      name:
+        - Kreezalid REST API
+        - Kreezalid REST API (v1)
+    kreezalid_webhooks:
+      name: Kreezalid Webhooks
+    jira_cloud_api:
+      name:
+        - Jira Cloud API
+        - Jira Cloud Platform REST API (v3)
+    confluence_cloud_api:
+      name:
+        - Confluence Cloud API
+        - Confluence Cloud REST API (v1)
+    screenshot_monitor_api:
+      name:
+        - Screenshot Monitor API
+        - Screenshot Monitor REST API (v2)
+    shopify_storefront_api:
+      name: Shopify Storefront API
+    mydramalist_api:
+      name: MyDramaList.com API
