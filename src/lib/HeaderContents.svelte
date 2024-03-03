@@ -73,7 +73,8 @@
 			display: flex;
 			flex-direction: column;
 			gap: var(--size-fluid-2);
-			place-items: center;
+			align-items: center;
+			justify-content: center;
 
 			img {
 				aspect-ratio: var(--ratio-square);
