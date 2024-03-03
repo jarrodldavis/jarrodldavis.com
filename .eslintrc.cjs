@@ -32,7 +32,7 @@ module.exports = /** @satisfies {import('eslint').Linter.Config} */ ({
 		node: true,
 	},
 	rules: {
-		'@typescript-eslint/no-confusing-void-expression': ['error', { ignoreArrowShorthand: true }],
+		'@typescript-eslint/no-confusing-void-expression': 'off',
 		'@typescript-eslint/no-unused-vars': 'off',
 		'no-undef': 'off',
 		'svelte/@typescript-eslint/no-unnecessary-condition': 'off',
