@@ -29,16 +29,23 @@
 
 <style>
 	.contents {
-		display: flex;
+		display: grid;
+		font-size: var(--font-size-2);
+		grid-template: 'image title social' / 1fr var(--size-content-3) 1fr;
+		grid-auto-flow: column;
 		align-items: center;
 		gap: var(--size-fluid-4);
-		justify-content: center;
 
-		.image {
-			flex-shrink: 0;
-			block-size: var(--size-fluid-7);
+		.image,
+		.social {
+			max-block-size: var(--size-fluid-7);
 			aspect-ratio: var(--ratio-square);
 			inline-size: auto;
+		}
+
+		.image {
+			grid-area: image;
+			justify-self: end;
 			box-shadow: var(--inner-shadow-4);
 			border-radius: var(--radius-round);
 			overflow: hidden;
@@ -50,11 +57,9 @@
 		}
 
 		.title {
-			flex-grow: 1;
+			grid-area: title;
 			display: flex;
 			flex-direction: column;
-			font-size: var(--font-size-2);
-			max-inline-size: var(--size-content-3);
 		}
 
 		p {
@@ -64,12 +69,13 @@
 		}
 
 		.social {
+			grid-area: social;
 			display: flex;
-			flex-shrink: 0;
-			gap: var(--size-5);
+			flex-direction: column;
+			gap: var(--size-fluid-2);
+			place-items: center;
 
 			img {
-				flex-shrink: 0;
 				aspect-ratio: var(--ratio-square);
 				block-size: var(--size-8);
 				inline-size: auto;
@@ -88,26 +94,25 @@
 			}
 
 			&.dark {
-				display: unset;
+				display: block;
 			}
 		}
 	}
 
 	@media (--lg-n-below) {
-		p {
-			max-inline-size: var(--size-content-2);
+		.contents {
+			grid-template: 'image title social' / var(--size-fluid-7) auto var(--size-fluid-7);
 		}
 	}
 
 	@media (--md-n-below) {
 		.contents {
-			justify-content: center;
+			grid-template: 'image' 'title' 'social';
+			justify-items: center;
 			text-align: center;
-			flex-wrap: wrap;
 
 			.image {
-				block-size: var(--size-fluid-8);
-				max-block-size: 100%;
+				justify-self: center;
 			}
 
 			.title {
@@ -116,6 +121,21 @@
 
 			p {
 				font-size: var(--font-size-4);
+			}
+
+			.social {
+				aspect-ratio: unset;
+				flex-direction: row;
+			}
+		}
+
+		@media ((--sm-n-below) or ((--md-n-below) and (--landscape))) {
+			.contents {
+				gap: var(--size-fluid-2);
+
+				.image {
+					margin-block-end: calc(-1 * var(--size-fluid-2));
+				}
 			}
 		}
 	}
