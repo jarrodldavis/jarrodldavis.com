@@ -3,7 +3,7 @@
 	import { getContext, setContext } from 'svelte';
 
 	interface Props {
-		parts: SkillUsage;
+		usage: SkillUsage;
 		name: 'long' | 'short';
 		url: 'internal' | 'external';
 	}
@@ -24,7 +24,7 @@
 </script>
 
 <script lang="ts">
-	const { parts, url: url_kind, name: name_kind } = $props<Props>();
+	const { usage, url: url_kind, name: name_kind } = $props<Props>();
 	const skills = get_skills();
 
 	function get_skill(id: string) {
@@ -48,7 +48,7 @@
 	}
 </script>
 
-{#each parts as part, index (index)}
+{#each usage.description as part, index (index)}
 	{#if 'skill_id' in part}
 		{@const { name, url } = get_skill(part.skill_id)}
 		<a href={url}>{name}</a>

@@ -67,49 +67,72 @@ const skill_identifier = identifier.refine(
 	(val) => ({ message: `'${val}' is not a defined skill identifier` }),
 );
 
-const skill_usage = display_string.transform((value, ctx) => {
-	const matches = value.matchAll(identifier_reference);
-	const parts = Array<{ literal: string } | { skill_id: string }>();
-	let index = 0;
+const skill_usage_object = z
+	.strictObject({
+		description: display_string.transform((value, ctx) => {
+			const matches = value.matchAll(identifier_reference);
+			const parts = Array<{ literal: string } | { skill_id: string }>();
+			let index = 0;
 
-	for (const match of matches) {
-		if (!('index' in match)) {
-			ctx.addIssue({
-				code: z.ZodIssueCode.custom,
-				message: `The match '${match[0]}' did not provide a match index`,
-				fatal: true,
-			});
+			for (const match of matches) {
+				if (!('index' in match)) {
+					ctx.addIssue({
+						code: z.ZodIssueCode.custom,
+						message: `The match '${match[0]}' did not provide a match index`,
+						fatal: true,
+					});
+					return parts;
+				}
+
+				const ref_start = match.index;
+				parts.push({ literal: value.slice(index, ref_start) });
+				index = ref_start + match[0].length;
+
+				const skill_id = match[1];
+				if (!skill_id) {
+					ctx.addIssue({
+						code: z.ZodIssueCode.custom,
+						message: `'${match[0]}' is not a valid identifier reference`,
+					});
+					parts.push({ literal: value.slice(ref_start, index) });
+				} else if (!skills.has(skill_id)) {
+					ctx.addIssue({
+						code: z.ZodIssueCode.custom,
+						message: `'${match[0]}' is not a defined skill identifier`,
+					});
+					parts.push({ literal: value.slice(ref_start, index) });
+				} else {
+					parts.push({ skill_id });
+				}
+			}
+
+			parts.push({ literal: value.slice(index, value.length) });
+
 			return parts;
+		}),
+		additional_skills: z.array(skill_identifier).nonempty().optional(),
+	})
+	.transform((obj, ctx) => {
+		let skills = obj.description.flatMap((part) => ('skill_id' in part ? part.skill_id : []));
+
+		if (obj.additional_skills) {
+			obj.additional_skills.forEach((skill_id, index) => {
+				if (skills.includes(skill_id)) {
+					ctx.addIssue({
+						code: z.ZodIssueCode.custom,
+						message: `'${skill_id}' is already referenced in the description`,
+						path: [...ctx.path, 'additional_skills', index],
+					});
+				}
+			});
+
+			skills = skills.concat(obj.additional_skills);
 		}
 
-		const ref_start = match.index;
-		parts.push({ literal: value.slice(index, ref_start) });
-		index = ref_start + match[0].length;
+		return { ...obj, all_skills: skills };
+	});
 
-		const skill_id = match[1];
-		if (!skill_id) {
-			ctx.addIssue({
-				code: z.ZodIssueCode.custom,
-				message: `'${match[0]}' is not a valid identifier reference`,
-			});
-			parts.push({ literal: value.slice(ref_start, index) });
-		} else if (!skills.has(skill_id)) {
-			ctx.addIssue({
-				code: z.ZodIssueCode.custom,
-				message: `'${match[0]}' is not a defined skill identifier`,
-			});
-			parts.push({ literal: value.slice(ref_start, index) });
-		} else {
-			parts.push({ skill_id });
-		}
-	}
-
-	parts.push({ literal: value.slice(index, value.length) });
-
-	return parts;
-});
-
-const intro_schema = z.array(skill_usage);
+const intro_schema = z.array(skill_usage_object);
 const intro = intro_schema.parse(yaml.parse(intro_raw));
 
 const experience_schema = z
@@ -120,36 +143,7 @@ const experience_schema = z
 				url: z.string().url(),
 				titles: z.array(z.strictObject({ name: display_string, dates: display_string })).nonempty(),
 				product: display_string,
-				responsibilities: z
-					.array(
-						z
-							.strictObject({
-								description: skill_usage,
-								additional_skills: z.array(skill_identifier).nonempty().optional(),
-							})
-							.transform((responsibility, ctx) => {
-								let skills = responsibility.description.flatMap((part) =>
-									'skill_id' in part ? part.skill_id : [],
-								);
-
-								if (responsibility.additional_skills) {
-									responsibility.additional_skills.forEach((skill_id, index) => {
-										if (skills.includes(skill_id)) {
-											ctx.addIssue({
-												code: z.ZodIssueCode.custom,
-												message: `'${skill_id}' is already referenced in the description`,
-												path: [...ctx.path, 'additional_skills', index],
-											});
-										}
-									});
-
-									skills = skills.concat(responsibility.additional_skills);
-								}
-
-								return { ...responsibility, all_skills: skills };
-							}),
-					)
-					.nonempty(),
+				responsibilities: z.array(skill_usage_object).nonempty(),
 				additional_skills: z.record(skill_identifier, z.null()),
 			})
 			.superRefine((entry, ctx) => {
@@ -172,7 +166,7 @@ const experience_schema = z
 
 const experience = experience_schema.parse(yaml.parse(experience_raw));
 
-export type SkillUsage = z.infer<typeof skill_usage>;
+export type SkillUsage = z.infer<typeof skill_usage_object>;
 export type IntroEntry = (typeof intro)[number];
 export type ExperienceEntry = (typeof experience)[number];
 export type Skills = typeof skills;

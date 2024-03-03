@@ -18,7 +18,7 @@
 	<ul>
 		{#each list_entries as entry, index (index)}
 			<li>
-				<SkillUsage name="short" parts={entry} url="external" />
+				<SkillUsage name="short" url="external" usage={entry} />
 			</li>
 		{/each}
 	</ul>

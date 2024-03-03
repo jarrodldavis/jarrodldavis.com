@@ -33,9 +33,9 @@
 
 	<Section title="Responsibilities">
 		<ul>
-			{#each entry.responsibilities as { description }, index (index)}
+			{#each entry.responsibilities as skill_usage, index (index)}
 				<li>
-					<SkillUsage name="short" parts={description} url="internal" />
+					<SkillUsage name="short" url="internal" usage={skill_usage} />
 				</li>
 			{/each}
 		</ul>
