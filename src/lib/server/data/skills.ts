@@ -69,15 +69,6 @@ const skill_usage_description = display_string.transform((value, ctx) => {
 	let index = 0;
 
 	for (const match of matches) {
-		if (!('index' in match)) {
-			ctx.addIssue({
-				code: z.ZodIssueCode.custom,
-				message: `The match '${match[0]}' did not provide a match index`,
-				fatal: true,
-			});
-			return parts;
-		}
-
 		const ref_start = match.index;
 		parts.push({ literal: value.slice(index, ref_start) });
 		index = ref_start + match[0].length;
