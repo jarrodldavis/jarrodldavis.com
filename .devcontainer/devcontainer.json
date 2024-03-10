@@ -3,7 +3,7 @@
 {
 	"name": "Node.js & TypeScript",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/typescript-node:dev-20-bookworm@sha256:4086bf286543134cca4600d36956dbc394e980c45d0ee267cfb7851c17608e7c",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:1.0.10-20-bookworm",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
