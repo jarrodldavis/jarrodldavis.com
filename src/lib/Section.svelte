@@ -2,7 +2,12 @@
 	import get_heading_level from '$lib/heading';
 	import type { Snippet } from 'svelte';
 
-	const { children, title } = $props<{ children: Snippet; title: Snippet | string }>();
+	interface Props {
+		children: Snippet;
+		title: Snippet | string;
+	}
+
+	const { children, title }: Props = $props();
 	const heading = `h${get_heading_level()}`;
 </script>
 

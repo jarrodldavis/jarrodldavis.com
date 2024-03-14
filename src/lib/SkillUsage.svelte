@@ -24,7 +24,7 @@
 </script>
 
 <script lang="ts">
-	const { usage, url: url_kind, name: name_kind } = $props<Props>();
+	const { usage, url: url_kind, name: name_kind }: Props = $props();
 	const skills = get_skills();
 
 	function get_skill(id: string) {

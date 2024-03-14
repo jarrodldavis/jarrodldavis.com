@@ -7,7 +7,11 @@
 	import { set_heading_level } from '$lib/heading';
 	import type { PageData } from './$types';
 
-	const { data } = $props<{ data: PageData }>();
+	interface Props {
+		data: PageData;
+	}
+
+	const { data }: Props = $props();
 	set_skills(data.skills);
 	set_heading_level(1);
 </script>

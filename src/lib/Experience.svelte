@@ -3,7 +3,11 @@
 	import SkillUsage from '$lib/SkillUsage.svelte';
 	import type { ExperienceEntry } from '$lib/server/data';
 
-	const { entry } = $props<{ entry: ExperienceEntry }>();
+	interface Props {
+		entry: ExperienceEntry;
+	}
+
+	const { entry }: Props = $props();
 </script>
 
 {#snippet job_title(title: typeof entry['titles'][number])}

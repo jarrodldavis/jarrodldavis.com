@@ -4,10 +4,14 @@
 	import type { Snippet } from 'svelte';
 	import './global.css';
 
+	interface Props {
+		children: Snippet;
+	}
+
 	injectAnalytics();
 	injectSpeedInsights();
 
-	const { children } = $props<{ children: Snippet }>();
+	const { children }: Props = $props();
 </script>
 
 {@render children()}

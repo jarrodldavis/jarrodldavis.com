@@ -3,7 +3,11 @@
 	import SkillUsage from '$lib/SkillUsage.svelte';
 	import type { IntroEntry } from '$lib/server/data';
 
-	const { list_entries } = $props<{ list_entries: IntroEntry[] }>();
+	interface Props {
+		list_entries: IntroEntry[];
+	}
+
+	const { list_entries }: Props = $props();
 	const resume = '/jarrod-davis-resume.pdf';
 </script>
 
