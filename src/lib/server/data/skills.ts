@@ -43,7 +43,7 @@ const skills_schema = z
 					ctx.addIssue({
 						code: z.ZodIssueCode.custom,
 						message: `'${skill_id}' is an already-defined skill identifier`,
-						path: [...ctx.path, group_id, 'skills', skill_id],
+						path: [group_id, 'skills', skill_id],
 					});
 				} else {
 					skills.set(skill_id, { ...skill, group_id });
@@ -83,7 +83,7 @@ const skill_usage_description = display_string.transform((value, ctx) => {
 		} else if (!skills.has(skill_id)) {
 			ctx.addIssue({
 				code: z.ZodIssueCode.custom,
-				message: `'${match[0]}' is not a defined skill identifier`,
+				message: `'${skill_id}' is not a defined skill identifier`,
 			});
 			parts.push({ literal: value.slice(ref_start, index) });
 		} else {
@@ -114,7 +114,7 @@ function skill_usage_object<T extends typeof base_skill_usage_object>(
 					ctx.addIssue({
 						code: z.ZodIssueCode.custom,
 						message: `'${skill_id}' is already referenced in the description`,
-						path: [...ctx.path, 'additional_skills', index],
+						path: ['additional_skills', index],
 					});
 				}
 			});

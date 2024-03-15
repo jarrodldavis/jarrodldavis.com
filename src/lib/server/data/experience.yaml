@@ -44,8 +44,8 @@
         on-the-fly for a satirical news site
       additional_skills: [wrangler, js, html]
     - description: >
-        Investigated issues with server-side rendering in a deployment of a [firebase_auth] and
-        [sapper] site and provided guidance on alternative deployment strategies
+        Investigated issues with server-side rendering in a deployment of a [firebase] and [sapper]
+        site and provided guidance on alternative deployment strategies
       additional_skills: [svelte, js, html, css]
     - description: >
         Developed a script to convert Shopify blog entries to Markdown for a new [jekyll] site
@@ -122,7 +122,8 @@
       additional_skills: [git]
 
   additional_skills:
-    visual_studio:
+    vs2013:
+    vs2017:
     resharper:
     nuget:
     wcf:
@@ -175,5 +176,5 @@
   additional_skills:
     html:
     perforce:
-    visual_studio:
+    vs2010:
     underscore:

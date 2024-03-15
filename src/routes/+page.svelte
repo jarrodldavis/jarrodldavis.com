@@ -1,5 +1,6 @@
 <script lang="ts">
 	import About from '$lib/About.svelte';
+	import Education from '$lib/Education.svelte';
 	import Experience from '$lib/Experience.svelte';
 	import HeaderContents from '$lib/HeaderContents.svelte';
 	import Section from '$lib/Section.svelte';
@@ -27,6 +28,12 @@
 		<Section title="Experience">
 			{#each data.experience as entry, index (index)}
 				<Experience {entry} />
+			{/each}
+		</Section>
+
+		<Section title="Education">
+			{#each data.education as entry, index (index)}
+				<Education {entry} />
 			{/each}
 		</Section>
 	</article>

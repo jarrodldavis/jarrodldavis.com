@@ -68,16 +68,30 @@ languages:
     elixir:
       name: Elixir
       url: https://elixir-lang.org
+    actionscript:
+      name: ActionScript
+      url: https://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/index.html
+    elm:
+      name: Elm
+      url: https://elm-lang.org
 
 editors:
   name: Integrated Development Environments and Code Editors
   skills:
-    visual_studio:
-      name: Visual Studio
+    vs2010:
+      name: Visual Studio 2010
+    vs2012:
+      name: Visual Studio 2012
+    vs2013:
+      name: Visual Studio 2013
+    vs2017:
+      name: Visual Studio 2017
     resharper:
       name: ReSharper
     intellij:
       name: IntelliJ
+    eclipse:
+      name: Eclipse
     pycharm:
       name: PyCharm
     clipse:
@@ -112,7 +126,7 @@ ci_cd:
       name: Octopus Deploy
 
 task_runners:
-  name: Task Runners and Compilers
+  name: Task Runners, Build Tools, and Compilers
   skills:
     grunt:
       name: Grunt.js
@@ -135,9 +149,15 @@ task_runners:
     postcss:
       name: PostCSS
       url: https://postcss.org
+    mix:
+      name: Mix
+      url: https://hexdocs.pm/mix
+    brunch:
+      name: Brunch
+      url: https://brunch.io
 
 package_managers:
-  name: Package and Dependency Managers
+  name: Package/Dependency Managers
   skills:
     nuget:
       name: NuGet
@@ -151,6 +171,9 @@ package_managers:
       name: Bundler
     pip:
       name: pip
+    hex:
+      name: Hex
+      url: https://hex.pm
 
 backend_web:
   name: Backend Web Frameworks
@@ -162,7 +185,7 @@ backend_web:
     aspnetmvc:
       name: ASP.NET MVC
       url: https://github.com/aspnet/AspNetWebStack
-    ror:
+    rails:
       name: Ruby on Rails
     phoenix:
       name: Phoenix
@@ -178,8 +201,40 @@ backend_web:
     middy:
       name: Middy.js
 
-data:
-  name: Data Servers
+orm:
+  name: Object-Relational Mappers and other Backend Data Fetching
+  skills:
+    efcore:
+      name: Entity Framework Core
+      url: https://learn.microsoft.com/ef
+    ecto:
+      name: Ecto
+      url: https://hexdocs.pm/ecto
+    absinthe:
+      name: Absinthe
+      url: https://hexdocs.pm/absinthe
+    dataloader:
+      name: dataloader
+      url: https://hexdocs.pm/dataloader
+    prisma:
+      name: Prisma
+      url: https://www.prisma.io
+    yoga:
+      name: GraphQL Yoga
+      url: https://the-guild.dev/graphql/yoga-server
+
+backend_ui:
+  name: Backend/Static UI Templating Libraries
+  skills:
+    liquid:
+      name:
+        - Liquid
+        - Liquid (HTML templates)
+    handlebars:
+      name: Handlebars.js
+
+db:
+  name: Databases and Other Data Servers
   skills:
     mysql:
       name: MySQL
@@ -199,6 +254,8 @@ data:
     postgresql:
       name: PostgreSQL
       url: https://www.postgresql.org
+    mssql:
+      name: Microsoft SQL
 
 cms:
   name: Content Management Systems
@@ -209,7 +266,7 @@ cms:
       name: Jekyll
 
 app_runtime:
-  name: Application Runtimes
+  name: Application Runtimes and Environments
   skills:
     tomee:
       name:
@@ -242,6 +299,13 @@ app_runtime:
       name:
         - Plex Media Server
         - Plex Media Server (plugin/agent runtime and APIs)
+    otp:
+      name: Erlang/OTP
+      url: https://www.erlang.org
+    flash:
+      name:
+        - Flash
+        - Adobe Flash
 
 cloud:
   name: Cloud Services and Platforms
@@ -264,11 +328,11 @@ cloud:
       name:
         - Cloudflare Worker
         - Cloudflare Workers
-    firebase_auth:
-      name: Firebase Authentication
+    firebase:
+      name: Firebase
 
-frontend_web:
-  name: Frontend Web Frameworks and Libraries
+frontend_components:
+  name: Frontend Web Component Libraries and Frameworks
   skills:
     ember:
       name: Ember.js
@@ -280,20 +344,70 @@ frontend_web:
     react:
       name: React
       url: https://react.dev
-    nextjs:
-      name: Next.js
-      url: https://nextjs.org
     svelte:
       name: Svelte
       url: https://svelte.dev
-    sapper:
-      name: Sapper
+    angularjs:
+      name: Angular.js
+
+frontend_ui:
+  name: Frontend Web UI Libraries
+  skills:
     jquery:
       name: jQuery
     jqueryui:
       name: jQuery UI
-    angularjs:
-      name: Angular.js
+    bootstrap:
+      name: Bootstrap
+    box2d:
+      name: Box2D
+    createjs:
+      name: CreateJS
+
+frontend_fx:
+  name: Frontend Web Meta-Frameworks
+  skills:
+    nextjs:
+      name: Next.js
+      url: https://nextjs.org
+    sapper:
+      name: Sapper
+
+frontend_fetching:
+  name: Frontend Web Data-Fetching Libraries
+  skills:
+    axios:
+      name: Axios
+    apollo:
+      name:
+        - Apollo
+        - Apollo GraphQL
+
+react:
+  name: React Libraries
+  skills:
+    styled_components:
+      name: Styled Components
+      url: https://styled-components.com
+    react_router:
+      name: React Router
+      url: https://reactrouter.com
+
+native_ui:
+  name: Native (Mobile/Desktop) UI
+  skills:
+    winforms:
+      name:
+        - WinForms
+        - Windows Forms
+    wpf:
+      name:
+        - WPF
+        - Windows Presentation Foundation
+    xna:
+      name:
+        - XNA
+        - Microsoft XNA
 
 tools:
   name: Additional Development Tools
@@ -323,30 +437,38 @@ tools:
       name: Zsh
       url: https://www.zsh.org
 
-libraries:
-  name: Additional Libraries
+test:
+  name: Test Runners and Libraries
   skills:
-    underscore:
-      name: Underscore.js
-    lodash:
-      name: Lodash
-    axios:
-      name: Axios
-    hangfire:
-      name: Hangfire
-    efcore:
-      name: Entity Framework Core
-      url: https://learn.microsoft.com/ef
+    ex_unit:
+      name: ExUnit
+      url: https://hexdocs.pm/ex_unit
+    jest:
+      name: Jest
+      url: https://jestjs.io
+    enzyme:
+      name: Enzyme
+      url: https://enzymejs.github.io/enzyme/
+
+spreadsheets:
+  name: Spreadsheet Libraries
+  skills:
     exceljs:
       name: exceljs
     sheetjs:
       name: SheetJS
     openpyxl:
       name: openpyxl
-    apollo:
-      name:
-        - Apollo
-        - Apollo GraphQL
+
+misc:
+  name: Additional Libraries
+  skills:
+    underscore:
+      name: Underscore.js
+    lodash:
+      name: Lodash
+    hangfire:
+      name: Hangfire
     puppeteer:
       name: Puppeteer
     selenium:
@@ -359,12 +481,11 @@ libraries:
       name:
         - unified.js
         - unified.js (vfile, mdast/remark, hast/rehype)
-    liquid:
+    poison:
       name:
-        - Liquid
-        - Liquid (HTML templates)
-    handlebars:
-      name: Handlebars.js
+        - Poison
+        - Poison (JSON library)
+      url: https://hexdocs.pm/poison
 
 web_apis:
   name: Web APIs
@@ -391,3 +512,7 @@ web_apis:
       name: Shopify Storefront API
     mydramalist_api:
       name: MyDramaList.com API
+    stripe_checkout:
+      name: Stripe Checkout
+    stripe_payments:
+      name: Stripe Payments
