@@ -4,7 +4,7 @@
 	import { inject as injectAnalytics } from '@vercel/analytics';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import type { Snippet } from 'svelte';
-	import HeaderContents from './HeaderContents.svelte';
+	import Header from './Header.svelte';
 
 	interface Props {
 		children: Snippet;
@@ -17,9 +17,7 @@
 	set_heading_level(1);
 </script>
 
-<header>
-	<HeaderContents />
-</header>
+<Header />
 
 <article>
 	{@render children()}
@@ -39,20 +37,14 @@
 		--safe-area-inset-inline-end: max(env(safe-area-inset-right, 0), var(--size-fluid-3));
 	}
 
-	header {
-		padding-block: var(--safe-area-inset-block-start) var(--size-fluid-3);
-		padding-inline: var(--safe-area-inset-inline-start) var(--safe-area-inset-inline-end);
-		background-color: var(--surface-2);
-		box-shadow: var(--shadow-3);
-	}
-
 	article {
 		padding-block: var(--safe-area-inset-block-start) var(--safe-area-inset-block-end);
 		padding-inline: var(--safe-area-inset-inline-start) var(--safe-area-inset-inline-end);
 		box-sizing: content-box;
 		font-size: var(--font-size-2);
-		max-inline-size: calc(var(--size-content-3));
-		margin: 0 auto;
+		max-inline-size: var(--size-content-3);
+		margin: unset;
+		margin-inline: auto;
 	}
 
 	article :global(li) {
