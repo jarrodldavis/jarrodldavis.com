@@ -2,6 +2,7 @@
 	import github_white from '$lib/images/social/github-mark-white.svg';
 	import github_black from '$lib/images/social/github-mark.svg';
 	import { CustomMedia } from 'open-props/src/media';
+	import Nav from './Nav.svelte';
 </script>
 
 <header>
@@ -31,14 +32,9 @@
 		</a>
 	</div>
 
-	<nav>
-		<ul>
-			<li><a href="/#">About</a></li>
-			<li><a href="/#">Experience</a></li>
-			<li><a href="/#">Education</a></li>
-			<li><a href="/#">Skills</a></li>
-		</ul>
-	</nav>
+	<div class="nav">
+		<Nav />
+	</div>
 </header>
 
 <style>
@@ -46,6 +42,7 @@
 		padding-block: var(--safe-area-inset-block-start) var(--size-fluid-3);
 		padding-inline: var(--safe-area-inset-inline-start) var(--safe-area-inset-inline-end);
 		background-color: var(--surface-2);
+		box-shadow: var(--shadow-4);
 		display: grid;
 		font-size: var(--font-size-2);
 		text-align: center;
@@ -116,22 +113,9 @@
 		}
 	}
 
-	nav {
+	.nav {
 		grid-area: nav;
 		text-align: start;
-	}
-
-	ul {
-		padding-inline-start: 0;
-		display: flex;
-		flex-direction: column;
-		gap: var(--size-fluid-1);
-	}
-
-	li {
-		list-style: none;
-		padding-inline-start: 0;
-		font-size: var(--font-size-3);
 	}
 
 	@media (--OSdark) {
@@ -192,14 +176,6 @@
 
 		nav {
 			justify-self: start;
-			display: flex;
-			flex-direction: column;
-			place-items: center;
-		}
-
-		ul {
-			flex-direction: row;
-			gap: var(--size-fluid-2);
 		}
 	}
 
@@ -238,11 +214,11 @@
 			}
 		}
 
-		nav {
+		.nav {
 			justify-self: stretch;
 			margin-block-start: var(--size-fluid-2);
 			padding: var(--size-fluid-1);
-			border-top: var(--border-size-2) solid var(--surface-3);
+			border-block-start: var(--border-size-2) solid var(--surface-3);
 		}
 	}
 

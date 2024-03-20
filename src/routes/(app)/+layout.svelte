@@ -4,6 +4,7 @@
 	import { inject as injectAnalytics } from '@vercel/analytics';
 	import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 	import type { Snippet } from 'svelte';
+	import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
 
 	interface Props {
@@ -22,6 +23,8 @@
 <article>
 	{@render children()}
 </article>
+
+<Footer />
 
 <svelte:head>
 	<!-- var(--surface-2) -->
