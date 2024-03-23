@@ -1,26 +1,53 @@
-// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.122.1/containers/jekyll
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
-	"name": "Jekyll",
-	"dockerFile": "Dockerfile",
+	"name": "Node.js & TypeScript",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:1.0.10-20-bookworm",
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": { 
-		"terminal.integrated.shell.linux": "/bin/bash"
-	},
-
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"sissel.shopify-liquid"
-	],
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [4000, 35729],
+	"forwardPorts": [5173, 4173],
+	"portsAttributes": {
+		"5173": {
+			"label": "SvelteKit Dev"
+		},
+		"4173": {
+			"label": "SvelteKit Preview"
+		}
+	},
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "bundle install",
+	"onCreateCommand": "./.devcontainer/on-create.sh",
+	"postCreateCommand": "./.devcontainer/post-create.sh",
 
-	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
-	// "remoteUser": "vscode"
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"editorconfig.editorconfig",
+				"esbenp.prettier-vscode",
+				"ms-playwright.playwright",
+				"phoenisx.cssvar",
+				"stylelint.vscode-stylelint",
+				"svelte.svelte-vscode",
+				"vitest.explorer"
+			],
+			"settings": {
+				"editor.codeActionsOnSave": {
+					"source.fixAll": "always",
+					"source.organizeImports": "always"
+				},
+				"editor.formatOnSave": true,
+				"editor.formatOnSaveMode": "file",
+				"eslint.codeActionsOnSave.mode": "all"
+			}
+		}
+	}
 
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
 }

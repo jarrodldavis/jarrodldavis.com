@@ -1,0 +1,4 @@
+.devcontainer/*.json    linguist-language=jsonc
+.vscode/*.json          linguist-language=jsonc
+tsconfig.json           linguist-language=jsonc
+tsconfig.config.json    linguist-language=jsonc

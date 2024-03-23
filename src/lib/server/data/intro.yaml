@@ -1,0 +1,27 @@
+- description: >
+    A “traditional” Microsoft web stack ([csharp], [netfx], [aspnetmvc])
+
+- description: >
+    The modern Microsoft web stack ([csharp], [netcore], [aspnetcore], [efcore])
+
+- description: >
+    [nodejs] as a web application backend (using frameworks like [express] and [nextjs]) and
+    serverless function runtime
+
+- description: >
+    [phoenix] on [elixir] for full stack web applications
+
+- description: >
+    JavaScript component frameworks like [react], [svelte], and [vue]
+
+- description: >
+    Various frontend build setups (including [babel], [webpack], [rollup] and [vite])
+
+- description: >
+    Several CSS preprocessors and tools, including [stylus], [less], [sass], and [postcss]
+
+- description: >
+    [mysql] and [postgresql] query authoring and schema update management
+
+- description: >
+    [nodejs], [ruby], [python], [bash], and [zsh] for command-line scripts and utilities

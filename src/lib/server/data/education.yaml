@@ -1,0 +1,123 @@
+- name: 'Unpacked: Full-Stack GraphQL with Absinthe, Phoenix, and React'
+  url: https://pragmaticstudio.com/courses/unpacked-full-stack-graphql-with-absinthe-phoenix-react
+  dates: July 2020
+  qualification: Online Video Course
+  description: >
+    Building on my knowledge of [react], [elixir], [phoenix], and [graphql], this course from The
+    Pragmatic Studio tied all of this knowledge together into an excellent example full stack web
+    application.
+  additional_skills:
+    - html
+    - css
+    - js
+    - mix
+    - hex
+    - npm
+    - webpack
+    - sass
+    - ecto
+    - absinthe
+    - dataloader
+    - apollo
+    - react_router
+    - bootstrap
+    - otp
+    - postgresql
+
+- name: 'Unpacked: Multi-Player Game with Elixir, Phoenix, Vue & Elm'
+  url: https://pragmaticstudio.com/unpacked-multi-player-bingo-with-elixir-phoenix-vue-elm
+  dates: July 2020
+  qualification: Online Video Course
+  description: >
+    This video course by The Pragmatic Studio walks through a full stack web application with
+    [elixir] and [phoenix] on the backend and [vue] or [elm] (as two separate learning tracks) on
+    the frontend.
+  additional_skills: [html, css, js, mix, hex, npm, brunch, otp, nodejs]
+
+- name: Developing with Elixir and OTP
+  url: https://pragmaticstudio.com/courses/elixir
+  dates: June 2020
+  qualification: Online Video Course
+  description: >
+    This video course from The Pragmatic Studio served as an excellent introduction to [elixir] and
+    [otp].
+  additional_skills: [mix, hex, ex_unit, poison]
+
+- name: Advanced React & GraphQL
+  url: https://advancedreact.com
+  dates: November 2019
+  qualification: Online Video Course
+  description: >
+    On the heels of my introduction to [react], I dove into building a full stack eCommerce
+    application using [nextjs], [apollo], and [prisma], guided once again by Wes Bos.
+  additional_skills:
+    - html
+    - css
+    - js
+    - graphql
+    - npm
+    - jest
+    - webpack
+    - styled_components
+    - enzyme
+    - yoga
+    - postgresql
+    - stripe_checkout
+    - stripe_payments
+
+- name: React for Beginners
+  url: https://reactforbeginners.com/
+  dates: November 2019
+  qualification: Online Video Course
+  description: >
+    I learned the basics of building [react] applications through this online course created by Wes
+    Bos.
+  additional_skills: [html, css, js, npm, react_router, firebase, stylus]
+
+- name: Neumont College of Computer Science
+  url: https://neumont.edu
+  dates: October 2012 - March 2015
+  qualification: Bachelor of Science in Web Design and Development
+  description: >
+    My education at Neumont provided key skills and experience ranging from hands-on learning with a
+    variety of technologies to team-based projects, both on-campus and embedded within real-world
+    companies.
+  additional_skills:
+    - java
+    - csharp
+    - html
+    - css
+    - js
+    - ruby
+    - actionscript
+    - oop
+    - rest
+    - mvc
+    - di
+    - agile
+    - unix
+    - vs2012
+    - vs2013
+    - eclipse
+    - intellij
+    - npm
+    - grunt
+    - gulp
+    - flash
+    - aspnetmvc
+    - j2ee
+    - tomee
+    - express
+    - rails
+    - angularjs
+    - ember
+    - jquery
+    - bootstrap
+    - box2d
+    - createjs
+    - nodejs
+    - mssql
+    - mongo
+    - winforms
+    - wpf
+    - xna

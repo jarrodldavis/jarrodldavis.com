@@ -1,0 +1,23 @@
+diff --git a/index.d.ts b/index.d.ts
+new file mode 100644
+index 0000000000000000000000000000000000000000..f635a8b813138d5b9135cb9df67db9acb2911b4c
+--- /dev/null
++++ b/index.d.ts
+@@ -0,0 +1,17 @@
++import type { PluginCreator } from "postcss";
++
++type Configuration = {
++  files?: string[];
++  adaptive_prop_selector?: string;
++  custom_selector?: string;
++  custom_selector_dark?: string;
++  layer?: string;
++};
++
++type Props = Record<string, string | number>;
++
++type Options = Configuration & Props;
++
++declare const plugin: PluginCreator<Options>;
++
++export default plugin;
