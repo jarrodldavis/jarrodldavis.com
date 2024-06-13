@@ -1,235 +1,214 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jskherman/imprecv/main/cv.typ.schema.json
 
 personal:
-  name: John Smith L. Doe
-  email: johndoe@example.com
-  phone: (+1) 987 6543 210
-  url: https://johndoe.com
+  name: Jarrod Davis
+  email: developer@jarrodldavis.com
+  phone:
+  url: https://jarrodldavis.com
   titles:
     - Software Engineer
-    - Data Analyst
-    - Entrepreneur
+    - Scripting Specialist
+    - Full Stack Web Developer
   location:
-    city: New York
-    region: New York
-    postalCode: 1234
+    city: Colorado Springs
+    region: Colorado
+    postalCode: 0
     country: United States of America
   profiles:
     - network: LinkedIn
-      username: John Doe
-      url: https://linkedin.com/in/johndoe
+      username: Jarrod Davis
+      url: https://linkedin.com/in/jarrodldavis
     - network: GitHub
-      username: johndoe
-      url: https://github.com/johndoe
+      username: jarrodldavis
+      url: https://github.com/jarrodldavis
 
 work:
-  - organization: X Company
-    url: https://example.com
-    location: Remote / New York, New York
+  - organization: Triplemint / The Agency
+    url: https://theagencyre.com
+    location: Remote / Colorado Springs, Colorado
     positions:
-      - position: Senior Software Engineer
-        startDate: 2021-08-01
-        endDate: "present"
+      - position: Front-end Engineer
+        startDate: 2021-03-01
+        endDate: 2021-02-19
         highlights:
-          - This being the theory I hold, why need I be afraid of not being able to reconcile it
-            with the case of my ancestors?
-          - "The wise man therefore always holds in these matters to this principle of selection: he
-            rejects pleasures to secure other greater pleasures, or else he endures pains to avoid
-            worse pains."
-          - Do you really believe that they charged an armed enemy, or treated their children, their
-            own flesh and blood, so cruelly, without a thought for their own interest or advantage?
-      - position: Software Engineer
-        startDate: 2019-05-31
-        endDate: 2021-08-01
-        highlights:
-          - This being the theory I hold, why need I be afraid of not being able to reconcile it
-            with the case of my ancestors?
-          - "The wise man therefore always holds in these matters to this principle of selection: he
-            rejects pleasures to secure other greater pleasures, or else he endures pains to avoid
-            worse pains."
-          - Do you really believe that they charged an armed enemy, or treated their children, their
-            own flesh and blood, so cruelly, without a thought for their own interest or advantage?
-  - organization: National Aeronautics and Space Administration - Jet Propulsion Laboratory
-    url: https://example.com
-    location: Pasadena, California
+          - ""
+  - organization: Upwork
+    url: https://www.upwork.com/fl/jarrodldavis
+    location: Remote / Colorado Springs, Colorado
     positions:
-      - position: Senior Developer
-        startDate: 2016-02-19
-        endDate: 2019-05-31
+      - position: Freelance Software Engineer
+        startDate: 2019-11-23
+        endDate: 2021-04-10
         highlights:
-          - This being the theory I hold, why need I be afraid of not being able to reconcile it
-            with the case of my ancestors?
-          - Spearheaded the development of a mission-critical software module, resulting in a 30%
-            improvement in data processing efficiency for the Mars Rover project.
-          - Led a cross-functional team in implementing agile methodologies, reducing project
-            timelines by 20% and ensuring timely delivery of software updates for multiple space
-            exploration missions.
+          - ""
+  - organization: Axxess Technology Solutions
+    url: https://axxess.com
+    location: Dallas, Texas
+    positions:
+      - position: Senior Web Engineer
+        startDate: 2018-06-01
+        endDate: 2016-07-01
+        highlights:
+          - ""
+      - position: Web Engineer
+        startDate: 2015-03-30
+        endDate: 2016-06-30
+        highlights:
+          - ""
+  - organization: AtTask / Workfront
+    url: https://www.workfront.com/
+    location: Lehi, Utah
+    positions:
+      - position: Frontend Developer Intern
+        startDate: 2015-01-05
+        endDate: 2015-03-17
+        highlights:
+          - ""
+  - organization: Allegiance / MaritzCX
+    url:
+    location: South Jordan, Utah
+    positions:
+      - position: Developer Intern (UI/UX Team)
+        startDate: 2014-09-29
+        endDate: 2014-12-09
+        highlights:
+          - ""
 
 education:
-  - institution: Open University
-    url: https://example.com/
-    area: Computer Science
+  - institution: Neumont College of Computer Science
+    url: https://neumont.edu/
+    area: Web Design and Development
     studyType: Bachelor of Science
-    startDate: 2017-08-01
-    endDate: 2021-06-30
-    location: City of London, United Kingdom
+    startDate: 2012-10-08
+    endDate: 2015-03-17
+    location: Salt Lake City, Utah
     honors:
-      - 4.0 / 4.0 GPA
+      - 3.82 / 4.0 GPA
       - President's List
-      - Dean's List
     courses:
-      - Algorithms & Data Structures
-      - Applications in Quantitative Finance
-      - Engineering Data Analysis
-      - Compiler Architecture
+      - Computer Science
+      - Leadership and Problem-Solving
+      - Object Oriented Programming and Design
+      - Java Development
+      - Collaborative and Interpersonal Communication
+      - Business Database Systems
+      - Developing for the Windows Platform
+      - Elements of Design Theory
+      - Graphic Design Tools
+      - Dynamic Web Programming
+      - Interactive Web Development
+      - Website Design
+      - Principles of Software Engineering
+      - Business Web Development
+      - Media Design Tools
+      - Web Game Development
+      - Experience Design
+      - Logic
     highlights:
-      - "*Thesis*: A convolutional neural network for predicting Greenland glacier melt and glacial
-        water flow"
-      - "*Activities*: Debating, Chess, Cricket"
 
 affiliations:
-  - organization: White Hat Hackers Association
-    position: Vice President for Internal Affairs
-    location: Cambridge, United Kingdom
-    url: https://example.com
-    startDate: 2020-05-30
-    endDate: 2021-05-30
-    highlights:
-      - But I must explain to you how all this mistaken idea of reprobating pleasure and extolling
-        pain arose.
-      - But who has any right to find fault with a man who chooses to enjoy a pleasure that has no
-        annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-      - Can you then suppose that those heroic men performed their famous deeds without any motive
-        at all?
-  - organization: London Bridge Toastmasters Club
-    position: Member
-    location: City of London, United Kingdom
-    url:
-    startDate: 2022-06-15
-    endDate: 2023-06-30
-    highlights:
-      - Won Champion in the Division A District X Speech Evaluation Contest of Toastmasters
-        International
-      - Promising Toastmaster of the Year (PY 2022-2023)
-      - Tell me, pray, what explanation do you put upon their actions?
 
 awards:
-  - title: Champion in the Division A District X Speech Evaluation Contest
-    date: 2023-05-09
-    issuer: Toastmasters International
-    url:
-    location: City of London, United Kingdom
-    highlights:
-  - title: "Finalist in the 2020 SCG Bangkok Business Challenge Global Competition"
-    date: 2020-07-12
-    issuer: Sasin School of Management
-    url:
-    location: Bangkok, Thailand
-    highlights:
-      - "Made it to the Top 5 (selected from over 100 teams) in the world for the semi-finals of the
-        SCG Bangkok Business Challenge #sym.at Sasin 2020 Global Competition held at Bangkok,
-        Thailand from July 7-12, 2020."
-      - "Served as the speaker and presented in the 60-second pitch round of the Opening Reception
-        of the SCG Bangkok Business Challenge #sym.at Sasin 2022 for Team London Bridge."
 
 certificates:
-  - name: "Learning How to Learn: Powerful mental tools to help you master tough subjects"
-    date: 2021-09-01
-    issuer: Coursera
-    url: https://example.com
-    id: "1MPR3CVR3SUM3"
+  - name: "Unpacked: Full-Stack GraphQL with Absinthe, Elixir/Phoenix, Apollo, and React"
+    date: 2020-07-05
+    issuer: The Pragmatic Studio
+    url: https://pragmaticstudio.com/courses/unpacked-full-stack-graphql-with-absinthe-phoenix-react
+    id: ""
+  - name: "Unpacked: Multi-Player Bingo with Elixir, Phoenix, Vue, and Elm"
+    date: 2020-07-02
+    issuer: The Pragmatic Studio
+    url: https://pragmaticstudio.com/courses/unpacked-multi-player-bingo-with-elixir-phoenix-vue-elm
+    id: ""
+  - name: Developing With Elixir and OTP
+    date: 2020-06-05
+    issuer: The Pragmatic Studio
+    url: https://pragmaticstudio.com/courses/elixir
+    id: ""
+  - name: Advanced React and GraphQL
+    date: 2019-11-08
+    issuer: Wes Bos
+    url: https://advancedreact.com/
+    id: "5bf8adf371ff0d6fad4e80e6"
+  - name: React for Beginners
+    date: 2019-11-08
+    issuer: Wes Bos
+    url: https://reactforbeginners.com/
+    id: "5bf8adaf71ff0d6fad4e80e5"
 
 publications:
-  - name:
-      A convolutional neural network for predicting Greenland glacier melt and glacial water flow
-    publisher: Theoretical and Computational Fluid Dynamics
-    releaseDate: 2020-09-30
-    url: https://example.com
 
 projects:
-  - name: "Job Tailor"
-    url: https://example.com/
-    affiliation: Open University
-    startDate: 2020-11-01
-    endDate: 2021-04-30
+  - name: Migrate Guru Notification Extension
+    url: https://github.com/jarrodldavis/migrate-guru-notification-webext
+    affiliation: Self
+    startDate: 2019-02-17
+    endDate: 2019-09-10
     highlights:
-      - Developed an AI-powered résumé editor app to create tailored résumés from users'
-        comprehensive CVs based on specific job descriptions.
-      - Acquired more than 100,000 user sign ups in 3 months and more than 10,000 active monthly
-        users.
-      - Generated profit of upwards \$20,000 yearly with a team of only four developers and three
-        business operatives
+      - A custom Firefox extension that showed notifications for started and completed Migrate Guru
+        migrations
+      - Used the WebExtension API
+      - Used Svelte and the Firefox UX team's Photon Extension Kit for UI
+      - Used webpack and webextension-toolbox for packaging
+  - name: Probot GPG
+    url: https://github.com/jarrodldavis/probot-gpg
+    affiliation: Self
+    startDate: 2017-05-14
+    endDate: 2019-07-19
+    highlights:
+      - A GitHub App that provided a Check on Pull Requests to enforce GPG-signed commits
+      - Used the GitHub Probot framework on Node.js
+      - Deployed to Heroku
 
 skills:
-  - category: Soft Skills
+  - category: Core Languages
     skills:
-      - Public Speaking
-      - Debating
-      - Communication
-      - Critical Thinking
-      - Leadership
-      - Persuasive Writing
-      - Technical Writing
-  - category: Programming
-    skills:
+      - HTML/CSS
+      - JavaScript/TypeScript
+      - Ruby
       - Python
-      - SQL, PostgreSQL
-      - MATLAB/Octave
-      - HTML
-      - CSS
-      - Javascript
-      - Typst
-      - LaTeX
-  - category: Tools
+      - Java
+  - category: Development Tools
     skills:
-      - Microsoft Word
-      - Git
-      - Docker
+      - git
       - Visual Studio Code
-      - Canva
-  - category: Web Development
+      - Docker and Docker Compose
+      - webpack
+      - Cloudflare Wrangler
+      - gulp
+      - AWS SAM
+      - AWS CloudFormation Templates
+      - Windows PowerShell
+      - Bash/Zsh
+  - category: Frameworks and Libraries
     skills:
+      - Jekyll
       - React
       - Next.js
-      - million.js
-      - Svelte & Sveltekit
-      - Tailwind CSS
-      - Node.js
-      - Deno
-      - FastAPI
-      - Flask
-  - category: BI & Data Analytics
+      - Svelte/Sapper
+      - Middy.js
+      - Apollo GraphQL
+      - openpyxl
+      - exceljs and SheetJS
+      - Puppeteer
+      - jQuery
+      - unified.js (remark and rehype)
+  - category: Platforms
     skills:
-      - Microsoft Excel
-      - Microsoft Power BI
-      - Jupyter Notebook
-      - Numpy
-      - Pandas
-      - Plotly
-      - Altair
+      - Node.js
+      - Hasura GraphQL
+      - Auth0
+      - AWS Lambda
+      - AWS Step Functions
+      - Cloudflare Workers
+      - Chrome extensions
+      - Plex Media Server
 
 languages:
   - language: English
     fluency: Native speaker
-  - language: German
-    fluency: Native speaker
-  - language: Japanese
-    fluency: Basic proficiency
 
-interests:
-  - Video Games
-  - Anime
-  - Reading Non-fiction
-  - Classical and Original Soundtrack Music
+interests: []
 
 references:
-  # You can comment out the entries below if you don't have any references
-  # The same goes for the publications
-
-  - name: Dr. Jane Austin
-    reference:
-      John was a great student. He was always eager to learn new things and was very passionate
-      about his studies. As his mentor, I am proud to say that he was also a great leader and was
-      able to lead his team to victory in the 2020 SCG Bangkok Business Challenge Global
-      Competition.
-    url: https://janeaustin.com
