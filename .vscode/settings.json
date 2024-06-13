@@ -1,0 +1,17 @@
+{
+    "editor.detectIndentation": false,
+    "editor.insertSpaces": true,
+    "editor.rulers": [
+        100
+    ],
+    "editor.tabSize": 4,
+    "editor.trimAutoWhitespace": true,
+    "files.autoGuessEncoding": false,
+    "files.encoding": "utf8",
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "yaml.format.printWidth": 100,
+    "yaml.format.proseWrap": "always"
+}
