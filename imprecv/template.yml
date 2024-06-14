@@ -29,9 +29,24 @@ work:
     positions:
       - position: Front-end Engineer
         startDate: 2021-03-01
-        endDate: 2021-02-19
+        endDate: 2024-02-19
         highlights:
-          - ""
+          - Participated in the rewrite, launch, and maintenance of a new codebase using Svelte,
+            Sapper, webpack, and Apollo GraphQL
+          - Assisted in maintaining code quality through pull request reviews, developer tooling
+            upgrades, unit and integration test implementations, and CI-enforced W3C HTML validation
+          - Integrated the website with Facebook Pixel, Google Analytics, and Google Tag Manager
+          - Upgraded the Google Analytics integration from Universal Analytics to Google Analytics 4
+          - Participated in peer coding sessions to assist with major code architecture decisions
+            and implementations
+          - Helped develop a new avenue for lead generation through a contextual inquiry form
+          - Expanded the website to a global audience through the implementation of a sophisticated
+            internationalization (i18n) system, including GeoIP and browser-based region/language
+            detection and selection, value (number/date/currency/dimension) formatting, phone number
+            inputs, and language translations
+          - Assisted with SEO and Core Web Vitals (including CLS and LCP) improvements using web
+            font subsetting and preloading, responsive image sets, and carefully orchestrated
+            gallery image loading
   - organization: Upwork
     url: https://www.upwork.com/fl/jarrodldavis
     location: Remote / Colorado Springs, Colorado
@@ -40,21 +55,58 @@ work:
         startDate: 2019-11-23
         endDate: 2021-04-10
         highlights:
-          - ""
+          - Various web development, software engineering, and scripting/automation projects
+          - Identified and implemented solutions to resolve issues with an open source Jekyll site
+          - Developed a Python script to collect information from git repository commits into a CSV
+            file for analysis
+          - Investigated and fixed an issue with a Node.js script that uses Puppeteer to scrape data
+            from a web page
+          - Refactored that Node.js script to use the Jira Cloud REST APIs to generate CSV reports
+            and upload them to Confluence Spaces
+          - Created a Node.js script that uses the Screenshot Monitor and Jira Cloud REST APIs to
+            generate Excel reports and upload them to Confluence Spaces
+          - Developed AWS Lambda functions to receive webhooks, process data, and interact with Step
+            Functions and external REST APIs
+          - Created a utility to automate system configuration management for Windows 10 machines
+          - Updated a Java (Selenium and Azure Service Bus) app to run in Docker for usage in Azure
+            Container Registry
+          - Developed a Chrome extension to provide keyboard shortcuts for changing the active font
+            color in Gmail's compose editor
+          - Created a Cloudflare Worker using `HTMLRewriter` to manipulate text, anchor links, and
+            images on-the-fly for a satirical news site
+          - Developed a script to convert Shopify blog entries to Markdown for a new Jekyll site
+          - Created a custom Plex Media Server plugin/agent to match TV Show and Movie media to
+            metadata from the MyDramaList.com API
   - organization: Axxess Technology Solutions
     url: https://axxess.com
     location: Dallas, Texas
     positions:
       - position: Senior Web Engineer
-        startDate: 2018-06-01
-        endDate: 2016-07-01
+        startDate: 2016-07-23
+        endDate: 2018-06-01
         highlights:
-          - ""
+          - Transitioned to the technical team lead role
+          - Participated with project and product management in the refinement and prioritization of
+            bug fixes, enhancements, and features
+          - Managed deployments for multiple environments using TeamCity and Octopus Deploy
+          - Integrated the product with multiple systems internal and external to the company
+          - Onboarded and mentored new and existing team members
+          - Wrote documentation for project setup, version control strategies, and deployment
+            workflows
       - position: Web Engineer
         startDate: 2015-03-30
-        endDate: 2016-06-30
+        endDate: 2016-07-23
         highlights:
-          - ""
+          - Maintained a full stack C\# ASP.NET MVC 5 and JavaScript/jQuery web application
+          - Introduced features into an existing complex codebase across the frontend, backend, and
+            database
+          - Participated in peer code reviews and quality assurance (QA) testing
+          - Increased development efficiency through optimizations of engineering workflows
+          - Defined and distributed a Docker Compose project for the backend’s data services for a
+            consistent and always-available local development environment
+          - Initiated the introduction of new technologies (including Vue.js) for major new features
+          - Designed and developed a new ASP.NET Core API for retrieving and updating application
+            data in coordination with mobile app engineers
   - organization: AtTask / Workfront
     url: https://www.workfront.com/
     location: Lehi, Utah
@@ -63,7 +115,9 @@ work:
         startDate: 2015-01-05
         endDate: 2015-03-17
         highlights:
-          - ""
+          - Developed an internal tool used by developers
+          - "*Technologies*: Python, HTML/CSS, JavaScript, MySQL, git, PyCharm, LESS, Django,
+            Angular.js"
   - organization: Allegiance / MaritzCX
     url:
     location: South Jordan, Utah
@@ -72,7 +126,11 @@ work:
         startDate: 2014-09-29
         endDate: 2014-12-09
         highlights:
-          - ""
+          - Assisted in the selection of the CSS preprocessor to include in an existing development
+            environment
+          - Integrated the Stylus CSS preprocessor into the existing build system
+          - Investigated and fixed bugs of several JavaScript UI components
+          - Utilized jQuery UI to create new widgets, including compositions of other widgets
 
 education:
   - institution: Neumont College of Computer Science
