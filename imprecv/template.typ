@@ -1,4 +1,4 @@
-#import "@preview/imprecv:1.0.0": *
+#import "@preview/imprecv:1.0.1": *
 
 #let cvdata = yaml("template.yml")
 
@@ -49,7 +49,6 @@
 
 #show: doc => cvinit(doc)
 
-#cvdata.personal.location.insert("postalCode", "");
 #cvdata.insert("interests", none)
 #cvheading(cvdata, uservars)
 #cvwork(cvdata)
