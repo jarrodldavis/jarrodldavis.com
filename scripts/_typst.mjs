@@ -142,8 +142,12 @@ async function validateInstallation() {
   }
 }
 
-export default async function installTypst() {
-  if ((await isInstalled("typst")) && !process.argv.includes("--force")) {
+/**
+ * @param {Object} options
+ * @param {boolean} options.force
+ */
+export default async function installTypst({ force }) {
+  if ((await isInstalled("typst")) && !force) {
     console.log("-> binary is already installed");
     return;
   }
