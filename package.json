@@ -11,8 +11,12 @@
   "engineStrict": true,
   "scripts": {
     "prepare": "./scripts/prepare.mjs",
-    "dev": "next dev --turbo",
-    "build": "next build",
+    "dev": "pnpm /dev:/",
+    "dev:typst": "typst watch imprecv/template.typ public/jarrod-davis-resume.pdf",
+    "dev:next": "next dev --turbo",
+    "build": "pnpm --sequential /build:/",
+    "build:typst": "typst compile imprecv/template.typ public/jarrod-davis-resume.pdf",
+    "build:next": "next build",
     "start": "next start",
     "lint": "next lint && prettier --check ."
   },

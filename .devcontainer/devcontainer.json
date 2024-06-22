@@ -18,7 +18,12 @@
   // Configure tool-specific properties.
   "customizations": {
     "vscode": {
-      "extensions": ["bradlc.vscode-tailwindcss", "esbenp.prettier-vscode"],
+      "extensions": [
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "myriad-dreamin.tinymist",
+        "redhat.vscode-yaml"
+      ],
       "settings": {
         "editor.codeActionsOnSave": {
           "source.fixAll": "always",

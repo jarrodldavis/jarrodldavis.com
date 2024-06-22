@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Typst Watch",
+      "type": "process",
+      "command": "pnpm",
+      "args": ["dev:typst"],
+      "isBackground": true,
+      "runOptions": {
+        "runOn": "folderOpen",
+      },
+      "problemMatcher": [],
+    },
+    {
+      "label": "Next Dev",
+      "type": "process",
+      "command": "pnpm",
+      "args": ["dev:next"],
+      "isBackground": true,
+      "runOptions": { "runOn": "folderOpen" },
+      "problemMatcher": [],
+    },
+  ],
+}
