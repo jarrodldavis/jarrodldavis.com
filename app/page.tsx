@@ -1,7 +1,9 @@
+import resumeData from "./resume-data";
+
 export default function Home() {
   return (
     <main>
-      <div>Hello world!</div>
+      <h1>{resumeData.personal.name}</h1>
     </main>
   );
 }
