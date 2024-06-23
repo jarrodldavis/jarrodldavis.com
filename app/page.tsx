@@ -1,11 +1,22 @@
 import { ImprecvDataSchema } from "@/imprecv/types";
 
+const DATE_FORMATTER = new Intl.DateTimeFormat("en-us", {
+  month: "short",
+  year: "numeric",
+  timeZone: "UTC",
+});
+
+type PersonalData = ImprecvDataSchema["personal"];
+type WorkData = Exclude<ImprecvDataSchema["work"], undefined>;
+type WorkOrganizationData = Exclude<ImprecvDataSchema["work"], undefined>[number];
+type WorkPositionData = WorkOrganizationData["positions"][number];
+
 export default async function Home() {
   const { default: resumeData } = await import("./resume-data");
   return (
-    <main className="mx-auto max-w-4xl p-12 font-serif">
+    <main className="mx-auto max-w-5xl p-12 font-serif">
       <Heading {...resumeData.personal} />
-      <Work />
+      {resumeData.work && <Work work={resumeData.work} />}
       <Education />
       <Affiliations />
       <Projects />
@@ -18,15 +29,7 @@ export default async function Home() {
   );
 }
 
-function Heading({
-  email,
-  location,
-  name,
-  phone,
-  profiles,
-  titles,
-  url,
-}: ImprecvDataSchema["personal"]) {
+function Heading({ email, location, name, phone, profiles, titles, url }: PersonalData) {
   interface ProfileLink {
     text: string;
     url: string;
@@ -81,8 +84,88 @@ function Heading({
   );
 }
 
-function Work() {
-  return <></>;
+function Work({ work }: { work: WorkData }) {
+  return (
+    <section className="mt-3">
+      <h2 className="mb-2 border-b-2 border-black text-xl font-bold uppercase">Work Experience</h2>
+      {work.map((organization, index) => (
+        <WorkOrganization key={index} {...organization} />
+      ))}
+    </section>
+  );
+}
+
+function WorkOrganization({ location, organization, positions, url }: WorkOrganizationData) {
+  return (
+    <section>
+      <hgroup className="flex justify-between text-nowrap font-bold">
+        <h3>
+          {url ? (
+            <a href={url} target="_blank" rel="noreferrer noopener">
+              {organization}
+            </a>
+          ) : (
+            organization
+          )}
+        </h3>
+        <p>{location}</p>
+      </hgroup>
+
+      {positions.map((position, index) => (
+        <WorkPosition key={index} {...position} />
+      ))}
+    </section>
+  );
+}
+
+function WorkPosition({ endDate, highlights, position, startDate }: WorkPositionData) {
+  return (
+    <section className="mb-4">
+      <hgroup className="flex justify-between text-nowrap">
+        <h4 className="italic">{position}</h4>
+        {<DateRange startDate={startDate} endDate={endDate} />}
+      </hgroup>
+      {highlights && (
+        <ul className="ml-4 list-outside list-disc">
+          {highlights.map((highlight, index) => (
+            <li key={index}>{highlight}</li>
+          ))}
+        </ul>
+      )}
+    </section>
+  );
+}
+
+function DateRange({ startDate, endDate }: Pick<WorkPositionData, "endDate" | "startDate">) {
+  const start = startDate ? new Date(startDate) : null;
+
+  if (!start?.valueOf()) {
+    throw new Error("invalid start date");
+  }
+
+  const end = endDate
+    ? endDate.toLowerCase() === "present"
+      ? "Present"
+      : new Date(endDate)
+    : null;
+
+  if (!end?.valueOf()) {
+    throw new Error("invalid end date");
+  }
+
+  return (
+    <p>
+      <time dateTime={start.toISOString().split("T")[0]}>{DATE_FORMATTER.format(start)}</time>
+      <span> &ndash; </span>
+      {end instanceof Date ? (
+        <time dateTime={end.toISOString().split("T")[0]}>
+          {end instanceof Date ? DATE_FORMATTER.format(end) : null}
+        </time>
+      ) : (
+        end
+      )}
+    </p>
+  );
 }
 
 function Education() {
