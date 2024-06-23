@@ -1,47 +1,29 @@
-import { DateRange } from "@/app/common";
+import { PrimarySection, SecondarySection, TertiarySection } from "@/app/sections";
 import type { WorkData, WorkOrganizationData, WorkPositionData } from "@/app/types";
 
 export default function Work({ work }: { work: WorkData }) {
   return (
-    <section className="mt-3">
-      <h2 className="mb-2 border-b-2 border-black text-xl font-bold uppercase">Work Experience</h2>
+    <PrimarySection title="Work Experience">
       {work.map((organization, index) => (
         <WorkOrganization key={index} {...organization} />
       ))}
-    </section>
+    </PrimarySection>
   );
 }
 
 function WorkOrganization({ location, organization, positions, url }: WorkOrganizationData) {
   return (
-    <section>
-      <hgroup className="flex justify-between text-nowrap font-bold">
-        <h3>
-          {url ? (
-            <a href={url} target="_blank" rel="noreferrer noopener">
-              {organization}
-            </a>
-          ) : (
-            organization
-          )}
-        </h3>
-        <p>{location}</p>
-      </hgroup>
-
+    <SecondarySection title={organization} url={url} subtitle={<p>{location}</p>}>
       {positions.map((position, index) => (
         <WorkPosition key={index} {...position} />
       ))}
-    </section>
+    </SecondarySection>
   );
 }
 
 function WorkPosition({ endDate, highlights, position, startDate }: WorkPositionData) {
   return (
-    <section className="mb-4">
-      <hgroup className="flex justify-between text-nowrap">
-        <h4 className="italic">{position}</h4>
-        {<DateRange startDate={startDate} endDate={endDate} />}
-      </hgroup>
+    <TertiarySection title={position} startDate={startDate} endDate={endDate}>
       {highlights && (
         <ul className="ml-4 list-outside list-disc">
           {highlights.map((highlight, index) => (
@@ -49,6 +31,6 @@ function WorkPosition({ endDate, highlights, position, startDate }: WorkPosition
           ))}
         </ul>
       )}
-    </section>
+    </TertiarySection>
   );
 }

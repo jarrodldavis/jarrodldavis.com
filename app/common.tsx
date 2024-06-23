@@ -1,7 +1,11 @@
-import type { WorkPositionData } from "@/app/types";
 import { DATE_FORMATTER } from "@/app/utils";
 
-export function DateRange({ startDate, endDate }: Pick<WorkPositionData, "endDate" | "startDate">) {
+interface DateRangeProps {
+  startDate: string | null;
+  endDate: string | null;
+}
+
+export function DateRange({ startDate, endDate }: DateRangeProps) {
   const start = startDate ? new Date(startDate) : null;
 
   if (!start?.valueOf()) {
