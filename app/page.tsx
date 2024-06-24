@@ -1,5 +1,7 @@
 import Education from "@/app/education";
 import Heading from "@/app/heading";
+import Projects from "@/app/projects";
+import Skills from "@/app/skills";
 import Work from "@/app/work";
 
 export default async function Home() {
@@ -10,10 +12,14 @@ export default async function Home() {
       {resumeData.work && <Work work={resumeData.work} />}
       <Education education={resumeData.education} />
       <Affiliations />
-      <Projects />
+      {resumeData.projects && <Projects projects={resumeData.projects} />}
       <Awards />
       <Publications />
-      <Skills />
+      <Skills
+        skills={resumeData.skills}
+        languages={resumeData.languages}
+        interests={resumeData.interests}
+      />
       <References />
       <EndNote />
     </main>
@@ -24,19 +30,11 @@ function Affiliations() {
   return <></>;
 }
 
-function Projects() {
-  return <></>;
-}
-
 function Awards() {
   return <></>;
 }
 
 function Publications() {
-  return <></>;
-}
-
-function Skills() {
   return <></>;
 }
 

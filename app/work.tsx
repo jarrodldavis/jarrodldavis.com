@@ -14,7 +14,11 @@ export default function Work({ work }: { work: WorkData }) {
 
 function WorkOrganization({ location, organization, positions, url }: WorkOrganizationData) {
   return (
-    <SecondarySection title={organization} url={url} subtitle={<p>{location}</p>}>
+    <SecondarySection
+      title={organization}
+      url={url}
+      subtitle={<p className="font-bold">{location}</p>}
+    >
       {positions.map((position, index) => (
         <WorkPosition key={index} {...position} />
       ))}

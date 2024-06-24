@@ -14,7 +14,11 @@ export default function Education({ education }: { education: EducationData }) {
 
 function EducationInstitution(props: EducationInstitutionData) {
   return (
-    <SecondarySection title={props.institution} url={props.url} subtitle={<p>{props.location}</p>}>
+    <SecondarySection
+      title={props.institution}
+      url={props.url}
+      subtitle={<p className="font-bold">{props.location}</p>}
+    >
       <TertiarySection
         title={`${props.studyType} in ${props.area}`}
         startDate={props.startDate}

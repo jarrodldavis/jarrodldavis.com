@@ -25,9 +25,9 @@ interface SecondarySectionProps {
 
 export function SecondarySection({ title, url, subtitle, children }: SecondarySectionProps) {
   return (
-    <section>
-      <hgroup className="flex justify-between text-nowrap font-bold">
-        <h3>
+    <section className="mb-4">
+      <hgroup className="flex justify-between text-nowrap">
+        <h3 className="font-bold">
           {url ? (
             <a href={url} target="_blank" rel="noreferrer noopener">
               {title}
