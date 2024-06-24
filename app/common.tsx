@@ -1,4 +1,5 @@
-import { DATE_FORMATTER } from "@/app/utils";
+import { DATE_FORMATTER, LIST_FORMATTER } from "@/app/utils";
+import type { ReactNode } from "react";
 
 interface DateRangeProps {
   startDate: string | null;
@@ -34,5 +35,35 @@ export function DateRange({ startDate, endDate }: DateRangeProps) {
         end
       )}
     </p>
+  );
+}
+
+interface ListProps {
+  items: ReactNode[];
+}
+
+export function List(props: ListProps) {
+  const items = props.items.filter((item) => item);
+
+  if (!items.length) {
+    return null;
+  }
+
+  return (
+    <ul className="ml-4 list-outside list-disc">
+      {items.map((item, index) => (
+        <li key={index}>{item}</li>
+      ))}
+    </ul>
+  );
+}
+
+export function sublist(title: string, items: string[] | null | undefined) {
+  return (
+    items?.length && (
+      <>
+        <span className="font-bold">{title}:</span> {LIST_FORMATTER.format(items)}
+      </>
+    )
   );
 }

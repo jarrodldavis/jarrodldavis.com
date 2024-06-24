@@ -1,3 +1,4 @@
+import Education from "@/app/education";
 import Heading from "@/app/heading";
 import Work from "@/app/work";
 
@@ -7,7 +8,7 @@ export default async function Home() {
     <main className="mx-auto max-w-5xl p-12 font-serif">
       <Heading {...resumeData.personal} />
       {resumeData.work && <Work work={resumeData.work} />}
-      <Education />
+      <Education education={resumeData.education} />
       <Affiliations />
       <Projects />
       <Awards />
@@ -17,10 +18,6 @@ export default async function Home() {
       <EndNote />
     </main>
   );
-}
-
-function Education() {
-  return <></>;
 }
 
 function Affiliations() {

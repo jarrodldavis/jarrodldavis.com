@@ -1,3 +1,4 @@
+import { List } from "@/app/common";
 import { PrimarySection, SecondarySection, TertiarySection } from "@/app/sections";
 import type { WorkData, WorkOrganizationData, WorkPositionData } from "@/app/types";
 
@@ -24,13 +25,7 @@ function WorkOrganization({ location, organization, positions, url }: WorkOrgani
 function WorkPosition({ endDate, highlights, position, startDate }: WorkPositionData) {
   return (
     <TertiarySection title={position} startDate={startDate} endDate={endDate}>
-      {highlights && (
-        <ul className="ml-4 list-outside list-disc">
-          {highlights.map((highlight, index) => (
-            <li key={index}>{highlight}</li>
-          ))}
-        </ul>
-      )}
+      {highlights && <List items={highlights} />}
     </TertiarySection>
   );
 }
