@@ -1,11 +1,11 @@
 import Education from "@/app/education";
 import Heading from "@/app/heading";
 import Projects from "@/app/projects";
+import resumeData from "@/app/resume-data";
 import Skills from "@/app/skills";
 import Work from "@/app/work";
 
 export default async function Home() {
-  const { default: resumeData } = await import("@/app/resume-data");
   return (
     <main className="mx-auto max-w-5xl p-12 font-serif">
       <Heading {...resumeData.personal} />
