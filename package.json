@@ -23,9 +23,11 @@
   "dependencies": {
     "ajv": "^8.16.0",
     "ajv-formats": "^3.0.1",
+    "ical.js": "^2.0.1",
     "next": "15.0.0-rc.0",
     "react": "19.0.0-rc-f994737d14-20240522",
-    "react-dom": "19.0.0-rc-f994737d14-20240522"
+    "react-dom": "19.0.0-rc-f994737d14-20240522",
+    "sharp": "^0.33.4"
   },
   "devDependencies": {
     "@types/node": "^20.14.7",
@@ -39,6 +41,7 @@
     "prettier": "^3.3.2",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.6.5",
+    "raw-loader": "^4.0.2",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.5.2",
     "yaml-loader": "^0.8.1"
