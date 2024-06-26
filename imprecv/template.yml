@@ -12,7 +12,7 @@ personal:
   location:
     city: Colorado Springs
     region: Colorado
-    country: United States of America
+    country: ""
   profiles:
     - network: LinkedIn
       username: Jarrod Davis
@@ -24,7 +24,7 @@ personal:
 work:
   - organization: Triplemint / The Agency
     url: https://theagencyre.com
-    location: Remote / Colorado Springs, Colorado
+    location: Colorado Springs, Colorado (Remote)
     positions:
       - position: Front-end Engineer – triplemint.com and theagencyre.com
         startDate: 2021-03-01
@@ -42,8 +42,8 @@ work:
             preview system
           - Expanded the website to a global audience through the implementation of a sophisticated
             internationalization (i18n) system, including GeoIP and browser-based region/language
-            detection and selection, value (number/date/currency/dimension) formatting, phone number
-            inputs, and language translations
+            detection and selection, value (number, date, currency, dimension) formatting, phone
+            number inputs, and language translations
           - Improved SEO and Core Web Vitals (including CLS and LCP) using web font subsetting and
             preloading, responsive image sets, and carefully orchestrated gallery image loading
           - Instrumented the site with marketing tools like Facebook Pixel, Google Analytics, and
@@ -53,7 +53,7 @@ work:
             form
   - organization: Freelance
     url:
-    location: Remote / Colorado Springs, Colorado
+    location: Colorado Springs, Colorado (Remote)
     positions:
       - position: Software Engineer – various web, software, and scripting/automation projects
         startDate: 2018-06-01

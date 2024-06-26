@@ -24,7 +24,7 @@ export function DateRange({ startDate, endDate }: DateRangeProps) {
   }
 
   return (
-    <p>
+    <p className="text-nowrap">
       <time dateTime={start.toISOString().split("T")[0]}>{DATE_FORMATTER.format(start)}</time>
       <span> &ndash; </span>
       {end instanceof Date ? (
@@ -50,7 +50,7 @@ export function List(props: ListProps) {
   }
 
   return (
-    <ul className="ml-4 list-outside list-disc">
+    <ul className="ml-4 list-outside list-disc text-pretty">
       {items.map((item, index) => (
         <li key={index}>{item}</li>
       ))}

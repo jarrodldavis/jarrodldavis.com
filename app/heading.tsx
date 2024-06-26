@@ -1,14 +1,6 @@
 import type { PersonalData } from "@/app/types";
 
-export default function Heading({
-  email,
-  location,
-  name,
-  phone,
-  profiles,
-  titles,
-  url,
-}: PersonalData) {
+export default function Heading({ email, name, phone, profiles, titles }: PersonalData) {
   interface ProfileLink {
     text: string;
     url: string;
@@ -23,42 +15,38 @@ export default function Heading({
       url: `tel:${phone}`,
       text: phone,
     },
-    url && {
-      url,
-      text: new URL(url).host,
-    },
     ...profiles.map(({ url }) => ({ url, text: url.split(/:\/?\/?/)[1]! })),
   ].filter((profile) => !!profile);
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col gap-4 text-center">
       <h1 className="text-2xl font-bold uppercase">{name}</h1>
 
-      {titles && (
-        <ul role="list" className="flex flex-row gap-3 whitespace-pre font-bold">
-          {titles.map((title) => (
-            <li key={title} className="contents after:content-['/'_/_''] last:after:content-none">
-              {title}
+      <div className="flex flex-col items-center justify-center gap-4 min-[500px]:max-md:flex-row">
+        {titles && (
+          <ul role="list" className="flex flex-col font-bold md:flex-row md:gap-2 lg:gap-3">
+            {titles.map((title) => (
+              <li
+                key={title}
+                className="last:after:content-none md:contents md:after:content-['/'_/_'']"
+              >
+                {title}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <ul role="list" className="flex flex-col md:flex-row md:gap-2 lg:gap-4">
+          {allProfiles.map(({ text, url }) => (
+            <li
+              key={url}
+              className="last:after:content-none md:contents md:after:content-['\25C6'_/_'']"
+            >
+              <a href={url}>{text}</a>
             </li>
           ))}
         </ul>
-      )}
-
-      {location && (
-        <p>
-          {Object.values(location)
-            .filter((value) => value)
-            .join(", ")}
-        </p>
-      )}
-
-      <ul role="list" className="flex gap-4 whitespace-pre">
-        {allProfiles.map(({ text, url }) => (
-          <li key={url} className="contents after:content-['\25C6'_/_''] last:after:content-none">
-            <a href={url}>{text}</a>
-          </li>
-        ))}
-      </ul>
+      </div>
     </div>
   );
 }
