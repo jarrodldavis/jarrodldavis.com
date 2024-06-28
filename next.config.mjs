@@ -4,16 +4,16 @@
 const nextConfig = {
   webpack: (config) => {
     config.module.rules.push(
-      { test: /\.vcf/, use: "raw-loader" },
-      { test: /\.yml/, use: "yaml-loader" },
+      { test: /\.vcf/, use: "loaders/vcf.cjs" },
+      { test: /\.yml/, use: "loaders/yaml.cjs" },
     );
     return config;
   },
   experimental: {
     turbo: {
       rules: {
-        "*.vcf": { loaders: ["raw-loader"] },
-        "*.yml": { loaders: ["yaml-loader"] },
+        "*.vcf": { loaders: ["loaders/vcf.cjs"] },
+        "*.yml": { loaders: ["loaders/yaml.cjs"] },
       },
     },
   },

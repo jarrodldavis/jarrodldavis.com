@@ -1,2 +1,4 @@
-declare const contents: string;
-export default contents;
+declare const properties: Record<string, string>;
+export default properties;
+
+export const raw: string;
