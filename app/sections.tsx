@@ -9,7 +9,7 @@ interface PrimarySectionProps {
 export function PrimarySection({ title, children }: PrimarySectionProps) {
   return (
     <section className="mt-6">
-      <h2 className="mb-2 border-b-2 border-black text-center text-xl font-bold uppercase sm:text-start">
+      <h2 className="mb-2 border-b-2 border-black text-center text-xl font-bold uppercase sm:text-start dark:border-stone-300">
         {title}
       </h2>
 
