@@ -1,4 +1,4 @@
-import { DATE_FORMATTER, LIST_FORMATTER } from "@/app/utils";
+import { DATE_FORMATTER, LIST_FORMATTER, stripMarkdown } from "@/app/utils";
 import type { ReactNode } from "react";
 
 interface DateRangeProps {
@@ -52,7 +52,7 @@ export function List(props: ListProps) {
   return (
     <ul className="ml-4 list-outside list-disc text-pretty">
       {items.map((item, index) => (
-        <li key={index}>{item}</li>
+        <li key={index}>{typeof item === "string" ? stripMarkdown(item) : item}</li>
       ))}
     </ul>
   );
