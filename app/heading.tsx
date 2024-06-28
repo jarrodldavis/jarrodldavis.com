@@ -28,7 +28,7 @@ export default function Heading({ email, name, phone, profiles, titles }: Person
             {titles.map((title) => (
               <li
                 key={title}
-                className="last:after:content-none md:contents md:after:content-['/'_/_'']"
+                className="last:after:content-none md:contents md:after:content-['/']"
               >
                 {title}
               </li>
@@ -40,7 +40,7 @@ export default function Heading({ email, name, phone, profiles, titles }: Person
           {allProfiles.map(({ text, url }) => (
             <li
               key={url}
-              className="last:after:content-none md:contents md:after:content-['\25C6'_/_'']"
+              className="last:after:content-none md:contents md:after:content-['\25C6']"
             >
               <a href={url}>{text}</a>
             </li>
