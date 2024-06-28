@@ -1,7 +1,5 @@
 #!/bin/env -S node --disable-warning=ExperimentalWarning
 
-// @ts-check
-
 import installSchema from "./_imprecv.mjs";
 import installTypst from "./_typst.mjs";
 

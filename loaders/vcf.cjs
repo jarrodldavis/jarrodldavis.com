@@ -4,12 +4,10 @@ const ICAL = require("ical.js");
 const sharp = require("sharp");
 
 /**
- * @param {string} content Content of the resource file
+ * @param {string} content
  */
 module.exports = async function vcfLoader(content) {
-  /**
-   * @type {ICAL.Component}
-   */
+  /** @type {ICAL.Component} */
   let component;
   try {
     component = ICAL.Component.fromString(content);
@@ -24,9 +22,7 @@ module.exports = async function vcfLoader(content) {
 
   const profileImage = Buffer.from(photo, "base64");
 
-  /**
-   * @type {sharp.Metadata}
-   */
+  /** @type {sharp.Metadata} */
   let sharpMeta;
   try {
     sharpMeta = await sharp(profileImage).metadata();

@@ -1,5 +1,3 @@
-// @ts-check
-
 import fs from "fs/promises";
 import { compile } from "json-schema-to-typescript";
 import prettierConfig from "../.prettierrc.json" with { type: "json" };

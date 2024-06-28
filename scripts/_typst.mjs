@@ -1,5 +1,3 @@
-// @ts-check
-
 import { execFile, spawn } from "node:child_process";
 import { createWriteStream } from "node:fs";
 import { chmod, mkdir } from "node:fs/promises";
