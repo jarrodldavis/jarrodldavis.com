@@ -20,15 +20,15 @@ export default function Heading({ email, name, phone, profiles, titles }: Person
 
   return (
     <div className="flex flex-col gap-4 text-center">
-      <h1 className="text-2xl font-bold uppercase">{name}</h1>
+      <h1 className="font-mono text-4xl font-black uppercase">{name}</h1>
 
-      <div className="flex flex-col items-center justify-center gap-4 min-[500px]:max-md:flex-row">
+      <div className="flex flex-col items-center justify-center gap-4 sm:max-md:flex-row">
         {titles && (
-          <ul role="list" className="flex flex-col font-bold md:flex-row md:gap-2 lg:gap-3">
+          <ul role="list" className="flex flex-col font-semibold md:flex-row md:gap-2 lg:gap-3">
             {titles.map((title) => (
               <li
                 key={title}
-                className="last:after:content-none md:contents md:after:content-['/']"
+                className="after:font-mono last:after:content-none md:contents md:after:content-['/']"
               >
                 {title}
               </li>
@@ -36,7 +36,10 @@ export default function Heading({ email, name, phone, profiles, titles }: Person
           </ul>
         )}
 
-        <ul role="list" className="flex flex-col md:flex-row md:gap-2 lg:gap-4">
+        <ul
+          role="list"
+          className="flex flex-col font-mono md:flex-row md:gap-3 md:tracking-tighter md:max-lg:text-sm lg:tracking-tight"
+        >
           {allProfiles.map(({ text, url }) => (
             <li
               key={url}

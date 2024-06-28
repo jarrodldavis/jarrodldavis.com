@@ -17,7 +17,7 @@ function WorkOrganization({ location, organization, positions, url }: WorkOrgani
     <SecondarySection
       title={organization}
       url={url}
-      subtitle={<p className="font-bold">{location}</p>}
+      subtitle={<p className="font-semibold">{location}</p>}
     >
       {positions.map((position, index) => (
         <WorkPosition key={index} {...position} />

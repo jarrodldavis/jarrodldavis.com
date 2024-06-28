@@ -1,6 +1,8 @@
 import resumeData from "@/app/resume-data";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -27,8 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-slate-200 dark:bg-zinc-900 dark:text-stone-300">
-      <body>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className="bg-slate-200 dark:bg-zinc-900 dark:text-stone-300">
         {children}
         <SpeedInsights />
         <Analytics />

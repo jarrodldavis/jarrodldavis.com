@@ -24,7 +24,7 @@ export function DateRange({ startDate, endDate }: DateRangeProps) {
   }
 
   return (
-    <p className="text-nowrap">
+    <p className="text-nowrap font-mono tracking-tight">
       <time dateTime={start.toISOString().split("T")[0]}>{DATE_FORMATTER.format(start)}</time>
       <span> &ndash; </span>
       {end instanceof Date ? (
@@ -52,7 +52,9 @@ export function List(props: ListProps) {
   return (
     <ul className="ml-4 list-outside list-disc text-pretty">
       {items.map((item, index) => (
-        <li key={index}>{typeof item === "string" ? stripMarkdown(item) : item}</li>
+        <li key={index} className="mb-1">
+          {typeof item === "string" ? stripMarkdown(item) : item}
+        </li>
       ))}
     </ul>
   );

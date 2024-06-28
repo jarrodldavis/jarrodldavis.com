@@ -7,7 +7,7 @@ import Work from "@/app/work";
 
 export default async function Home() {
   return (
-    <main className="mx-auto min-w-80 max-w-4xl p-4 font-serif sm:p-8 md:p-12">
+    <main className="mx-auto min-w-80 max-w-4xl p-4 sm:p-8 md:p-12">
       <Heading {...resumeData.personal} />
       {resumeData.work && <Work work={resumeData.work} />}
       <Education education={resumeData.education} />

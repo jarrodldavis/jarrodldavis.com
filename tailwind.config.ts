@@ -4,7 +4,14 @@ import type { KeyValuePair } from "tailwindcss/types/config";
 
 const config: Config = {
   content: ["./app/**/*.{ts,tsx,mdx}"],
-  theme: {},
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-geist-sans)"],
+        mono: ["var(--font-geist-mono)"],
+      },
+    },
+  },
   corePlugins: {
     content: false,
   },

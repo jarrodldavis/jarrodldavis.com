@@ -17,7 +17,7 @@ function EducationInstitution(props: EducationInstitutionData) {
     <SecondarySection
       title={props.institution}
       url={props.url}
-      subtitle={<p className="font-bold">{props.location}</p>}
+      subtitle={<p className="font-semibold">{props.location}</p>}
     >
       <TertiarySection
         title={`${props.studyType} in ${props.area}`}

@@ -9,7 +9,7 @@ interface PrimarySectionProps {
 export function PrimarySection({ title, children }: PrimarySectionProps) {
   return (
     <section className="mt-6">
-      <h2 className="mb-2 border-b-2 border-black text-center text-xl font-bold uppercase sm:text-start dark:border-stone-300">
+      <h2 className="mb-2 border-b-2 border-black text-center font-mono text-2xl font-light uppercase sm:text-start sm:text-xl sm:font-extralight dark:border-stone-300">
         {title}
       </h2>
 
@@ -29,7 +29,7 @@ export function SecondarySection({ title, url, subtitle, children }: SecondarySe
   return (
     <section className="mb-6">
       <hgroup className="flex flex-col gap-1 text-center sm:flex-row sm:justify-between sm:text-start">
-        <h3 className="font-bold">
+        <h3 className="text-lg font-bold">
           {url ? (
             <a href={url} target="_blank" rel="noreferrer noopener">
               {title}
