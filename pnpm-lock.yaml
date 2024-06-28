@@ -29,9 +29,6 @@ importers:
       react-dom:
         specifier: 19.0.0-rc-f994737d14-20240522
         version: 19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522)
-      sharp:
-        specifier: ^0.33.4
-        version: 0.33.4
     devDependencies:
       '@types/node':
         specifier: ^20.14.7
@@ -72,6 +69,9 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: ^0.6.5
         version: 0.6.5(prettier-plugin-organize-imports@3.2.4(prettier@3.3.2)(typescript@5.5.2))(prettier@3.3.2)
+      sharp:
+        specifier: ^0.33.4
+        version: 0.33.4
       tailwindcss:
         specifier: ^3.4.4
         version: 3.4.4

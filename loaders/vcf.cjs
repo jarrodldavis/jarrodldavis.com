@@ -1,11 +1,12 @@
 const assert = require("node:assert/strict");
 const { EOL } = require("node:os");
 const ICAL = require("ical.js");
+const sharp = require("sharp");
 
 /**
  * @param {string} content Content of the resource file
  */
-module.exports = function vcfLoader(content) {
+module.exports = async function vcfLoader(content) {
   /**
    * @type {ICAL.Component}
    */
@@ -18,20 +19,35 @@ module.exports = function vcfLoader(content) {
 
   assert.equal(component.name, "vcard", "expected parsed vCard");
 
-  const properties = component.getAllProperties().reduce((properties, property) => {
-    const group = property.getFirstParameter("group");
-    const type = property.getFirstParameter("type");
-    const name = property.name;
-    const key = group ? `${group}.${name}` : type ? `${name}.${type}` : name;
+  const photo = component.getFirstPropertyValue("photo");
+  assert.ok(photo, "expected parsed vCard photo value to be available");
 
-    assert(!(key in properties), `expected key '${key}' to be unique amongst all vCard properties`);
+  const profileImage = Buffer.from(photo, "base64");
 
-    properties[key] = property.getFirstValue();
-    return properties;
-  }, /** @type {Record<string, string>} */ ({}));
+  /**
+   * @type {sharp.Metadata}
+   */
+  let sharpMeta;
+  try {
+    sharpMeta = await sharp(profileImage).metadata();
+  } catch (cause) {
+    throw new Error("failed to get photo metadata", { cause });
+  }
+
+  assert.ok(sharpMeta.format, "expected vCard photo to have known image format");
+  assert.ok(sharpMeta.width, "expected vCard photo to have a width");
+  assert.ok(sharpMeta.height, "expected vCard photo to have a height");
+  assert.equal(sharpMeta.width, sharpMeta.height, "expected vCard photo to be square");
+
+  const metadata = {
+    contentType: `image/${sharpMeta.format}`,
+    width: sharpMeta.width,
+    height: sharpMeta.height,
+  };
 
   return [
-    `export default ${JSON.stringify(properties)};`,
-    `export const raw = ${JSON.stringify(content.trim())};`,
+    `export const vcf = ${JSON.stringify(content.trim())};`,
+    `export const photoContents = /*#__PURE__*/ Buffer.from(${JSON.stringify(photo)}, "base64");`,
+    `export const photoMetadata = ${JSON.stringify(metadata)};`,
   ].join(EOL);
 };
