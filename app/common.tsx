@@ -1,5 +1,6 @@
-import { DATE_FORMATTER, LIST_FORMATTER, stripMarkdown } from "@/app/utils";
+import { DATE_FORMATTER, LIST_FORMATTER } from "@/app/utils";
 import type { ReactNode } from "react";
+import Markdown, { type Components as MarkdownComponents } from "react-markdown";
 
 interface DateRangeProps {
   startDate: string | null;
@@ -42,6 +43,9 @@ interface ListProps {
   items: ReactNode[];
 }
 
+// Workaround for discrepancy in how Typst and Markdown indicate strong and emphasis runs.
+const MARKDOWN_COMPONENTS: MarkdownComponents = { em: "strong" };
+
 export function List(props: ListProps) {
   const items = props.items.filter((item) => item);
 
@@ -53,7 +57,11 @@ export function List(props: ListProps) {
     <ul className="ml-4 list-outside list-disc text-pretty">
       {items.map((item, index) => (
         <li key={index} className="mb-1">
-          {typeof item === "string" ? stripMarkdown(item) : item}
+          {typeof item === "string" ? (
+            <Markdown components={MARKDOWN_COMPONENTS}>{item}</Markdown>
+          ) : (
+            item
+          )}
         </li>
       ))}
     </ul>
