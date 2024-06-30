@@ -1,4 +1,6 @@
+import { photo } from "@/app/contact-card.vcf";
 import type { PersonalData } from "@/app/types";
+import Image from "next/image";
 
 export default function Heading({ email, name, phone, profiles, titles }: PersonalData) {
   interface ProfileLink {
@@ -19,12 +21,25 @@ export default function Heading({ email, name, phone, profiles, titles }: Person
   ].filter((profile) => !!profile);
 
   return (
-    <div className="flex flex-col gap-4 text-center">
-      <h1 className="font-mono text-4xl font-black uppercase">{name}</h1>
+    <div className="flex flex-col items-center gap-2 text-center 2xs:gap-0 tall:2xs:gap-4 xs:gap-4">
+      <div className="flex flex-row items-center gap-2 text-center tall:flex-col max-2xs:flex-col 2xs:gap-3">
+        <Image
+          alt="Jarrod Davis Profile Picture"
+          src={photo}
+          priority
+          sizes="(min-height: 500px) and (min-width: 475px) 8rem, (min-height: 500px) 6rem, 4rem"
+          className="box-content w-16 rounded-full border-0 border-slate-200 bg-slate-300 p-2 shadow-inner shadow-slate-400 tall:w-32 tall:border-2 tall:p-3 tall:max-xs:w-24 tall:max-xs:p-2.5 dark:border-zinc-950 dark:bg-zinc-700 dark:shadow-zinc-950"
+        />
 
-      <div className="flex flex-col items-center justify-center gap-4 sm:max-md:flex-row">
+        <h1 className="font-mono text-4xl font-black uppercase">{name}</h1>
+      </div>
+
+      <div className="flex flex-col items-center justify-center gap-2 tall:2xs:gap-4 xs:gap-4 xs:max-md:flex-row">
         {titles && (
-          <ul role="list" className="flex flex-col font-semibold md:flex-row md:gap-2 lg:gap-3">
+          <ul
+            role="list"
+            className="flex flex-col font-semibold tall:gap-1 md:flex-row md:gap-2 lg:gap-3"
+          >
             {titles.map((title) => (
               <li
                 key={title}
@@ -38,7 +53,7 @@ export default function Heading({ email, name, phone, profiles, titles }: Person
 
         <ul
           role="list"
-          className="flex flex-col font-mono md:flex-row md:gap-3 md:tracking-tighter md:max-lg:text-sm lg:tracking-tight"
+          className="flex flex-col font-mono tall:gap-1 md:flex-row md:gap-3 md:tracking-tighter md:max-lg:text-sm lg:gap-4 lg:tracking-tight"
         >
           {allProfiles.map(({ text, url }) => (
             <li

@@ -10,13 +10,17 @@ const config: Config = {
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-geist-mono)"],
       },
+      screens: {
+        "2xs": "475px",
+        xs: "525px",
+      },
     },
   },
   corePlugins: {
     content: false,
   },
   plugins: [
-    plugin(function ({ matchUtilities, theme }) {
+    plugin(({ matchUtilities, theme }) => {
       matchUtilities(
         {
           content: (value) => ({
@@ -29,6 +33,9 @@ const config: Config = {
           values: theme<KeyValuePair<string, string>>("content"),
         },
       );
+    }),
+    plugin(({ addVariant }) => {
+      addVariant("tall", "@media (min-height: 500px)");
     }),
   ],
 };
