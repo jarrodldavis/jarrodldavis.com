@@ -1,9 +1,7 @@
-import { photoContents, photoMetadata } from "@/app/contact-card.vcf";
+import { photo, photoContents } from "@/app/contact-card.vcf";
 import { ImageResponse } from "next/og";
 
-export const contentType = photoMetadata.contentType;
-
-export const size = { width: photoMetadata.width, height: photoMetadata.height };
+export const size = { width: photo.width, height: photo.height };
 
 export default async function icon() {
   // https://github.com/vercel/satori/issues/606

@@ -1,9 +1,7 @@
+import type { StaticImageData } from "next/image";
+
 export const raw: string;
 
-export const photoContents: Buffer;
+export const photo: StaticImageData;
 
-export const photoMetadata: {
-  contentType: string;
-  width: number;
-  height: number;
-};
+export const photoContents: Buffer;
