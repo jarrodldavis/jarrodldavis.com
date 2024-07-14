@@ -31,7 +31,7 @@ export default function Heading({ email, name, phone, profiles, titles }: Person
           className="box-content w-16 rounded-full border-0 border-slate-200 bg-slate-300 p-2 shadow-inner shadow-slate-400 tall:w-32 tall:border-2 tall:p-3 tall:max-xs:w-24 tall:max-xs:p-2.5 dark:border-zinc-950 dark:bg-zinc-700 dark:shadow-zinc-950"
         />
 
-        <h1 className="font-mono text-4xl font-black uppercase">{name}</h1>
+        <h1 className="font-mono text-4xl font-black">{name}</h1>
       </div>
 
       <div className="flex flex-col items-center justify-center gap-2 tall:2xs:gap-4 xs:gap-4 xs:max-md:flex-row">
