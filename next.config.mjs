@@ -19,7 +19,6 @@ const nextConfig = {
   },
 };
 
-export default [withVercelToolbar()].reduceRight(
-  (nextConfig, transform) => transform(nextConfig),
-  nextConfig,
-);
+export default [process.env.NODE_ENV === "development" && withVercelToolbar()]
+  .filter((transform) => !!transform)
+  .reduceRight((nextConfig, transform) => transform(nextConfig), nextConfig);
