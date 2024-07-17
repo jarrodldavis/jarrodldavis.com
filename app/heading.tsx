@@ -60,7 +60,12 @@ export default function Heading({ email, name, phone, profiles, titles }: Person
               key={url}
               className="last:after:content-none md:contents md:after:content-['\25C6']"
             >
-              <a href={url}>{text}</a>
+              <a
+                href={url}
+                className="text-blue-900 hover:text-blue-700 hover:underline dark:text-blue-100 dark:hover:text-blue-300"
+              >
+                {text}
+              </a>
             </li>
           ))}
         </ul>

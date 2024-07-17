@@ -17,7 +17,11 @@ export default function Intro() {
       <p>{description}</p>
       <p>
         Below you can see more details of my professional and educational experience. You can also{" "}
-        <a className="underline" href="/jarrod-davis-resume.pdf" download="jarrod-davis-resume.pdf">
+        <a
+          className="underline hover:text-blue-700 dark:hover:text-blue-300"
+          href="/jarrod-davis-resume.pdf"
+          download="jarrod-davis-resume.pdf"
+        >
           download my resume
         </a>{" "}
         as a PDF.
