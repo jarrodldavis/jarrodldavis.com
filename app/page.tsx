@@ -1,5 +1,6 @@
 import Education from "@/app/education";
 import Heading from "@/app/heading";
+import Intro from "@/app/intro";
 import Projects from "@/app/projects";
 import resumeData from "@/app/resume-data";
 import Skills from "@/app/skills";
@@ -9,6 +10,7 @@ export default async function Home() {
   return (
     <main className="mx-auto min-w-80 max-w-4xl p-4 sm:p-8 md:p-12">
       <Heading {...resumeData.personal} />
+      <Intro />
       {resumeData.work && <Work work={resumeData.work} />}
       <Education education={resumeData.education} />
       <Affiliations />

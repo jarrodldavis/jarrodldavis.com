@@ -24,7 +24,7 @@ export default function Heading({ email, name, phone, profiles, titles }: Person
     <div className="flex flex-col items-center gap-2 text-center 2xs:gap-0 tall:2xs:gap-4 xs:gap-4">
       <div className="flex flex-row items-center gap-2 text-center tall:flex-col max-2xs:flex-col 2xs:gap-3">
         <Image
-          alt="Jarrod Davis Profile Picture"
+          alt="A Memoji of me on a green background"
           src={photo}
           priority
           sizes="(min-height: 500px) and (min-width: 475px) 8rem, (min-height: 500px) 6rem, 4rem"
