@@ -18,7 +18,11 @@
     "build:typst": "typst compile imprecv/template.typ public/jarrod-davis-resume.pdf",
     "build:next": "next build",
     "start": "next start",
-    "lint": "next lint && prettier --check ."
+    "lint": "pnpm /lint:/",
+    "lint:next": "next lint",
+    "lint:prettier": "prettier --check .",
+    "lint:loaders": "tsc -p loaders",
+    "lint:scripts": "tsc -p scripts"
   },
   "pnpm": {
     "updateConfig": {

@@ -4,4 +4,5 @@
     "target": "ES2023",
   },
   "include": ["*.mjs"],
+  "exclude": ["../node_modules"],
 }
