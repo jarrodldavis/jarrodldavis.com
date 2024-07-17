@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     type: "website",
     title: name,
     description: formattedTitles,
+    siteName: "jarrodldavis.com",
     url: "/",
   },
   twitter: {
