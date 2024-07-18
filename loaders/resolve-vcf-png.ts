@@ -1,17 +1,10 @@
-const { promisify } = require("util");
+import { promisify } from "util";
+import type { ResolvePluginInstance, Resolver } from "webpack";
 
-/**
- * @import { Resolver, ResolvePluginInstance } from 'webpack'
- */
+type ResolvePlugin = Exclude<ResolvePluginInstance, Function>;
 
-/**
- * @implements {Exclude<ResolvePluginInstance, Function>}
- */
-class VcfPngResolverPlugin {
-  /**
-   * @param {Resolver} resolver
-   */
-  apply(resolver) {
+export default class VcfPngResolverPlugin implements ResolvePlugin {
+  apply(resolver: Resolver) {
     const target = resolver.ensureHook("resolve");
 
     target.tapPromise("VcfPngResolverPlugin", async (request, resolveContext) => {
@@ -42,5 +35,3 @@ class VcfPngResolverPlugin {
     });
   }
 }
-
-module.exports = VcfPngResolverPlugin;

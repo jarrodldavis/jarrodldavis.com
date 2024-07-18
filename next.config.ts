@@ -1,10 +1,8 @@
-// @ts-check
-
 import withVercelToolbar from "@vercel/toolbar/plugins/next";
-import VcfPngResolverPlugin from "./loaders/resolve-vcf-png.cjs";
+import type { NextConfig } from "next";
+import VcfPngResolverPlugin from "./loaders/resolve-vcf-png";
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   webpack: (config) => {
     config.module.rules.push(
       { test: /\.ttf$/, use: "loaders/ttf.cjs" },
