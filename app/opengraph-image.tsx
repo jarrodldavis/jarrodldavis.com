@@ -1,10 +1,11 @@
 import { photoContents } from "@/app/contact-card.vcf";
 import resumeData from "@/app/resume-data";
+import SatoriImage from "@/app/satori-image";
 import { TITLE_FORMATTER } from "@/app/utils";
-import assert from "assert/strict";
 import GeistMonoSemiBold from "geist/assets/fonts/geist-mono/GeistMono-SemiBold.ttf";
 import GeistMonoUltraBlack from "geist/assets/fonts/geist-mono/GeistMono-UltraBlack.ttf";
 import { ImageResponse } from "next/og";
+import assert from "node:assert/strict";
 
 export const size = { width: 1200, height: 630 };
 
@@ -16,16 +17,11 @@ export const alt = `A Memoji of me in a green circle next to my name (${name}) a
 export default async function Image() {
   assert.ok(titles, "expected titles to be present");
 
-  // https://github.com/vercel/satori/issues/606
-  const src = photoContents.buffer as unknown as string;
-
   return new ImageResponse(
     (
       <div tw="flex h-full w-full items-center justify-around bg-zinc-900 px-24 text-stone-300">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          alt=""
-          src={src}
+        <SatoriImage
+          src={photoContents}
           style={{
             boxShadow: "inset 0 4px 16px 0 #09090b",
           }}

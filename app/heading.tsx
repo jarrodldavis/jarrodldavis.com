@@ -18,7 +18,7 @@ export default function Heading({ email, name, phone, profiles, titles }: Person
       text: phone,
     },
     ...profiles.map(({ url }) => ({ url, text: url.split(/:\/?\/?/)[1]! })),
-  ].filter((profile) => !!profile);
+  ].filter(Boolean);
 
   return (
     <div className="flex flex-col items-center gap-2 text-center 2xs:gap-0 tall:2xs:gap-4 xs:gap-4">

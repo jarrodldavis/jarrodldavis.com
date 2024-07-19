@@ -47,7 +47,7 @@ interface ListProps {
 const MARKDOWN_COMPONENTS: MarkdownComponents = { em: "strong" };
 
 export function List(props: ListProps) {
-  const items = props.items.filter((item) => item);
+  const items = props.items.filter(Boolean);
 
   if (!items.length) {
     return null;

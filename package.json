@@ -25,13 +25,13 @@
     "lint:scripts": "tsc -p scripts"
   },
   "pnpm": {
+    "patchedDependencies": {
+      "geist@1.3.1": "patches/geist@1.3.1.patch"
+    },
     "updateConfig": {
       "ignoreDependencies": [
         "eslint"
       ]
-    },
-    "patchedDependencies": {
-      "geist@1.3.1": "patches/geist@1.3.1.patch"
     }
   },
   "dependencies": {
@@ -47,6 +47,7 @@
     "react-markdown": "^9.0.1"
   },
   "devDependencies": {
+    "@total-typescript/ts-reset": "^0.5.1",
     "@types/node": "^20.14.11",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",

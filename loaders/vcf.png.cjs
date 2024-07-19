@@ -9,8 +9,7 @@ module.exports = async function vcfPngLoader(content) {
 };
 
 /**
- * @this {{ fs: import('fs'), resourcePath: string,  }}
- * @returns
+ * @this {{ fs: import('node:fs'), resourcePath: string }}
  */
 module.exports.pitch = async function vcfPngLoaderPitch() {
   const vcfPath = this.resourcePath.replace(/\.png$/, "");

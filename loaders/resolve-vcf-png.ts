@@ -1,7 +1,7 @@
-import { promisify } from "util";
+import { promisify } from "node:util";
 import type { ResolvePluginInstance, Resolver } from "webpack";
 
-type ResolvePlugin = Exclude<ResolvePluginInstance, Function>;
+type ResolvePlugin = Exclude<ResolvePluginInstance, (resolver: Resolver) => void>;
 
 export default class VcfPngResolverPlugin implements ResolvePlugin {
   apply(resolver: Resolver) {

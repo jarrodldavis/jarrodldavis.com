@@ -4,10 +4,10 @@ import { TITLE_FORMATTER } from "@/app/utils";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { VercelToolbar } from "@vercel/toolbar/next";
-import assert from "assert/strict";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
+import assert from "node:assert/strict";
 import type { ReactNode } from "react";
 import "./globals.css";
 

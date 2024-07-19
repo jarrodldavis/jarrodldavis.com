@@ -1,6 +1,7 @@
 import withVercelToolbar from "@vercel/toolbar/plugins/next";
 import type { NextConfig } from "next";
 import VcfPngResolverPlugin from "./loaders/resolve-vcf-png";
+import type {} from "./reset";
 
 const nextConfig: NextConfig = {
   webpack: (config) => {
@@ -18,5 +19,5 @@ const nextConfig: NextConfig = {
 };
 
 export default [process.env.NODE_ENV === "development" && withVercelToolbar()]
-  .filter((transform) => !!transform)
+  .filter(Boolean)
   .reduceRight((nextConfig, transform) => transform(nextConfig), nextConfig);

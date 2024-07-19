@@ -1,5 +1,5 @@
-import fs from "fs/promises";
 import { compile } from "json-schema-to-typescript";
+import fs from "node:fs/promises";
 import prettierConfig from "../.prettierrc.json" with { type: "json" };
 
 const SCHEMA_PATH = "imprecv/schema.json";
@@ -10,7 +10,6 @@ const TYPES_PATH = "imprecv/types.d.ts";
  * @param {boolean} options.force
  */
 export default async function installSchema({ force }) {
-  /** @type {string} */
   let rawSchema = "";
 
   if (!force) {
@@ -39,8 +38,7 @@ export default async function installSchema({ force }) {
   }
 
   console.log("-> parsing schema...");
-  const parsedSchema = /** @type {unknown} */ (JSON.parse(rawSchema));
-  const schema = /** @type {Parameters<typeof compile>[0]} */ (parsedSchema);
+  const schema = /** @type {Parameters<typeof compile>[0]} */ (JSON.parse(rawSchema));
 
   console.log("-> compiling types...");
   const compiledTypes = await compile(schema, "cv.typ.schema.json", {

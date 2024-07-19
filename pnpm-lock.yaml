@@ -44,6 +44,9 @@ importers:
         specifier: ^9.0.1
         version: 9.0.1(@types/react@18.3.3)(react@19.0.0-rc.0)
     devDependencies:
+      '@total-typescript/ts-reset':
+        specifier: ^0.5.1
+        version: 0.5.1
       '@types/node':
         specifier: ^20.14.11
         version: 20.14.11
@@ -422,6 +425,9 @@ packages:
   '@tinyhttp/url@1.3.0':
     resolution: {integrity: sha512-GgdKez5AaQRIm0kFNp7BZnxFQ2F7LZ7g3rOQ/v11oYZR3jhH7JPGM+7hZQjYqFXD/5TK/of7hepu418K2fghvg==}
     engines: {node: '>=12.4.0'}
+
+  '@total-typescript/ts-reset@0.5.1':
+    resolution: {integrity: sha512-AqlrT8YA1o7Ff5wPfMOL0pvL+1X+sw60NN6CcOCqs658emD6RfiXhF7Gu9QcfKBH7ELY2nInLhKSCWVoNL70MQ==}
 
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
@@ -2644,6 +2650,8 @@ snapshots:
       es-mime-types: 0.0.16
 
   '@tinyhttp/url@1.3.0': {}
+
+  '@total-typescript/ts-reset@0.5.1': {}
 
   '@types/debug@4.1.12':
     dependencies:
