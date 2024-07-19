@@ -18,7 +18,9 @@
       "command": "pnpm",
       "args": ["dev:next"],
       "isBackground": true,
-      "runOptions": { "runOn": "folderOpen" },
+      "runOptions": {
+        "runOn": "folderOpen",
+      },
       "problemMatcher": [],
     },
   ],

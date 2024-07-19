@@ -28,7 +28,7 @@ export default class VcfPngResolverPlugin implements ResolvePlugin {
       result.path += ".png";
 
       if (request.relativePath) {
-        result.relativePath = ".png";
+        result.relativePath += ".png";
       }
 
       return result;

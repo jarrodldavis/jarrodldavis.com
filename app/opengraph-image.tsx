@@ -29,8 +29,8 @@ export default async function Image() {
         />
 
         <div tw="flex flex-col">
-          <p tw="text-6xl font-black">{name}</p>
-          <ul tw="flex flex-col text-3xl font-semibold">
+          <p tw="text-7xl font-black">{name}</p>
+          <ul tw="flex flex-col text-4xl font-semibold">
             {titles.map((title, index) => (
               <li key={index}>{title}</li>
             ))}

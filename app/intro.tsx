@@ -16,14 +16,16 @@ export default function Intro() {
     <section className="mt-6 space-y-2">
       <p>{description}</p>
       <p>
-        Below you can see more details of my professional and educational experience. You can also{" "}
+        Below you can see more details of my professional and educational experience. You can also
+        <> </>
         <a
           className="underline hover:text-blue-700 dark:hover:text-blue-300"
           href="/jarrod-davis-resume.pdf"
           download="jarrod-davis-resume.pdf"
         >
           download my resume
-        </a>{" "}
+        </a>
+        <> </>
         as a PDF.
       </p>
     </section>
