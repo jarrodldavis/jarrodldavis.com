@@ -80,6 +80,7 @@ function contentSecurityPolicy(env: NextConfig["env"]) {
 
     // Sentry (Baseline)
     {
+      "connect-src": [SELF],
       "worker-src": [BLOB],
     },
 
@@ -91,6 +92,7 @@ function contentSecurityPolicy(env: NextConfig["env"]) {
 
     // Vercel Analytics (Dev)
     isDev && {
+      "connect-src": [SELF],
       "script-src": [VERCEL_SCRIPTS],
     },
 
@@ -99,12 +101,13 @@ function contentSecurityPolicy(env: NextConfig["env"]) {
 
     // Vercel Speed Insights (Dev)
     isDev && {
+      "connect-src": [SELF],
       "script-src": [VERCEL_SCRIPTS],
     },
 
     // Vercel Toolbar (Baseline)
     (isDev || isPreview) && {
-      "connect-src": [VERCEL_LIVE, PUSHER],
+      "connect-src": [SELF, VERCEL_LIVE, PUSHER],
       "frame-src": [VERCEL_LIVE],
       "font-src": [VERCEL_LIVE],
       "img-src": [VERCEL_DASHBOARD],
