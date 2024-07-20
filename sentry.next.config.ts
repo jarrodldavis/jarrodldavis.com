@@ -1,5 +1,34 @@
-import { withSentryConfig } from "@sentry/nextjs";
+import { getSentryRelease, withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
+import type { Rewrite } from "next/dist/lib/load-custom-routes";
+
+export const reportRoute = "/reporting";
+
+export function reportTunnel(): Rewrite {
+  const sentryEnv =
+    process.env["SENTRY_ENVIRONMENT"] ||
+    (process.env["VERCEL_ENV"] ? `vercel-${process.env["VERCEL_ENV"]}` : "") ||
+    process.env.NODE_ENV;
+
+  const sentryRelease = sentryEnv === "development" ? null : getSentryRelease();
+
+  const reportURL = new URL(process.env["SENTRY_REPORT_URI"] || "");
+
+  reportURL.searchParams.set("hsts", "0");
+
+  if (sentryEnv) {
+    reportURL.searchParams.set("sentry_environment", sentryEnv);
+  }
+
+  if (sentryRelease) {
+    reportURL.searchParams.set("sentry_release", sentryRelease);
+  }
+
+  return {
+    destination: reportURL.toString(),
+    source: `${reportRoute}(/?)`,
+  };
+}
 
 export default function withSentry(config: NextConfig) {
   return withSentryConfig(config, {

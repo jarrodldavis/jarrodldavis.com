@@ -1,10 +1,14 @@
 import withVercelToolbar from "@vercel/toolbar/plugins/next";
 import type { NextConfig } from "next";
+import headers from "./headers.config";
 import VcfPngResolverPlugin from "./loaders/resolve-vcf-png";
 import type {} from "./reset";
-import withSentry from "./sentry.next.config";
+import withSentry, { reportTunnel } from "./sentry.next.config";
 
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return [reportTunnel()];
+  },
   webpack: (config) => {
     config.module.rules.push(
       { test: /\.ttf$/, use: "loaders/ttf.cjs" },
@@ -17,6 +21,7 @@ const nextConfig: NextConfig = {
 
     return config;
   },
+  headers,
 };
 
 export default [withSentry, process.env.NODE_ENV === "development" && withVercelToolbar()]
