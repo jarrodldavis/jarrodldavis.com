@@ -23,6 +23,7 @@ const nextConfig: NextConfig = {
 
     if (process.env.NODE_ENV !== "development") {
       config.resolve.alias["@spotlightjs/spotlight"] = false;
+      config.resolve.alias["@vercel/toolbar"] = false;
     }
 
     return config;
