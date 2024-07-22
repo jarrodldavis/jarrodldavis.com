@@ -4,12 +4,17 @@ import type { Rewrite } from "next/dist/lib/load-custom-routes";
 
 export const reportRoute = "/reporting";
 
-export function reportTunnel(): Rewrite {
+export function reportTunnel(): Rewrite | null {
   const sentryEnv = process.env.VERCEL_ENV
     ? (`vercel-${process.env.VERCEL_ENV}` as const)
     : process.env.NODE_ENV;
 
-  const reportURL = new URL(process.env.SENTRY_REPORT_URI);
+  const reportURI = process.env.SENTRY_REPORT_URI;
+  if (!reportURI) {
+    return null;
+  }
+
+  const reportURL = new URL(reportURI);
   reportURL.searchParams.set("hsts", "0");
   reportURL.searchParams.set("sentry_environment", sentryEnv);
 

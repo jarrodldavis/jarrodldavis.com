@@ -53,6 +53,7 @@ function contentSecurityPolicy(env: NextConfig["env"]) {
   const EVAL = "'unsafe-eval'";
 
   const BLOB = "blob:";
+  const DATA = "data:";
 
   const SENTRY_SPOTLIGHT = "http://localhost:8969/stream";
 
@@ -71,7 +72,8 @@ function contentSecurityPolicy(env: NextConfig["env"]) {
       "script-src": [SELF, INLINE],
       "style-src": [SELF],
       "form-action": [],
-      "frame-ancestors": [],
+      // TODO: enable on switch from `Content-Security-Policy-Report-Only` to `Content-Security-Policy`
+      // "frame-ancestors": [],
     },
 
     // Self (Dev)
@@ -111,10 +113,10 @@ function contentSecurityPolicy(env: NextConfig["env"]) {
 
     // Vercel Toolbar (Baseline)
     (isDev || isPreview) && {
-      "connect-src": [SELF, VERCEL_LIVE, PUSHER],
+      "connect-src": [SELF, DATA, VERCEL_LIVE, PUSHER],
       "frame-src": [VERCEL_LIVE],
       "font-src": [VERCEL_LIVE],
-      "img-src": [VERCEL_DASHBOARD],
+      "img-src": [DATA, BLOB, VERCEL_LIVE, VERCEL_DASHBOARD],
       "script-src": [VERCEL_LIVE],
       "style-src": [INLINE, VERCEL_LIVE],
     },

@@ -13,10 +13,10 @@
       "problemMatcher": [],
     },
     {
-      "label": "Next Dev",
+      "label": "Spotlight Sidecar",
       "type": "process",
       "command": "pnpm",
-      "args": ["dev:next"],
+      "args": ["dev:spotlight"],
       "isBackground": true,
       "runOptions": {
         "runOn": "folderOpen",
@@ -24,10 +24,10 @@
       "problemMatcher": [],
     },
     {
-      "label": "Spotlight Sidecar",
+      "label": "Next Dev",
       "type": "process",
       "command": "pnpm",
-      "args": ["dev:spotlight"],
+      "args": ["dev:next"],
       "isBackground": true,
       "runOptions": {
         "runOn": "folderOpen",

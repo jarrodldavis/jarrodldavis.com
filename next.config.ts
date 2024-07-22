@@ -7,7 +7,7 @@ import withSentry, { reportTunnel } from "./sentry.next.config";
 
 const nextConfig: NextConfig = {
   async rewrites() {
-    return [reportTunnel()];
+    return [reportTunnel()].filter(Boolean);
   },
   webpack: (config) => {
     config.module.rules.push(
