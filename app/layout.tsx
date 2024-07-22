@@ -41,7 +41,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="bg-slate-200 dark:bg-zinc-900 dark:text-stone-300">
+      <body
+        className="bg-slate-200 dark:bg-zinc-900 dark:text-stone-300"
+        style={
+          // Prevent hydration error when Sentry Spotlight is enabled
+          process.env.NODE_ENV === "development" ? { overflow: "auto" } : undefined
+        }
+      >
         {children}
         <SpeedInsights />
         <Analytics />

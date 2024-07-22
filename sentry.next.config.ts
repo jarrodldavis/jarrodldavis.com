@@ -5,21 +5,15 @@ import type { Rewrite } from "next/dist/lib/load-custom-routes";
 export const reportRoute = "/reporting";
 
 export function reportTunnel(): Rewrite {
-  const sentryEnv =
-    process.env["SENTRY_ENVIRONMENT"] ||
-    (process.env["VERCEL_ENV"] ? `vercel-${process.env["VERCEL_ENV"]}` : "") ||
-    process.env.NODE_ENV;
+  const sentryEnv = process.env.VERCEL_ENV
+    ? (`vercel-${process.env.VERCEL_ENV}` as const)
+    : process.env.NODE_ENV;
+
+  const reportURL = new URL(process.env.SENTRY_REPORT_URI);
+  reportURL.searchParams.set("hsts", "0");
+  reportURL.searchParams.set("sentry_environment", sentryEnv);
 
   const sentryRelease = sentryEnv === "development" ? null : getSentryRelease();
-
-  const reportURL = new URL(process.env["SENTRY_REPORT_URI"] || "");
-
-  reportURL.searchParams.set("hsts", "0");
-
-  if (sentryEnv) {
-    reportURL.searchParams.set("sentry_environment", sentryEnv);
-  }
-
   if (sentryRelease) {
     reportURL.searchParams.set("sentry_release", sentryRelease);
   }
@@ -35,11 +29,11 @@ export default function withSentry(config: NextConfig) {
     // For all available options, see:
     // https://github.com/getsentry/sentry-webpack-plugin#options
 
-    org: process.env["SENTRY_ORG"] || "",
-    project: process.env["SENTRY_PROJECT"] || "",
+    org: process.env.SENTRY_ORG,
+    project: process.env.SENTRY_PROJECT,
 
     // Only print logs for uploading source maps in CI
-    silent: !process.env["CI"],
+    silent: !process.env.CI,
 
     // For all available options, see:
     // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
@@ -57,12 +51,22 @@ export default function withSentry(config: NextConfig) {
     hideSourceMaps: true,
 
     // Automatically tree-shake Sentry logger statements to reduce bundle size
-    disableLogger: true,
+    disableLogger: !process.env.NEXT_PUBLIC_SENTRY_DEBUG,
 
     // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
     // See the following for more information:
     // https://docs.sentry.io/product/crons/
     // https://vercel.com/docs/cron-jobs
     automaticVercelMonitors: true,
+
+    unstable_sentryWebpackPluginOptions: {
+      bundleSizeOptimizations: {
+        excludeDebugStatements: !process.env.NEXT_PUBLIC_SENTRY_DEBUG,
+        excludePerformanceMonitoring: true,
+        excludeReplayIframe: true,
+        excludeReplayShadowDom: true,
+        excludeReplayWorker: true,
+      },
+    },
   });
 }

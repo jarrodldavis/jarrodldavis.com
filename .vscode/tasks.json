@@ -23,5 +23,16 @@
       },
       "problemMatcher": [],
     },
+    {
+      "label": "Spotlight Sidecar",
+      "type": "process",
+      "command": "pnpm",
+      "args": ["dev:spotlight"],
+      "isBackground": true,
+      "runOptions": {
+        "runOn": "folderOpen",
+      },
+      "problemMatcher": [],
+    },
   ],
 }

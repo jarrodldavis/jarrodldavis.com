@@ -1,8 +1,8 @@
+import { reportRoute } from "@/sentry.next.config";
 import type { NextConfig } from "next";
-import { reportRoute } from "./sentry.next.config";
 
 const isDev = process.env.NODE_ENV === "development";
-const isPreview = process.env["VERCEL_ENV"] === "preview";
+const isPreview = process.env.VERCEL_ENV === "preview";
 
 export default (async function headers(this: NextConfig) {
   return [
@@ -54,6 +54,8 @@ function contentSecurityPolicy(env: NextConfig["env"]) {
 
   const BLOB = "blob:";
 
+  const SENTRY_SPOTLIGHT = "http://localhost:8969/stream";
+
   const PUSHER = "wss://*.pusher.com";
   const VERCEL_DASHBOARD = "https://vercel.com";
   const VERCEL_LIVE = "https://vercel.live";
@@ -85,7 +87,9 @@ function contentSecurityPolicy(env: NextConfig["env"]) {
     },
 
     // Sentry (Dev)
-    isDev && {},
+    isDev && {
+      "connect-src": [SENTRY_SPOTLIGHT],
+    },
 
     // Vercel Analytics (Baseline)
     {},

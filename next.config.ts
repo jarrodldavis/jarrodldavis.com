@@ -19,6 +19,12 @@ const nextConfig: NextConfig = {
 
     config.resolve.plugins.unshift(new VcfPngResolverPlugin());
 
+    config.resolve.alias ??= {};
+
+    if (process.env.NODE_ENV !== "development") {
+      config.resolve.alias["@spotlightjs/spotlight"] = false;
+    }
+
     return config;
   },
   headers,
