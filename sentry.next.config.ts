@@ -29,6 +29,20 @@ export function reportTunnel(): Rewrite | null {
   };
 }
 
+// https://github.com/getsentry/spotlight/issues/275
+// https://github.com/getsentry/spotlight/blob/%40spotlightjs/spotlight%402.1.0/packages/overlay/src/integrations/sentry/data/sentryDataCache.ts#L298
+// https://github.com/getsentry/spotlight/blob/%40spotlightjs/spotlight%402.1.0/packages/overlay/src/constants.ts#L9
+export function spotlightContextLinesShim(): Rewrite | null {
+  if (process.env.NODE_ENV !== "development") {
+    return null;
+  }
+
+  return {
+    destination: "http://localhost:8969/health",
+    source: "/@spotlight/contextlines",
+  };
+}
+
 export default function withSentry(config: NextConfig) {
   return withSentryConfig(config, {
     // For all available options, see:

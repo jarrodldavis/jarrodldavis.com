@@ -3,11 +3,11 @@ import type { NextConfig } from "next";
 import headers from "./headers.config";
 import VcfPngResolverPlugin from "./loaders/resolve-vcf-png";
 import type {} from "./reset";
-import withSentry, { reportTunnel } from "./sentry.next.config";
+import withSentry, { reportTunnel, spotlightContextLinesShim } from "./sentry.next.config";
 
 const nextConfig: NextConfig = {
   async rewrites() {
-    return [reportTunnel()].filter(Boolean);
+    return [reportTunnel(), spotlightContextLinesShim()].filter(Boolean);
   },
   webpack: (config) => {
     config.module.rules.push(
