@@ -1,71 +1,45 @@
-### https://raw.github.com/github/gitignore/042be9dc99df945d78c0b66306b92142bb09109c/Jekyll.gitignore
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-_site/
-.sass-cache/
-.jekyll-cache/
-.jekyll-metadata
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+.yarn/install-state.gz
+!patches/*.patch
 
+# testing
+/coverage
 
-### https://raw.github.com/github/gitignore/042be9dc99df945d78c0b66306b92142bb09109c/Ruby.gitignore
+# next.js
+/.next/
+/out/
 
-*.gem
-*.rbc
-/.config
-/coverage/
-/InstalledFiles
-/pkg/
-/spec/reports/
-/spec/examples.txt
-/test/tmp/
-/test/version_tmp/
-/tmp/
+# production
+/build
 
-# Used by dotenv library to load environment variables.
-.env
+# misc
+.DS_Store
+*.pem
 
-# Ignore Byebug command history file.
-.byebug_history
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-## Specific to RubyMotion:
-.dat*
-.repl_history
-build/
-*.bridgesupport
-build-iPhoneOS/
-build-iPhoneSimulator/
+# local env files
+.env*.local
 
-## Specific to RubyMotion (use of CocoaPods):
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
-#
-# vendor/Pods/
+# vercel
+.vercel
 
-## Documentation cache and generated files:
-/.yardoc/
-/_yardoc/
-/doc/
-/rdoc/
+# typescript
+*.tsbuildinfo
+next-env.d.ts
 
-## Environment normalization:
-/.bundle/
-/vendor/bundle
-/lib/bundler/man/
+# typst
+/public/*.pdf
+/imprecv/schema.json
+/imprecv/types.d.ts
 
-# for a library or gem, you might want to ignore these files since the code is
-# intended to run in multiple environments; otherwise, check them in:
-# Gemfile.lock
-# .ruby-version
-# .ruby-gemset
-
-# unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
-.rvmrc
-
-
-### https://raw.github.com/github/gitignore/042be9dc99df945d78c0b66306b92142bb09109c/Sass.gitignore
-
-.sass-cache/
-*.css.map
-*.sass.map
-*.scss.map
+# Sentry Config File
+.env.sentry-build-plugin

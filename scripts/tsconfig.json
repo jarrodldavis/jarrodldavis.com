@@ -1,0 +1,8 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2023",
+  },
+  "include": ["*.mjs", "../*.d.ts"],
+  "exclude": ["../node_modules"],
+}
