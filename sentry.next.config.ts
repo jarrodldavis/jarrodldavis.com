@@ -1,9 +1,12 @@
 import { getSentryRelease, withSentryConfig } from "@sentry/nextjs";
 import type { NextConfig } from "next";
+import { warnOnce } from "next/dist/build/output/log";
 import type { Rewrite } from "next/dist/lib/load-custom-routes";
 
 export const reportRoute = "/reporting";
 
+// https://docs.sentry.io/security-legal-pii/security/security-policy-reporting/
+// https://github.com/getsentry/sentry-javascript/blob/8.19.0/packages/nextjs/src/common/getVercelEnv.ts#L1
 export function reportTunnel(): Rewrite | null {
   const sentryEnv = process.env.VERCEL_ENV
     ? (`vercel-${process.env.VERCEL_ENV}` as const)
@@ -11,7 +14,12 @@ export function reportTunnel(): Rewrite | null {
 
   const reportURI = process.env.SENTRY_REPORT_URI;
   if (!reportURI) {
-    return null;
+    if (process.env.NODE_ENV === "development") {
+      warnOnce("The environment variable `SENTRY_REPORT_URI` should be defined.");
+      return null;
+    } else {
+      throw new Error("The environment variable `SENTRY_REPORT_URI` must be defined.");
+    }
   }
 
   const reportURL = new URL(reportURI);
