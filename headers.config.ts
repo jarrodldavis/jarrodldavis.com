@@ -1,6 +1,6 @@
 import { reportRoute } from "@/sentry.next.config";
 import type { NextConfig } from "next";
-import { hash } from "node:crypto";
+import crypto from "node:crypto";
 
 const isDev = process.env.NODE_ENV === "development";
 const isPreviewToolbar = process.env.VERCEL_ENV === "preview" && !!process.env.VERCEL_TOOLBAR_CSP;
@@ -47,11 +47,13 @@ export default (async function headers(this: NextConfig) {
   ];
 } satisfies NextConfig["headers"]);
 
-function contentSecurityPolicyHash(algorithm: string, content: string) {
-  return `'${algorithm}-${hash(algorithm, content, "base64")}'`;
-}
-
 function contentSecurityPolicy(env: NextConfig["env"]) {
+  type CSPHashAlgorithm = (typeof HASH_ALGORITHMS)[number];
+
+  function hash(algorithm: CSPHashAlgorithm, content: string) {
+    return `'${algorithm}-${crypto.hash(algorithm, content, "base64")}'` as const;
+  }
+
   const NONE = "'none'";
   const SELF = "'self'";
   const INLINE = "'unsafe-inline'";
@@ -60,15 +62,18 @@ function contentSecurityPolicy(env: NextConfig["env"]) {
 
   const BLOB = "blob:";
   const DATA = "data:";
-  const NEXT_IMAGE_PLACEHOLDER = contentSecurityPolicyHash("sha256", "color:transparent");
+
+  const NEXT_IMAGE_PLACEHOLDER = hash("sha256", "color:transparent");
 
   const SENTRY_SPOTLIGHT = "http://localhost:8969/stream";
-
   const PUSHER = "wss://*.pusher.com";
   const VERCEL_DASHBOARD = "https://vercel.com";
   const VERCEL_LIVE = "https://vercel.live";
   const VERCEL_SCRIPTS = "https://va.vercel-scripts.com";
   const VERCEL_TOOLBAR = env?.["VERCEL_TOOLBAR_SERVER"];
+
+  const HASH_ALGORITHMS = ["sha256", "sha384", "sha512"] as const;
+  const INLINE_CONFLICTS = [HASHES, ...["nonce", ...HASH_ALGORITHMS].map((type) => `'${type}-`)];
 
   const groups: Array<Record<string, Array<string | undefined>> | false> = [
     // Self (Baseline)
@@ -153,13 +158,20 @@ function contentSecurityPolicy(env: NextConfig["env"]) {
   }
 
   for (const directive in directives) {
-    const values = directives[directive];
-    if (!values) {
+    const sources = directives[directive];
+
+    if (!sources) {
       continue;
-    } else if (values.length === 0) {
-      values.push(NONE);
+    } else if (sources.length === 0) {
+      sources.push(NONE);
     } else {
-      values.splice(0, values.length, ...new Set(values));
+      sources.splice(0, sources.length, ...new Set(sources));
+    }
+
+    if (sources.includes(INLINE)) {
+      directives[directive] = sources.filter(
+        (source) => !INLINE_CONFLICTS.some((prefix) => source.startsWith(prefix)),
+      );
     }
   }
 
