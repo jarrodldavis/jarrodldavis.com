@@ -10,6 +10,7 @@ declare namespace NodeJS {
     readonly SENTRY_ORG: string;
     readonly SENTRY_PROJECT: string;
     readonly SENTRY_REPORT_URI: string;
+    readonly VERCEL_TOOLBAR_CSP?: string;
 
     readonly [key: string]: unknown;
   }

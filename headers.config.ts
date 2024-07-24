@@ -2,7 +2,7 @@ import { reportRoute } from "@/sentry.next.config";
 import type { NextConfig } from "next";
 
 const isDev = process.env.NODE_ENV === "development";
-const isPreview = process.env.VERCEL_ENV === "preview";
+const isPreviewToolbar = process.env.VERCEL_ENV === "preview" && !!process.env.VERCEL_TOOLBAR_CSP;
 
 export default (async function headers(this: NextConfig) {
   return [
@@ -23,7 +23,7 @@ export default (async function headers(this: NextConfig) {
         },
         {
           key: "Cross-Origin-Embedder-Policy",
-          value: isDev || isPreview ? "unsafe-none" : "credentialless",
+          value: isDev || isPreviewToolbar ? "unsafe-none" : "credentialless",
         },
         {
           key: "Cross-Origin-Resource-Policy",
@@ -112,7 +112,7 @@ function contentSecurityPolicy(env: NextConfig["env"]) {
     },
 
     // Vercel Toolbar (Baseline)
-    (isDev || isPreview) && {
+    (isDev || isPreviewToolbar) && {
       "connect-src": [SELF, DATA, VERCEL_LIVE, PUSHER],
       "frame-src": [VERCEL_LIVE],
       "font-src": [VERCEL_LIVE],
