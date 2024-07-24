@@ -1,5 +1,6 @@
 import { reportRoute } from "@/sentry.next.config";
 import type { NextConfig } from "next";
+import { hash } from "node:crypto";
 
 const isDev = process.env.NODE_ENV === "development";
 const isPreviewToolbar = process.env.VERCEL_ENV === "preview" && !!process.env.VERCEL_TOOLBAR_CSP;
@@ -46,14 +47,20 @@ export default (async function headers(this: NextConfig) {
   ];
 } satisfies NextConfig["headers"]);
 
+function contentSecurityPolicyHash(algorithm: string, content: string) {
+  return `'${algorithm}-${hash(algorithm, content, "base64")}'`;
+}
+
 function contentSecurityPolicy(env: NextConfig["env"]) {
   const NONE = "'none'";
   const SELF = "'self'";
   const INLINE = "'unsafe-inline'";
+  const HASHES = "'unsafe-hashes'";
   const EVAL = "'unsafe-eval'";
 
   const BLOB = "blob:";
   const DATA = "data:";
+  const NEXT_IMAGE_PLACEHOLDER = contentSecurityPolicyHash("sha256", "color:transparent");
 
   const SENTRY_SPOTLIGHT = "http://localhost:8969/stream";
 
@@ -70,7 +77,7 @@ function contentSecurityPolicy(env: NextConfig["env"]) {
       "font-src": [SELF],
       "img-src": [SELF],
       "script-src": [SELF, INLINE],
-      "style-src": [SELF],
+      "style-src": [SELF, HASHES, NEXT_IMAGE_PLACEHOLDER],
       "form-action": [],
       // TODO: enable on switch from `Content-Security-Policy-Report-Only` to `Content-Security-Policy`
       // "frame-ancestors": [],
