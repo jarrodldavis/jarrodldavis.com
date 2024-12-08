@@ -1,6 +1,6 @@
 import { execFile, spawn } from "node:child_process";
 import { createWriteStream } from "node:fs";
-import { chmod, mkdir } from "node:fs/promises";
+import { chmod, mkdir, rm } from "node:fs/promises";
 import { homedir } from "node:os";
 import path from "node:path";
 import { Duplex } from "node:stream";
@@ -14,7 +14,7 @@ import { promisify } from "node:util";
  * @import { ReadableStream } from "node:stream/web";
  */
 
-const TYPST_VERSION = "0.11.1";
+const TYPST_VERSION = "0.12.0";
 
 const run = promisify(execFile);
 
@@ -159,6 +159,7 @@ export default async function installTypst({ force }) {
   console.log("-> preparing output directory...");
   await mkdir(binDir, { recursive: true, mode: 0o755 });
   const binPath = path.join(binDir, "typst");
+  await rm(binPath, { force: true });
   const fileOutput = createWriteStream(binPath);
 
   console.log("-> fetching tarball...");
