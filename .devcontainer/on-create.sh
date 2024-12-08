@@ -9,12 +9,11 @@ ln -sfv "$(realpath .devcontainer/pre-commit.sh)" .git/hooks/pre-commit
 
 echo '==> Removing global packages...'
 npm ls --global --json \
-    | jq --raw-output '.dependencies // [] | keys | .[]' \
+    | jq --raw-output '.dependencies // [] | keys | .[] | select(. != "pnpm")' \
     | xargs npm uninstall --global
 
 echo '==> Setting up pnpm...'
-sudo corepack enable
-corepack prepare
+pnpm config set manage-package-manager-versions true
 pnpm config set store-dir ~/.local/share/pnpm/store
 
 echo '==> Installing pnpm dependencies...'
