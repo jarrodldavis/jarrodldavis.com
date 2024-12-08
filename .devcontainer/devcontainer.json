@@ -9,7 +9,21 @@
   // "features": {},
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [],
+  "forwardPorts": [3000, 3001, 8969],
+  "portsAttributes": {
+    "3000": {
+      "label": "Next.js",
+      "onAutoForward": "silent"
+    },
+    "3001": {
+      "label": "Vercel Toolbar",
+      "onAutoForward": "silent"
+    },
+    "8969": {
+      "label": "Spotlight",
+      "onAutoForward": "silent"
+    }
+  },
 
   // Use 'postCreateCommand' to run commands after the container is created.
   // "postCreateCommand": "yarn install",
