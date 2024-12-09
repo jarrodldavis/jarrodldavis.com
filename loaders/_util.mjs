@@ -1,10 +1,11 @@
-const ICAL = require("ical.js");
-const assert = require("node:assert/strict");
+import ICAL from "ical.js";
+import assert from "node:assert/strict";
 
 /**
  * @param {string} content
+ * @returns {string}
  */
-module.exports.parseVcfPhoto = function parseVcfPhoto(content) {
+export function parseVcfPhoto(content) {
   /** @type {ICAL.Component} */
   let component;
   try {
@@ -17,6 +18,7 @@ module.exports.parseVcfPhoto = function parseVcfPhoto(content) {
 
   const photo = component.getFirstPropertyValue("photo");
   assert.ok(photo, "expected parsed vCard photo value to be available");
+  assert.ok(typeof photo === "string", "expected parsed vCard photo value to be a string");
 
   return photo;
-};
+}

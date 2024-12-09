@@ -3,18 +3,18 @@ import type { NextConfig } from "next";
 import headers from "./headers.config";
 import VcfPngResolverPlugin from "./loaders/resolve-vcf-png";
 import type {} from "./reset";
-import withSentry, { reportTunnel, spotlightContextLinesShim } from "./sentry.next.config";
+import withSentry, { reportTunnel } from "./sentry.next.config";
 
 const nextConfig: NextConfig = {
   async rewrites() {
-    return [reportTunnel(), spotlightContextLinesShim()].filter(Boolean);
+    return [reportTunnel()].filter(Boolean);
   },
   webpack: (config) => {
     config.module.rules.push(
-      { test: /\.ttf$/, use: "loaders/ttf.cjs" },
-      { test: /\.vcf$/, use: "loaders/vcf.cjs" },
-      { test: /\.vcf\.png$/, use: "loaders/vcf.png.cjs" },
-      { test: /\.yml$/, use: "loaders/yaml.cjs" },
+      { test: /\.ttf$/, use: "./loaders/ttf.mjs" },
+      { test: /\.vcf$/, use: "./loaders/vcf.mjs" },
+      { test: /\.vcf\.png$/, use: "./loaders/vcf.png.mjs" },
+      { test: /\.yml$/, use: "./loaders/yaml.mjs" },
     );
 
     config.resolve.plugins.unshift(new VcfPngResolverPlugin());
@@ -31,6 +31,9 @@ const nextConfig: NextConfig = {
   headers,
 };
 
-export default [withSentry, process.env.NODE_ENV === "development" && withVercelToolbar()]
+export default [
+  withSentry,
+  process.env.NODE_ENV === "development" && withVercelToolbar({ devServerPort: 3001 }),
+]
   .filter(Boolean)
   .reduceRight((nextConfig, transform) => transform(nextConfig), nextConfig);

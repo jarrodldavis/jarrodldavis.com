@@ -1,5 +1,5 @@
 {
   "extends": "../tsconfig.json",
-  "include": ["*.cjs", "*.ts", "../next.config.ts", "../*.d.ts"],
+  "include": ["*.mjs", "*.ts", "../next.config.ts", "../*.d.ts"],
   "exclude": ["../node_modules"],
 }

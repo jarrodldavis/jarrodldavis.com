@@ -2,10 +2,10 @@
   "name": "jarrodldavis.com",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@9.6.0",
+  "packageManager": "pnpm@9.15.0",
   "engines": {
-    "node": "20.x",
-    "pnpm": "9.6.0",
+    "node": "22.x",
+    "pnpm": "9.15.0",
     "npm": "0.0.0"
   },
   "engineStrict": true,
@@ -14,7 +14,7 @@
     "dev": "pnpm /dev:/",
     "dev:typst": "typst watch imprecv/template.typ public/jarrod-davis-resume.pdf",
     "dev:next": "next dev",
-    "dev:spotlight": "spotlight-sidecar",
+    "dev:spotlight": "spotlight",
     "build": "pnpm --sequential /build:/",
     "build:typst": "typst compile imprecv/template.typ public/jarrod-davis-resume.pdf",
     "build:next": "next build",
@@ -28,45 +28,41 @@
   "pnpm": {
     "patchedDependencies": {
       "geist@1.3.1": "patches/geist@1.3.1.patch"
-    },
-    "updateConfig": {
-      "ignoreDependencies": [
-        "eslint"
-      ]
     }
   },
   "dependencies": {
-    "@sentry/nextjs": "^8.19.0",
-    "@spotlightjs/spotlight": "^2.1.1",
-    "@vercel/analytics": "^1.3.1",
-    "@vercel/speed-insights": "^1.0.12",
-    "@vercel/toolbar": "^0.1.15",
+    "@sentry/nextjs": "^8.42.0",
+    "@spotlightjs/spotlight": "^2.7.0",
+    "@vercel/analytics": "^1.4.1",
+    "@vercel/speed-insights": "^1.1.0",
+    "@vercel/toolbar": "^0.1.27",
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
     "geist": "^1.3.1",
-    "next": "15.0.0-canary.79",
-    "react": "19.0.0-rc-dfd30974ab-20240613",
-    "react-dom": "19.0.0-rc-dfd30974ab-20240613",
+    "next": "15.0.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "react-markdown": "^9.0.1"
   },
   "devDependencies": {
-    "@total-typescript/ts-reset": "^0.5.1",
-    "@types/node": "^20.14.12",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "15.0.0-canary.79",
+    "@eslint/eslintrc": "^3.2.0",
+    "@total-typescript/ts-reset": "^0.6.1",
+    "@types/eslint__eslintrc": "^2.1.2",
+    "@types/node": "^22.10.1",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.1",
+    "eslint": "^9.16.0",
+    "eslint-config-next": "15.0.4",
     "eslint-config-prettier": "^9.1.0",
-    "ical.js": "^2.0.1",
-    "json-schema-to-typescript": "^15.0.0",
-    "loaders": "link:loaders",
-    "postcss": "^8.4.39",
-    "prettier": "^3.3.3",
-    "prettier-plugin-organize-imports": "^4.0.0",
-    "prettier-plugin-tailwindcss": "^0.6.5",
-    "sharp": "^0.33.4",
-    "tailwindcss": "^3.4.6",
-    "typescript": "^5.5.4",
-    "yaml": "^2.4.5"
+    "ical.js": "^2.1.0",
+    "json-schema-to-typescript": "^15.0.3",
+    "postcss": "^8.4.49",
+    "prettier": "^3.4.2",
+    "prettier-plugin-organize-imports": "^4.1.0",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5.7.2",
+    "yaml": "^2.6.1"
   }
 }

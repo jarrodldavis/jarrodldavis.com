@@ -16,7 +16,7 @@ export default (async function headers(this: NextConfig) {
         },
         {
           key: "Content-Security-Policy-Report-Only",
-          value: contentSecurityPolicy(this.env),
+          value: contentSecurityPolicy(),
         },
         {
           key: "Cross-Origin-Opener-Policy",
@@ -47,7 +47,7 @@ export default (async function headers(this: NextConfig) {
   ];
 } satisfies NextConfig["headers"]);
 
-function contentSecurityPolicy(env: NextConfig["env"]) {
+function contentSecurityPolicy() {
   type CSPHashAlgorithm = (typeof HASH_ALGORITHMS)[number];
 
   function hash(algorithm: CSPHashAlgorithm, content: string) {
@@ -70,7 +70,7 @@ function contentSecurityPolicy(env: NextConfig["env"]) {
   const VERCEL_DASHBOARD = "https://vercel.com";
   const VERCEL_LIVE = "https://vercel.live";
   const VERCEL_SCRIPTS = "https://va.vercel-scripts.com";
-  const VERCEL_TOOLBAR = env?.["VERCEL_TOOLBAR_SERVER"];
+  const VERCEL_TOOLBAR = String(process.env["NEXT_PUBLIC_VERCEL_TOOLBAR_SERVER"]);
 
   const HASH_ALGORITHMS = ["sha256", "sha384", "sha512"] as const;
   const INLINE_CONFLICTS = [HASHES, ...["nonce", ...HASH_ALGORITHMS].map((type) => `'${type}-`)];

@@ -3,8 +3,8 @@
 #let cvdata = yaml("template.yml")
 
 #let uservars = (
-    headingfont: "Linux Libertine",
-    bodyfont: "Linux Libertine",
+    headingfont: "Libertinus Serif",
+    bodyfont: "Libertinus Serif",
     fontsize: 10pt, // 10pt, 11pt, 12pt
     linespacing: 6pt,
     sectionspacing: 0pt,
@@ -60,4 +60,4 @@
 #cvpublications(cvdata)
 #cvskills(cvdata)
 #cvreferences(cvdata)
-#endnote(uservars)
+// #endnote(uservars)

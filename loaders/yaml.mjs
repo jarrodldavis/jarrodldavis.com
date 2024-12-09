@@ -1,8 +1,8 @@
-const YAML = require("yaml");
+import * as YAML from "yaml";
 
 /**
  * @param {string} content
  */
-module.exports = function yamlLoader(content) {
+export default function yamlLoader(content) {
   return `export default ${JSON.stringify(YAML.parse(content.trim()))};`;
-};
+}
