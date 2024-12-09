@@ -56,7 +56,6 @@
     "eslint-config-prettier": "^9.1.0",
     "ical.js": "^2.1.0",
     "json-schema-to-typescript": "^15.0.3",
-    "loaders": "link:loaders",
     "postcss": "^8.4.49",
     "prettier": "^3.4.2",
     "prettier-plugin-organize-imports": "^4.1.0",

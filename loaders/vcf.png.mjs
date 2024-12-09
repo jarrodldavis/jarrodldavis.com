@@ -1,17 +1,17 @@
-const { promisify } = require("node:util");
-const { parseVcfPhoto } = require("./_util.cjs");
+import { promisify } from "node:util";
+import { parseVcfPhoto } from "./_util.mjs";
 
 /**
  * @param {string} content
  */
-module.exports = async function vcfPngLoader(content) {
+export default async function vcfPngLoader(content) {
   return content;
-};
+}
 
 /**
  * @this {{ fs: import('node:fs'), resourcePath: string }}
  */
-module.exports.pitch = async function vcfPngLoaderPitch() {
+export const pitch = async function vcfPngLoaderPitch() {
   const vcfPath = this.resourcePath.replace(/\.png$/, "");
   const readFile = promisify(this.fs.readFile);
   const content = await readFile(vcfPath, { encoding: "utf-8" });

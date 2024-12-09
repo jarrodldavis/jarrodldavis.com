@@ -11,10 +11,10 @@ const nextConfig: NextConfig = {
   },
   webpack: (config) => {
     config.module.rules.push(
-      { test: /\.ttf$/, use: "loaders/ttf.cjs" },
-      { test: /\.vcf$/, use: "loaders/vcf.cjs" },
-      { test: /\.vcf\.png$/, use: "loaders/vcf.png.cjs" },
-      { test: /\.yml$/, use: "loaders/yaml.cjs" },
+      { test: /\.ttf$/, use: "./loaders/ttf.mjs" },
+      { test: /\.vcf$/, use: "./loaders/vcf.mjs" },
+      { test: /\.vcf\.png$/, use: "./loaders/vcf.png.mjs" },
+      { test: /\.yml$/, use: "./loaders/yaml.mjs" },
     );
 
     config.resolve.plugins.unshift(new VcfPngResolverPlugin());

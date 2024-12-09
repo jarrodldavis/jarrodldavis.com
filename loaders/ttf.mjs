@@ -1,8 +1,8 @@
 /**
  * @param {Buffer} content
  */
-module.exports = function ttfLoader(content) {
+export default function ttfLoader(content) {
   return `export default Buffer.from(${JSON.stringify(content)});`;
-};
+}
 
-module.exports.raw = true;
+export const raw = true;
