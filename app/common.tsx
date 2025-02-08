@@ -25,7 +25,7 @@ export function DateRange({ startDate, endDate }: DateRangeProps) {
   }
 
   return (
-    <p className="text-nowrap font-mono tracking-tight">
+    <p className="font-mono tracking-tight text-nowrap">
       <time dateTime={start.toISOString().split("T")[0]}>{DATE_FORMATTER.format(start)}</time>
       <span> &ndash; </span>
       {end instanceof Date ? (

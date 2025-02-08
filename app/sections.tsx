@@ -56,9 +56,9 @@ interface TertiarySectionProps {
 
 export function TertiarySection({ title, startDate, endDate, children }: TertiarySectionProps) {
   return (
-    <section className="mb-4 mt-1">
+    <section className="mt-1 mb-4">
       <hgroup className="mb-2 flex flex-col gap-1 text-center sm:mb-1 sm:flex-row sm:justify-between sm:text-start">
-        <h4 className="text-balance italic sm:max-w-sm md:max-w-md min-[850px]:max-w-xl">
+        <h4 className="text-balance italic min-[850px]:max-w-xl sm:max-w-sm md:max-w-md">
           {title}
         </h4>
         <DateRange startDate={startDate} endDate={endDate} />
