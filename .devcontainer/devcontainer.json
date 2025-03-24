@@ -20,9 +20,10 @@
 		"vscode": {
 			"extensions": [
 				"bradlc.vscode-tailwindcss",
+				"dbaeumer.vscode-eslint",
 				"esbenp.prettier-vscode",
-				"svelte.svelte-vscode",
-				"dbaeumer.vscode-eslint"
+				"redhat.vscode-yaml",
+				"svelte.svelte-vscode"
 			]
 		}
 	}

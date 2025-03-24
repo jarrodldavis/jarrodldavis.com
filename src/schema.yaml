@@ -1,0 +1,197 @@
+# yaml-language-server: $schema=https://json-schema.org/draft-07/schema
+
+$schema: http://json-schema.org/draft-07/schema#
+$id: http://jarrodldavis.com/schema.json#
+title: jarrodldavis.com resume schema
+
+definitions:
+  location:
+    type: object
+    required: [city, state]
+    additionalProperties: false
+    properties:
+      city:
+        type: string
+      state:
+        type: string
+
+type: object
+required: [profile, work, education, projects, skills, languages, interests]
+additionalProperties: false
+properties:
+  profile:
+    type: object
+    required: [name, titles, location, email, url, networks]
+    additionalProperties: false
+    properties:
+      name:
+        type: string
+      titles:
+        type: array
+        items:
+          type: string
+      location:
+        $ref: '#/definitions/location'
+      email:
+        type: string
+        format: email
+      url:
+        type: string
+        format: uri
+      networks:
+        type: array
+        items:
+          type: object
+          required: [network, username, url]
+          additionalProperties: false
+          properties:
+            network:
+              type: string
+            username:
+              type: string
+            url:
+              type: string
+              format: uri
+
+  work:
+    type: array
+    items:
+      type: object
+      required: [company, url, location, remote, positions]
+      additionalProperties: false
+      properties:
+        company:
+          type: string
+        url:
+          type: [string, 'null']
+          format: uri
+        location:
+          $ref: '#/definitions/location'
+        remote:
+          type: boolean
+          default: false
+        positions:
+          type: array
+          items:
+            type: object
+            required: [title, summary, start_date, end_date, highlights]
+            additionalProperties: false
+            properties:
+              title:
+                type: string
+              summary:
+                type: string
+              start_date:
+                type: [string, 'null']
+                format: date
+              end_date:
+                type: string
+                format: date
+              highlights:
+                type: array
+                items:
+                  type: string
+
+  education:
+    type: array
+    items:
+      type: object
+      required:
+        - institution
+        - url
+        - location
+        - degree
+        - major
+        - start_date
+        - end_date
+        - honors
+        - courses
+        - highlights
+      additionalProperties: false
+      properties:
+        institution:
+          type: string
+        url:
+          type: [string, 'null']
+          format: uri
+        location:
+          $ref: '#/definitions/location'
+        degree:
+          type: string
+        major:
+          type: string
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: [string, 'null']
+          format: date
+        honors:
+          type: array
+          items:
+            type: string
+        courses:
+          type: array
+          items:
+            type: string
+        highlights:
+          type: array
+          items:
+            type: string
+
+  projects:
+    type: array
+    items:
+      type: object
+      required: [name, url, start_date, end_date, affiliation, highlights]
+      additionalProperties: false
+      properties:
+        name:
+          type: string
+        url:
+          type: [string, 'null']
+          format: uri
+        affiliation:
+          type: [string, 'null']
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: [string, 'null']
+          format: date
+        highlights:
+          type: array
+          items:
+            type: string
+
+  skills:
+    type: array
+    items:
+      type: object
+      required: [category, skills]
+      additionalProperties: false
+      properties:
+        category:
+          type: string
+        skills:
+          type: array
+          minItems: 1
+          items:
+            type: string
+
+  languages:
+    type: array
+    items:
+      type: object
+      required: [language, proficiency]
+      additionalProperties: false
+      properties:
+        language:
+          type: string
+        proficiency:
+          type: string
+
+  interests:
+    type: array
+    items:
+      type: string
