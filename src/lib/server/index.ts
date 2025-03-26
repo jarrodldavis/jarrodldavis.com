@@ -1,6 +1,6 @@
 import { read } from '$app/server';
-import { RESUME_SCHEMA, type Resume } from '$lib/schema';
 import data_path from '$lib/data.yaml';
+import { RESUME_SCHEMA, type Resume } from '$lib/schema';
 import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 import YAML from 'yaml';
