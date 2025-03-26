@@ -1,10 +1,24 @@
 <script lang="ts">
-	const { data } = $props();
+	import Heading from './heading.svelte';
+	import type { PageProps } from './$types';
+	import Intro from './intro.svelte';
+	import Work from './work.svelte';
+	import Education from './education.svelte';
+	import Projects from './projects.svelte';
+	import Skills from './skills.svelte';
 
-	$effect(() => {
-		console.log(data.resume);
-	});
+	const { data }: PageProps = $props();
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<main class="mx-auto mb-8 max-w-4xl min-w-80 p-4 sm:p-8 md:p-12">
+	<Heading profile={data.resume.profile} />
+	<Intro />
+	<Work work={data.resume.work} />
+	<Education education={data.resume.education} />
+	<Projects projects={data.resume.projects} />
+	<Skills
+		skills={data.resume.skills}
+		languages={data.resume.languages}
+		interests={data.resume.interests}
+	/>
+</main>

@@ -1,1 +1,20 @@
 @import 'tailwindcss';
+
+@theme {
+	--breakpoint-2xs: 475px;
+	--breakpoint-xs: 525px;
+}
+
+@custom-variant tall {
+	@media (min-height: 500px) {
+		@slot;
+	}
+}
+
+@utility delimiter-slash {
+	@apply after:content-['/'_/_''] last:after:content-none;
+}
+
+@utility delimiter-diamond {
+	@apply after:content-['\25C6'_/_''] last:after:content-none;
+}
