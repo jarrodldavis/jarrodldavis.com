@@ -82,10 +82,10 @@ properties:
               summary:
                 type: string
               start_date:
-                type: [string, 'null']
+                type: string
                 format: date
               end_date:
-                type: string
+                type: [string, 'null']
                 format: date
               highlights:
                 type: array

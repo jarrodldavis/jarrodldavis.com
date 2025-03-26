@@ -12,11 +12,9 @@ const out_path = path.join(process.cwd(), path.join('src', 'lib', 'schema.ts'));
 const out = `
 // This file is auto-generated from schema.yaml. Do not edit it directly.
 
-import type { FromSchema, JSONSchema } from 'json-schema-to-ts';
+import type { JSONSchema } from 'json-schema-to-ts';
 
 export const RESUME_SCHEMA = ${stringified_schema} as const satisfies JSONSchema;
-
-export type Resume = FromSchema<typeof RESUME_SCHEMA>;
 `.trimStart();
 
 await fs.writeFile(out_path, out, 'utf8');

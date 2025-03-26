@@ -1,4 +1,9 @@
 {
+	"[svelte]": {
+		"editor.quickSuggestions": {
+			"strings": "on"
+		}
+	},
 	"[yaml]": {
 		"diffEditor.ignoreTrimWhitespace": false,
 		"editor.insertSpaces": true
