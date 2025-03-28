@@ -16,6 +16,14 @@
 	<div
 		class="tall:flex-col max-2xs:flex-col 2xs:gap-3 flex flex-row items-center gap-2 text-center"
 	>
+		<enhanced:img
+			alt="A Memoji of me on a green background"
+			src="./memoji.png?w=64;96;128;192;256"
+			fetchpriority="high"
+			sizes="(min-height: 500px) and (min-width: 475px) 8rem, (min-height: 500px) 6rem, 4rem"
+			class="tall:w-24 tall:p-2.5 tall:xs:w-32 tall:xs:p-3 tall:border-2 box-content w-16 rounded-full border-0 border-slate-200 bg-slate-300 p-2 shadow-inner shadow-slate-400 dark:border-zinc-950 dark:bg-zinc-700 dark:shadow-zinc-950"
+		/>
+
 		<h1 class="font-mono text-4xl font-black">{profile.name}</h1>
 	</div>
 
