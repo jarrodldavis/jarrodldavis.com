@@ -12,8 +12,8 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
 	"onCreateCommand": "./.devcontainer/on-create.sh",
+	"postCreateCommand": "./.devcontainer/post-create.sh",
 
 	// Configure tool-specific properties.
 	"customizations": {

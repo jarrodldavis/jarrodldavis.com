@@ -6,5 +6,11 @@ import prepare from './prepare/vite-plugin';
 
 export default defineConfig({
 	plugins: [prepare(), tailwindcss(), enhancedImages(), sveltekit()],
-	assetsInclude: ['**/*.yaml']
+	assetsInclude: ['**/*.yaml'],
+	optimizeDeps: {
+		exclude: ['chromium-bidi']
+	},
+	esbuild: {
+		target: 'node22'
+	}
 });
