@@ -14,7 +14,7 @@ profile:
   networks:
     - network: LinkedIn
       username: jarrodldavis
-      url: https://www.linkedin.com/in/jarrodldavis
+      url: https://linkedin.com/in/jarrodldavis
     - network: GitHub
       username: jarrodldavis
       url: https://github.com/jarrodldavis
