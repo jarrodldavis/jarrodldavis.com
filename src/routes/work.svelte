@@ -23,6 +23,7 @@
 			{#each experience.positions as position (position)}
 				<TertiarySection
 					title={position.title}
+					subtitle={position.summary}
 					start_date={position.start_date}
 					end_date={position.end_date}
 				>

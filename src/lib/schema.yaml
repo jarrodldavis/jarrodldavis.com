@@ -7,13 +7,15 @@ title: jarrodldavis.com resume schema
 definitions:
   location:
     type: object
-    required: [city, state]
+    required: [city, state, remote]
     additionalProperties: false
     properties:
       city:
         type: string
       state:
         type: string
+      remote:
+        type: boolean
 
 type: object
 required: [profile, work, education, projects, skills, languages, interests]
@@ -57,7 +59,7 @@ properties:
     type: array
     items:
       type: object
-      required: [company, url, location, remote, positions]
+      required: [company, url, location, positions]
       additionalProperties: false
       properties:
         company:
@@ -67,9 +69,6 @@ properties:
           format: uri
         location:
           $ref: '#/definitions/location'
-        remote:
-          type: boolean
-          default: false
         positions:
           type: array
           items:

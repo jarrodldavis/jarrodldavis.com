@@ -24,6 +24,7 @@
 
 			<TertiarySection
 				title="{experience.degree} in {experience.major}"
+				subtitle={null}
 				start_date={experience.start_date}
 				end_date={experience.end_date}
 			>

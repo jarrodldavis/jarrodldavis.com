@@ -9,6 +9,7 @@ profile:
   location:
     city: Colorado Springs
     state: Colorado
+    remote: false
   email: developer@jarrodldavis.com
   url: https://jarrodldavis.com
   networks:
@@ -25,7 +26,7 @@ work:
     location:
       city: Colorado Springs
       state: Colorado
-    remote: true
+      remote: true
     positions:
       - title: Front-end Engineer
         summary: triplemint.com and theagencyre.com
@@ -59,10 +60,10 @@ work:
     location:
       city: Colorado Springs
       state: Colorado
-    remote: true
+      remote: true
     positions:
       - title: Software Engineer
-        summary: various web, scripting, and scripting/automation projects
+        summary: Various web, software, and scripting/automation projects
         start_date: 2019-11-23
         end_date: 2021-04-10
         highlights:
@@ -89,7 +90,7 @@ work:
     location:
       city: Dallas
       state: Texas
-    remote: false
+      remote: false
     positions:
       - title: Senior Web Engineer
         summary: HomeCare SaaS product for home care and private duty agencies
@@ -125,7 +126,7 @@ work:
     location:
       city: Lehi
       state: Utah
-    remote: false
+      remote: false
     positions:
       - title: Frontend Developer Intern
         summary: Internal developer tool
@@ -142,7 +143,7 @@ work:
     location:
       city: South Jordan
       state: Utah
-    remote: false
+      remote: false
     positions:
       - title: Developer Intern (UI/UX Team)
         summary: Voice of Customer and Enterprise Feedback Management services
@@ -161,6 +162,7 @@ education:
     location:
       city: Salt Lake City
       state: Utah
+      remote: false
     degree: Bachelor of Science
     major: Web Design and Development
     start_date: 2012-10-08

@@ -13,7 +13,7 @@
 
 <section class="mb-6">
 	<hgroup class="flex flex-col gap-1 text-center sm:flex-row sm:justify-between sm:text-start">
-		<h3 class="text-lg font-bold">
+		<h3 class="text-lg font-bold text-balance">
 			{#if url}
 				<a href={url} target="_blank" rel="noopener noreferrer">
 					{title}

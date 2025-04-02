@@ -11,7 +11,7 @@
 
 <section class="mt-6">
 	<h2
-		class="mb-2 border-b-2 border-black text-center font-mono text-2xl font-light uppercase sm:text-start sm:text-xl sm:font-extralight dark:border-stone-300"
+		class="mb-2 border-b-2 border-black text-center font-mono text-2xl font-light text-balance uppercase sm:text-start sm:text-xl sm:font-extralight dark:border-stone-300"
 	>
 		{title}
 	</h2>

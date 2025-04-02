@@ -31,7 +31,7 @@
 	}
 </script>
 
-<p class="font-mono tracking-tight text-nowrap">
+<span class="font-mono tracking-tight text-nowrap">
 	<time datetime={start_date.toISOString().split('T')[0]}>
 		<span aria-hidden="true">{formatter.format(start_date)}</span>
 		<span class="sr-only">{sr_formatter.format(start_date)}</span>
@@ -52,4 +52,4 @@
 			{end_date}
 		</time>
 	{/if}
-</p>
+</span>
