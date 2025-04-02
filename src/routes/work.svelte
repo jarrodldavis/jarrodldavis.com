@@ -26,11 +26,7 @@
 					start_date={position.start_date}
 					end_date={position.end_date}
 				>
-					<List items={position.highlights}>
-						{#snippet item(item)}
-							{item}
-						{/snippet}
-					</List>
+					<List items={position.highlights} />
 				</TertiarySection>
 			{/each}
 		</SecondarySection>

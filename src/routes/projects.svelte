@@ -19,11 +19,7 @@
 				<DateRange start={project.start_date} end={project.end_date} />
 			{/snippet}
 
-			<List items={project.highlights}>
-				{#snippet item(item)}
-					{item}
-				{/snippet}
-			</List>
+			<List items={project.highlights} />
 		</SecondarySection>
 	{/each}
 </PrimarySection>
