@@ -8,7 +8,7 @@
 	const { location }: Props = $props();
 </script>
 
-<p class="font-semibold">
+<p class="font-medium">
 	{location.city}, {location.state}
 	{#if location.remote}
 		<span class="text-sm font-normal italic">(Remote)</span>

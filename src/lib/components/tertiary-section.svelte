@@ -21,7 +21,9 @@
 		{#if subtitle}
 			<p class="col-span-full text-balance italic sm:order-1">{subtitle}</p>
 		{/if}
-		<p><DateRange start={start_date} end={end_date} /></p>
+		<p class="font-mono tracking-tight text-nowrap">
+			<DateRange start={start_date} end={end_date} />
+		</p>
 	</hgroup>
 
 	{@render children()}

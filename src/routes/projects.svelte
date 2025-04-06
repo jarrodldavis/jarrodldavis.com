@@ -16,7 +16,9 @@
 	{#each projects as project (project)}
 		<SecondarySection title={project.name} url={project.url}>
 			{#snippet subtitle()}
-				<p><DateRange start={project.start_date} end={project.end_date} /></p>
+				<p class="font-mono tracking-tight text-nowrap">
+					<DateRange start={project.start_date} end={project.end_date} />
+				</p>
 			{/snippet}
 
 			<List items={project.highlights} />

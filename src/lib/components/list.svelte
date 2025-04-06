@@ -16,9 +16,10 @@
 <script lang="ts">
 	interface Props {
 		items: Item[];
+		tight?: boolean;
 	}
 
-	const { items }: Props = $props();
+	const { items, tight = false }: Props = $props();
 </script>
 
 {#if items.length}
@@ -27,7 +28,7 @@
 			{@const [title, content] = extract_title_and_content(item)}
 
 			{#if content.length}
-				<li class="mb-1">
+				<li class={{ 'mb-1': !tight }}>
 					{#if title}
 						<span class="font-bold">{title}</span>:
 					{/if}

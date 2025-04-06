@@ -1,21 +1,12 @@
-<script lang="ts" module>
-	const date_formatter = new Intl.DateTimeFormat('en-US', {
-		month: 'short',
-		year: 'numeric',
-		timeZone: 'UTC'
-	});
-
-	const list_formatter = new Intl.ListFormat('en', {
-		type: 'unit'
-	});
-
-	type DateRange = readonly [start: string, end: string | null];
-</script>
-
 <script lang="ts">
-	import type { Location } from '$lib/types';
-
+	import DateRange from '$lib/components/date-range.svelte';
+	import List, { type Item } from '$lib/components/list.svelte';
+	import Location from '$lib/components/location.svelte';
+	import type { Location as LocationType } from '$lib/types';
 	import type { PageProps } from './$types';
+
+	type DateRangeType = readonly [start: string, end: string | null];
+	type Subtitle = LocationType | DateRangeType;
 
 	const { data }: PageProps = $props();
 	const resume = data.resume;
@@ -23,8 +14,8 @@
 	const work = resume.work;
 	const education = resume.education;
 	const projects = resume.projects;
-	const skills = resume.skills;
-	const languages = resume.languages;
+	const skills = resume.skills.map<Item>((skill) => [skill.category, skill.skills]);
+	const languages = resume.languages.map((l) => `${l.language} (${l.proficiency})`);
 	const interests = resume.interests;
 
 	function url_display(raw_url: string) {
@@ -39,7 +30,7 @@
 	</h2>
 {/snippet}
 
-{#snippet secondary_heading(title: string, url: string | null, subtitle: Location | DateRange)}
+{#snippet secondary_heading(title: string, url: string | null, subtitle: Subtitle)}
 	<hgroup class="flex break-inside-avoid break-after-avoid justify-between">
 		<h3 class="font-semibold">
 			{#if url}
@@ -50,9 +41,9 @@
 		</h3>
 
 		{#if subtitle instanceof Array}
-			{@render date_range(subtitle[0], subtitle[1])}
+			<p><DateRange start={subtitle[0]} end={subtitle[1]} /></p>
 		{:else}
-			<p class="font-semibold">{subtitle.city}, {subtitle.state}</p>
+			<Location location={subtitle} />
 		{/if}
 	</hgroup>
 {/snippet}
@@ -60,19 +51,8 @@
 {#snippet tertiary_heading(title: string, start_date: string, end_date: string | null)}
 	<hgroup class="flex break-inside-avoid break-after-avoid justify-between">
 		<h4 class="italic">{title}</h4>
-		{@render date_range(start_date, end_date)}
+		<p><DateRange start={start_date} end={end_date} /></p>
 	</hgroup>
-{/snippet}
-
-{#snippet date_range(start: string, end: string | null)}
-	{@const start_date = new Date(start)}
-	{@const end_date = end ? new Date(end) : 'Present'}
-
-	<p>
-		{date_formatter.format(start_date)}
-		&ndash;
-		{end_date instanceof Date ? date_formatter.format(end_date) : end_date}
-	</p>
 {/snippet}
 
 <main class="bg-white font-serif text-sm leading-tight text-black **:[section]:mb-2">
@@ -85,7 +65,7 @@
 			{/each}
 		</ul>
 
-		<p>{profile.location.city}, {profile.location.state}</p>
+		<Location location={profile.location} />
 
 		<ul class="*:delimiter-diamond flex items-center gap-2 *:contents *:after:text-xs">
 			<li><a href="mailto:{profile.email}">{profile.email}</a></li>
@@ -106,12 +86,7 @@
 				{#each experience.positions as position (position)}
 					<section>
 						{@render tertiary_heading(position.title, position.start_date, position.end_date)}
-
-						<ul class="ml-4 list-outside list-disc">
-							{#each position.highlights as highlight (highlight)}
-								<li>{highlight}</li>
-							{/each}
-						</ul>
+						<List items={position.highlights} tight />
 					</section>
 				{/each}
 			</section>
@@ -127,26 +102,14 @@
 
 				<section>
 					{@render tertiary_heading(experience.degree, experience.start_date, experience.end_date)}
-
-					<ul class="ml-4 list-outside list-disc">
-						{#if experience.honors.length}
-							<li>
-								<span class="font-bold">Honors</span>:
-								{list_formatter.format(experience.honors)}
-							</li>
-						{/if}
-
-						{#if experience.courses.length}
-							<li>
-								<span class="font-bold">Courses</span>:
-								{list_formatter.format(experience.courses)}
-							</li>
-						{/if}
-
-						{#each experience.highlights as highlight (highlight)}
-							<li>{highlight}</li>
-						{/each}
-					</ul>
+					<List
+						items={[
+							['Honors', experience.honors],
+							['Courses', experience.courses],
+							...experience.highlights
+						]}
+						tight
+					/>
 				</section>
 			</section>
 		{/each}
@@ -160,45 +123,14 @@
 
 			<section>
 				{@render secondary_heading(project.name, project.url, date_range)}
-
-				<ul class="ml-4 list-outside list-disc">
-					{#each project.highlights as highlight (highlight)}
-						<li>{highlight}</li>
-					{/each}
-				</ul>
+				<List items={project.highlights} tight />
 			</section>
 		{/each}
 	</section>
 
 	<section>
 		{@render primary_heading('Skills, Languages, Interests')}
-
-		<ul>
-			{#if languages.length}
-				{@const formatted_languages = languages.map(
-					({ language, proficiency }) => `${language} (${proficiency})`
-				)}
-
-				<li>
-					<span class="font-bold">Languages</span>:
-					{list_formatter.format(formatted_languages)}
-				</li>
-			{/if}
-
-			{#each skills as category (category)}
-				<li>
-					<span class="font-bold">{category.category}</span>:
-					{list_formatter.format(category.skills)}
-				</li>
-			{/each}
-
-			{#if interests.length}
-				<li>
-					<span class="font-bold">Interests</span>:
-					{list_formatter.format(interests)}
-				</li>
-			{/if}
-		</ul>
+		<List items={[['Languages', languages], ...skills, ['Interests', interests]]} tight />
 	</section>
 </main>
 

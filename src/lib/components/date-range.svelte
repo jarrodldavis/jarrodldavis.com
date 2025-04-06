@@ -31,25 +31,23 @@
 	}
 </script>
 
-<span class="font-mono tracking-tight text-nowrap">
-	<time datetime={start_date.toISOString().split('T')[0]}>
-		<span aria-hidden="true">{formatter.format(start_date)}</span>
-		<span class="sr-only">{sr_formatter.format(start_date)}</span>
-	</time>
+<time datetime={start_date.toISOString().split('T')[0]}>
+	<span aria-hidden="true">{formatter.format(start_date)}</span>
+	<span class="sr-only">{sr_formatter.format(start_date)}</span>
+</time>
 
-	<span>
-		<span aria-hidden="true"> &ndash; </span>
-		<span class="sr-only"> through </span>
-	</span>
-
-	{#if end_date instanceof Date}
-		<time datetime={end_date.toISOString().split('T')[0]}>
-			<span aria-hidden="true">{formatter.format(end_date)}</span>
-			<span class="sr-only">{sr_formatter.format(end_date)}</span>
-		</time>
-	{:else}
-		<time datetime={new Date().toISOString().split('T')[0]}>
-			{end_date}
-		</time>
-	{/if}
+<span>
+	<span aria-hidden="true"> &ndash; </span>
+	<span class="sr-only"> through </span>
 </span>
+
+{#if end_date instanceof Date}
+	<time datetime={end_date.toISOString().split('T')[0]}>
+		<span aria-hidden="true">{formatter.format(end_date)}</span>
+		<span class="sr-only">{sr_formatter.format(end_date)}</span>
+	</time>
+{:else}
+	<time datetime={new Date().toISOString().split('T')[0]}>
+		{end_date}
+	</time>
+{/if}
