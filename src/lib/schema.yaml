@@ -5,6 +5,17 @@ $id: http://jarrodldavis.com/schema.json#
 title: jarrodldavis.com resume schema
 
 definitions:
+  highlight:
+    oneOf:
+      - type: string
+      - type: object
+        required: [title, content]
+        additionalProperties: false
+        properties:
+          title:
+            type: string
+          content:
+            type: string
   location:
     type: object
     required: [city, state, remote]
@@ -89,7 +100,7 @@ properties:
               highlights:
                 type: array
                 items:
-                  type: string
+                  $ref: '#/definitions/highlight'
 
   education:
     type: array
@@ -136,7 +147,7 @@ properties:
         highlights:
           type: array
           items:
-            type: string
+            $ref: '#/definitions/highlight'
 
   projects:
     type: array
@@ -161,7 +172,7 @@ properties:
         highlights:
           type: array
           items:
-            type: string
+            $ref: '#/definitions/highlight'
 
   skills:
     type: array

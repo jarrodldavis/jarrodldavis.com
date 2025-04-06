@@ -2,14 +2,19 @@
 	export type Item =
 		| string
 		| [title: string, content: string]
+		| { title: string; content: string }
 		| [title: string, subitems: string[]];
 
 	const formatter = new Intl.ListFormat('en-US', { type: 'unit' });
 
 	function extract_title_and_content(item: Item): [title: string | null, content: string] {
-		return typeof item === 'string'
-			? [null, item]
-			: [item[0], typeof item[1] === 'string' ? item[1] : formatter.format(item[1])];
+		if (typeof item === 'string') {
+			return [null, item];
+		} else if (Array.isArray(item)) {
+			return [item[0], typeof item[1] === 'string' ? item[1] : formatter.format(item[1])];
+		} else {
+			return [item.title, item.content];
+		}
 	}
 </script>
 

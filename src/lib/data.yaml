@@ -134,9 +134,8 @@ work:
         end_date: 2015-03-17
         highlights:
           - Developed an internal tool used by developers
-          - >-
-            **Technologies**:
-            Python, HTML/CSS, JavaScript, MySQL, git, PyCharm, LESS, Django, Angular.js
+          - title: Technologies
+            content: Python, HTML/CSS, JavaScript, MySQL, git, PyCharm, LESS, Django, Angular.js
 
   - company: Allegiance / MaritzCX
     url: null
