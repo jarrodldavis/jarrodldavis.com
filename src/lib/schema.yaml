@@ -34,7 +34,7 @@ additionalProperties: false
 properties:
   profile:
     type: object
-    required: [name, titles, location, email, url, networks]
+    required: [name, titles, location, email, url, networks, intro]
     additionalProperties: false
     properties:
       name:
@@ -65,6 +65,8 @@ properties:
             url:
               type: string
               format: uri
+      intro:
+        type: string
 
   work:
     type: array

@@ -6,13 +6,16 @@
 	import Education from './education.svelte';
 	import Projects from './projects.svelte';
 	import Skills from './skills.svelte';
+	import Metadata from './metadata.svelte';
 
 	const { data }: PageProps = $props();
 </script>
 
+<Metadata profile={data.resume.profile} />
+
 <main class="mx-auto mb-8 max-w-4xl min-w-80 p-4 sm:p-8 md:p-12">
 	<Heading profile={data.resume.profile} />
-	<Intro />
+	<Intro profile={data.resume.profile} />
 	<Work work={data.resume.work} />
 	<Education education={data.resume.education} />
 	<Projects projects={data.resume.projects} />

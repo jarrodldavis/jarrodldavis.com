@@ -19,6 +19,11 @@ profile:
     - network: GitHub
       username: jarrodldavis
       url: https://github.com/jarrodldavis
+  intro: >-
+    Hey! I'm Jarrod Davis, a full stack developer and software engineer who enjoys building
+    delightful experiences and helpful tools. I've worked with numerous languages, frameworks, and
+    libraries, with a significant focus on command-line utilities and web applications (both the
+    frontend and backend).
 
 work:
   - company: Triplemint / The Agency

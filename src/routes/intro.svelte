@@ -1,10 +1,15 @@
+<script lang="ts">
+	import type { Profile } from '$lib/types';
+
+	interface Props {
+		profile: Profile;
+	}
+
+	const { profile }: Props = $props();
+</script>
+
 <section class="mt-6 space-y-2">
-	<p>
-		Hey! I'm Jarrod Davis, a full stack developer and software engineer who enjoys building
-		delightful experiences and helpful tools. I've worked with numerous languages, frameworks, and
-		libraries, with a significant focus on command-line utilities and web applications (both the
-		frontend and backend).
-	</p>
+	<p>{profile.intro}</p>
 	<p>
 		Below you can see more details of my professional and educational experience. You can also
 		<a
