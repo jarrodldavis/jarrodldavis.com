@@ -26,4 +26,4 @@ vite.config.ts.timestamp-*
 src/lib/schema.ts
 
 # Memoji
-src/routes/memoji.png
+src/lib/memoji.png

@@ -8,8 +8,8 @@ import path from 'node:path';
  * @returns {import('./types').Extractor}
  */
 export default function create_memoji_extractor(base_path) {
-	const in_path = path.join(base_path, path.join('src', 'routes', 'memoji.vcf'));
-	const out_path = path.join(base_path, path.join('src', 'routes', 'memoji.png'));
+	const in_path = path.join(base_path, path.join('src', 'lib', 'memoji.vcf'));
+	const out_path = path.join(base_path, path.join('src', 'lib', 'memoji.png'));
 
 	async function memoji_extractor() {
 		const raw_vcf = await fs.readFile(in_path, 'utf8');

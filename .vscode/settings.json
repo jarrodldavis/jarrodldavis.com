@@ -28,6 +28,7 @@
 	"javascript.preferences.quoteStyle": "single",
 	"svelte.enable-ts-plugin": true,
 	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
+	"tailwindCSS.classAttributes": ["class", "tw"],
 	"typescript.check.npmIsInstalled": false,
 	"typescript.disableAutomaticTypeAcquisition": true,
 	"typescript.enablePromptUseWorkspaceTsdk": true,
