@@ -2,6 +2,7 @@ import ICAL from 'ical.js';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { create_writer } from './utils.js';
 
 /**
  * @param {string} base_path
@@ -10,6 +11,7 @@ import path from 'node:path';
 export default function create_memoji_extractor(base_path) {
 	const in_path = path.join(base_path, path.join('src', 'lib', 'memoji.vcf'));
 	const out_path = path.join(base_path, path.join('src', 'lib', 'memoji.png'));
+	const write = create_writer();
 
 	async function memoji_extractor() {
 		const raw_vcf = await fs.readFile(in_path, 'utf8');
@@ -22,7 +24,7 @@ export default function create_memoji_extractor(base_path) {
 		assert.ok(typeof photo === 'string', 'expected parsed vCard photo value to be a string');
 
 		const out = Buffer.from(photo, 'base64');
-		await fs.writeFile(out_path, out);
+		await write(out_path, out);
 	}
 
 	memoji_extractor.in_path = in_path;
