@@ -47,6 +47,7 @@
 	<meta name="twitter:image:width" content={tw_width} />
 	<meta name="twitter:image:height" content={tw_height} />
 
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32" />
 	<link rel="icon" href="/favicon.png" type="image/png" sizes={icon_size} />
-	<link rel="apple-touch-icon" href="/apple-touch-icon.png" type="image/png" sizes={icon_size} />
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png" type="image/png" sizes="180x180" />
 </svelte:head>
