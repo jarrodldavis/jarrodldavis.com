@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { dev } from '$app/environment';
+	import { page } from '$app/state';
 	import DateRange from '$lib/components/date-range.svelte';
 	import List, { type Item } from '$lib/components/list.svelte';
 	import Location from '$lib/components/location.svelte';
@@ -7,6 +9,8 @@
 
 	type DateRangeType = readonly [start: string, end: string | null];
 	type Subtitle = LocationType | DateRangeType;
+
+	const top_margin = $derived(dev ? page.url.searchParams.get('top-margin') : null);
 
 	const { data }: PageProps = $props();
 	const resume = data.resume;
@@ -55,7 +59,10 @@
 	</hgroup>
 {/snippet}
 
-<main class="bg-white font-serif text-sm leading-tight text-black **:[section]:mb-2">
+<main
+	style:--top-margin={top_margin}
+	class="bg-white font-serif text-sm leading-tight text-black **:[section]:mb-2"
+>
 	<header class="mb-2 flex flex-col items-center text-center">
 		<h1 class="text-4xl font-black">{profile.name}</h1>
 
@@ -146,7 +153,7 @@
 			width: 8.5in;
 			height: 11in;
 			padding: 0.5in;
-			margin: 0px auto;
+			margin: var(--top-margin, 0) auto 0px auto;
 			overflow-y: scroll;
 		}
 	}
