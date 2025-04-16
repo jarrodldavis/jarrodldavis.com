@@ -40,10 +40,10 @@
 
 		<ul
 			role="list"
-			class="tall:gap-y-1 flex flex-col font-mono md:flex-row md:gap-3 md:tracking-tighter md:max-lg:text-sm lg:gap-4 lg:tracking-tight"
+			class="tall:gap-y-1 flex flex-col font-mono md:flex-row md:gap-3 md:tracking-tighter md:max-lg:text-sm lg:gap-2 lg:tracking-tight"
 		>
 			{#each links as link (link.url)}
-				<li class="md:delimiter-diamond contents">
+				<li class="md:delimiter-dot contents">
 					<a
 						href={link.url}
 						target="_blank"

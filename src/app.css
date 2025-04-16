@@ -1,8 +1,23 @@
 @import 'tailwindcss';
+@import '@ibm/plex-mono/css/ibm-plex-mono-all.css';
+@import '@ibm/plex-sans/css/ibm-plex-sans-all.css';
+@import '@ibm/plex-serif/css/ibm-plex-serif-all.css';
 
 @theme {
 	--breakpoint-2xs: 475px;
 	--breakpoint-xs: 525px;
+
+	--font-sans:
+		'IBM Plex Sans', 'IBM Plex Sans fallback', ui-sans-serif, system-ui, sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+	--font-serif:
+		'IBM Plex Serif', 'IBM Plex Serif fallback', ui-serif, Georgia, Cambria, 'Times New Roman',
+		Times, serif;
+
+	--font-mono:
+		'IBM Plex Mono', 'IBM Plex Mono fallback', ui-monospace, SFMono-Regular, Menlo, Monaco,
+		Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 
 @custom-variant tall {
@@ -15,6 +30,6 @@
 	@apply after:content-['/'_/_''] last:after:content-none;
 }
 
-@utility delimiter-diamond {
-	@apply after:content-['\25C6'_/_''] last:after:content-none;
+@utility delimiter-dot {
+	@apply after:content-['\2022'_/_''] last:after:content-none;
 }

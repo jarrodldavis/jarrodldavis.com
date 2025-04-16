@@ -14,6 +14,15 @@ importers:
       '@eslint/js':
         specifier: ^9.23.0
         version: 9.23.0
+      '@ibm/plex-mono':
+        specifier: ^1.1.0
+        version: 1.1.0
+      '@ibm/plex-sans':
+        specifier: ^1.1.0
+        version: 1.1.0
+      '@ibm/plex-serif':
+        specifier: ^1.1.0
+        version: 1.1.0
       '@sveltejs/adapter-vercel':
         specifier: ^5.6.3
         version: 5.6.3(@sveltejs/kit@2.20.2(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.25.3)(vite@6.2.2(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.7.0)))(svelte@5.25.3)(vite@6.2.2(@types/node@22.13.12)(jiti@2.4.2)(lightningcss@1.29.2)(yaml@2.7.0)))(rollup@4.37.0)
@@ -487,6 +496,19 @@ packages:
   '@humanwhocodes/retry@0.4.2':
     resolution: {integrity: sha512-xeO57FpIu4p1Ri3Jq/EXq4ClRm86dVF2z/+kvFnyqVYRavTZmaFaUBbWCOuuTh0o/g7DSsk6kc2vrS4Vl5oPOQ==}
     engines: {node: '>=18.18'}
+
+  '@ibm/plex-mono@1.1.0':
+    resolution: {integrity: sha512-hpsdRxR3BRJkC6wGM4MZcUFD6C8M+mmK76RtAy/hlsfPro9FzpXVdIWC+G3jeQOXof109dxlUvmeKxpeKUG68A==}
+
+  '@ibm/plex-sans@1.1.0':
+    resolution: {integrity: sha512-WPgvO6Yfj2w5YbhyAr1tv95RUz4LRJlqN+CmYvBglabXteufP1D1E9BABMde+ZIKdRbFJDoKF5eQzfhpnbgZcQ==}
+
+  '@ibm/plex-serif@1.1.0':
+    resolution: {integrity: sha512-ORIyWlK8t8mvpFI7AAfhVFH+sacink2l9AjLiKZscmAzLVSa2dqFckrPOXqx4dK/cax567gWwCpJNEYk7xWxBQ==}
+
+  '@ibm/telemetry-js@1.9.1':
+    resolution: {integrity: sha512-qq8RPafUJHUQieXVCte1kbJEx6JctWzbA/YkXzopbfzIDRT2+hbR9QmgH+KH7bDDNRcDbdHWvHfwJKzThlMtPg==}
+    hasBin: true
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -2299,6 +2321,20 @@ snapshots:
   '@humanwhocodes/retry@0.3.1': {}
 
   '@humanwhocodes/retry@0.4.2': {}
+
+  '@ibm/plex-mono@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.9.1
+
+  '@ibm/plex-sans@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.9.1
+
+  '@ibm/plex-serif@1.1.0':
+    dependencies:
+      '@ibm/telemetry-js': 1.9.1
+
+  '@ibm/telemetry-js@1.9.1': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:

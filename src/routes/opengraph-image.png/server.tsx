@@ -1,4 +1,6 @@
+import { read } from '$app/server';
 import SatoriImg, { create_handler } from '$lib/satori-img';
+import PlexMonoBold from '@ibm/plex-mono/fonts/complete/woff/IBMPlexMono-Medium.woff';
 
 export const GET = create_handler(
 	({ profile, src }) => {
@@ -25,6 +27,7 @@ export const GET = create_handler(
 	},
 	{
 		width: 1200,
-		height: 630
+		height: 630,
+		fonts: [{ data: await read(PlexMonoBold).arrayBuffer(), name: 'Plex Mono' }]
 	}
 );

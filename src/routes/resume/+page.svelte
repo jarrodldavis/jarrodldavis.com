@@ -67,7 +67,7 @@
 
 		<Location location={profile.location} />
 
-		<ul class="*:delimiter-diamond flex items-center gap-2 *:contents *:after:text-xs">
+		<ul class="*:delimiter-dot flex items-center gap-1 *:contents *:after:text-xs">
 			<li><a href="mailto:{profile.email}">{profile.email}</a></li>
 			<li><a href={profile.url}>{url_display(profile.url)}</a></li>
 			{#each profile.networks as network (network)}
