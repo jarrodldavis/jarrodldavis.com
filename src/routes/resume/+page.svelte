@@ -6,6 +6,7 @@
 	import Location from '$lib/components/location.svelte';
 	import type { Location as LocationType } from '$lib/types';
 	import type { PageProps } from './$types';
+	import './app.css';
 
 	type DateRangeType = readonly [start: string, end: string | null];
 	type Subtitle = LocationType | DateRangeType;
