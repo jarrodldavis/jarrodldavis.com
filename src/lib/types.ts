@@ -9,3 +9,10 @@ export type EducationExperience = Resume['education'][number];
 export type ProjectExperience = Resume['projects'][number];
 export type SkillCategory = Resume['skills'][number];
 export type Language = Resume['languages'][number];
+
+export interface ImageInfo {
+	hash: string;
+	width: string;
+	height: string;
+	name: string;
+}

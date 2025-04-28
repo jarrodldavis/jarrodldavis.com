@@ -1,53 +1,66 @@
 <script lang="ts">
-	import type { Profile } from '$lib/types';
-	import memoji from '$lib/memoji.png?enhanced';
+	import type { ImageInfo, Profile } from '$lib/types';
 
 	interface Props {
 		profile: Profile;
+		images: {
+			opengraph: ImageInfo;
+			twitter: ImageInfo;
+			favicon_ico: ImageInfo;
+			favicon_png: ImageInfo;
+			apple: ImageInfo;
+		};
 	}
 
 	const formatter = new Intl.ListFormat('en-US', { type: 'conjunction' });
-	const { profile }: Props = $props();
+	const { profile, images }: Props = $props();
+	const { opengraph, twitter, favicon_ico, favicon_png, apple } = images;
+	const base_url = profile.url;
+	const name = profile.name;
+	const titles = formatter.format(profile.titles);
 
-	const url = profile.url;
-	const title = profile.name;
-	const short_description = formatter.format(profile.titles);
-	const long_description = profile.intro;
+	function url(info: ImageInfo): string {
+		return `${base_url}/${info.name}?${info.hash}`;
+	}
 
-	const og_alt = `A Memoji of me in a green circle next to my name (${title}) and job titles (${short_description}).`;
-	const tw_alt = 'A Memoji of me in a green circle.';
+	function href(info: ImageInfo): string {
+		return `/${info.name}?${info.hash}`;
+	}
 
-	const tw_height = memoji.img.h.toString();
-	const tw_width = memoji.img.w.toString();
-	const icon_size = `${memoji.img.w}x${memoji.img.h}`;
+	function size(info: ImageInfo): string {
+		return `${info.width}x${info.height}`;
+	}
 </script>
 
 <svelte:head>
-	<title>{title} | {short_description}</title>
-	<meta name="description" content={long_description} />
-	<link rel="canonical" href={url} />
+	<title>{name} | {titles}</title>
+	<meta name="description" content={profile.intro} />
+	<link rel="canonical" href={base_url} />
 
-	<meta property="og:title" content={title} />
-	<meta property="og:description" content={short_description} />
-	<meta property="og:url" content={url} />
-	<meta property="og:site_name" content={url} />
-	<meta property="og:image:alt" content={og_alt} />
-	<meta property="og:image:type" content="image/png" />
-	<meta property="og:image" content="{url}/opengraph-image.png" />
-	<meta property="og:image:width" content="1200" />
-	<meta property="og:image:height" content="630" />
+	<meta property="og:title" content={name} />
+	<meta property="og:description" content={titles} />
+	<meta property="og:url" content={base_url} />
+	<meta property="og:site_name" content={new URL(base_url).hostname} />
 	<meta property="og:type" content="website" />
+	<meta
+		property="og:image:alt"
+		content="A Memoji of me in a green circle next to my name ({name}) and job titles ({titles})."
+	/>
+	<meta property="og:image:type" content="image/png" />
+	<meta property="og:image" content={url(opengraph)} />
+	<meta property="og:image:width" content={opengraph.width} />
+	<meta property="og:image:height" content={opengraph.height} />
 
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:title" content={title} />
-	<meta name="twitter:description" content={short_description} />
-	<meta name="twitter:image:alt" content={tw_alt} />
+	<meta name="twitter:title" content={name} />
+	<meta name="twitter:description" content={titles} />
+	<meta name="twitter:image:alt" content="A Memoji of me in a green circle." />
 	<meta name="twitter:image:type" content="image/png" />
-	<meta name="twitter:image" content="{url}/twitter-icon.png" />
-	<meta name="twitter:image:width" content={tw_width} />
-	<meta name="twitter:image:height" content={tw_height} />
+	<meta name="twitter:image" content={url(twitter)} />
+	<meta name="twitter:image:width" content={twitter.width} />
+	<meta name="twitter:image:height" content={twitter.height} />
 
-	<link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32" />
-	<link rel="icon" href="/favicon.png" type="image/png" sizes={icon_size} />
-	<link rel="apple-touch-icon" href="/apple-touch-icon.png" type="image/png" sizes="180x180" />
+	<link rel="icon" href={href(favicon_ico)} type="image/x-icon" sizes={size(favicon_ico)} />
+	<link rel="icon" href={href(favicon_png)} type="image/png" sizes={size(favicon_png)} />
+	<link rel="apple-touch-icon" href={href(apple)} type="image/png" sizes={size(apple)} />
 </svelte:head>
