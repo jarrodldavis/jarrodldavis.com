@@ -19,8 +19,13 @@ type SatoriImgProps = Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'src'> & {
 };
 
 export default function SatoriImg({ src, ...props }: SatoriImgProps) {
-	// https://github.com/vercel/satori/issues/606
-	return <img src={src as unknown as string} {...props} />;
+	return (
+		<img
+			/* @ts-expect-error -  https://github.com/vercel/satori/issues/606 */
+			src={src}
+			{...props}
+		/>
+	);
 }
 
 export async function create_response(
@@ -35,7 +40,7 @@ export async function create_response(
 	}
 
 	const src = await img.arrayBuffer();
-	const { profile } = await load_resume();
+	const { profile } = load_resume();
 	const output = new ImageResponse(<Image profile={profile} src={src} />, {
 		width: memoji.img.w,
 		height: memoji.img.h,

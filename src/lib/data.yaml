@@ -36,7 +36,7 @@ work:
       - title: Front-end Engineer
         summary: triplemint.com and theagencyre.com
         start_date: 2021-03-01
-        end_date: 2024-02-19
+        end_date: 2024-02-09
         highlights:
           - Participated in the rewrite, launch, and maintenance of a new codebase using Svelte,
             Sapper, webpack, and Apollo GraphQL

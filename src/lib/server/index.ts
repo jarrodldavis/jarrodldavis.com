@@ -5,8 +5,8 @@ import Ajv from 'ajv';
 import addFormats from 'ajv-formats';
 import YAML from 'yaml';
 
-export async function load_resume(): Promise<Resume> {
-	const parsed_data = YAML.parse(raw_data);
+export function load_resume(): Resume {
+	const parsed_data = YAML.parse(raw_data) as unknown;
 
 	const ajv = new Ajv({ allErrors: true });
 	addFormats(ajv);

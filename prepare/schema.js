@@ -14,7 +14,7 @@ export default function create_schema_extractor(base_path) {
 
 	async function schema_extractor() {
 		const raw_schema = await fs.readFile(in_path, 'utf8');
-		const parsed_schema = YAML.parse(raw_schema);
+		const parsed_schema = /** @type {unknown} */ (YAML.parse(raw_schema));
 		const stringified_schema = JSON.stringify(parsed_schema, null, '\t');
 		const out = `
 // This file is auto-generated from schema.yaml. Do not edit it directly.

@@ -35,7 +35,7 @@ export default function prepare(): Plugin {
 	return {
 		name: 'prepare-plugin',
 		enforce: 'pre',
-		async configResolved(config) {
+		configResolved(config) {
 			extractors.push(create_memoji_extractor(config.root), create_schema_extractor(config.root));
 		},
 		async resolveId(source, importer) {

@@ -5,6 +5,4 @@ export const prerender = true;
 
 const render_pdf = make_pdf_renderer();
 
-export const GET: RequestHandler = ({ fetch, url }) => {
-	return render_pdf({ fetch, origin: url.origin, pathname: '/resume' });
-};
+export const GET: RequestHandler = () => render_pdf('/resume');

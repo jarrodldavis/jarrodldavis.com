@@ -5,7 +5,6 @@ export const csr = false;
 
 export const prerender = true;
 
-export const load = (async () => {
-	const resume = await load_resume();
-	return { resume };
+export const load = (() => {
+	return { resume: load_resume() };
 }) satisfies PageServerLoad;

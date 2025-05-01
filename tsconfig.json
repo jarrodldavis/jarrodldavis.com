@@ -23,6 +23,7 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 
+		"plugins": [{ "name": "typescript-svelte-plugin" }],
 		"jsx": "react-jsx"
 	}
 	// Path aliases are handled by https://svelte.dev/docs/kit/configuration#alias

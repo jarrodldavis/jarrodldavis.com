@@ -1,8 +1,9 @@
 import { read } from '$app/server';
 import SatoriImg, { create_handler } from '$lib/satori-img';
 import PlexMonoBold from '@ibm/plex-mono/fonts/complete/woff/IBMPlexMono-Medium.woff';
+import type { RequestHandler } from './$types';
 
-export const GET = create_handler(
+export const GET: RequestHandler = create_handler(
 	({ profile, src }) => {
 		return (
 			<div tw="flex h-full w-full items-center justify-around bg-zinc-900 px-24 text-stone-300">

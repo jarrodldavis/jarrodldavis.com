@@ -1,3 +1,6 @@
 import SatoriImg, { create_handler } from '$lib/satori-img';
+import type { RequestHandler } from './$types';
 
-export const GET = create_handler(({ src }) => <SatoriImg src={src} tw="rounded-full" />);
+export const GET: RequestHandler = create_handler(({ src }) => (
+	<SatoriImg src={src} tw="rounded-full" />
+));

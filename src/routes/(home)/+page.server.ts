@@ -4,7 +4,7 @@ import type { PageServerLoad } from './$types';
 
 export const load = (async () => {
 	return {
-		resume: await load_resume(),
+		resume: load_resume(),
 		images: {
 			opengraph: await fetch_image_info('opengraph-image.png'),
 			twitter: await fetch_image_info('twitter-icon.png'),

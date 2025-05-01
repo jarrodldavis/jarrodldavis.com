@@ -1,17 +1,11 @@
 import { building } from '$app/environment';
+import { getRequestEvent } from '$app/server';
 import type { KitConfig } from '@sveltejs/kit';
-import fs from 'fs/promises';
 import { lookup } from 'mrmime';
 import path from 'node:path';
-import { chromium, type Request as PlaywrightRequest } from 'playwright';
+import { chromium, type Request as PlaywrightRequest, type Route } from 'playwright';
 
-type Fetch = typeof fetch;
-
-interface RenderOptions {
-	fetch: Fetch;
-	origin: string;
-	pathname: string;
-}
+type FulfillOptions = NonNullable<Parameters<Route['fulfill']>[0]>;
 
 export default function make_pdf_renderer({
 	outDir = '.svelte-kit'
@@ -19,36 +13,31 @@ export default function make_pdf_renderer({
 	return render_pdf.bind(null, path.join(outDir, 'output/client'));
 }
 
-async function render_pdf(asset_root: string, options: RenderOptions) {
+async function render_pdf(asset_root: string, pathname: string) {
+	const origin = getRequestEvent().url.origin;
 	await using browser = await chromium.launch();
-	await using context = await browser.newContext({ baseURL: options.origin });
+	await using context = await browser.newContext({ baseURL: origin });
 	await using page = await context.newPage();
 
 	const errors = new Array<unknown>();
 
 	page.on('console', (message) => {
-		if (message.type() !== 'error') {
-			return;
+		if (message.type() == 'error') {
+			const error = new Error('page logged error to console');
+			errors.push(Object.assign(error, { text: message.text(), location: message.location() }));
 		}
-
-		errors.push(
-			Object.assign(new Error('page logged error to console'), {
-				text: message.text(),
-				location: message.location()
-			})
-		);
 	});
 
 	await page.route('/**', async (route, request) => {
 		try {
-			await route.fulfill(await handle_page_request(asset_root, options, request));
+			await route.fulfill(await handle_page_request(asset_root, request));
 		} catch (error) {
 			errors.push(error);
-			await route.abort().catch((error) => errors.push(error));
+			await route.abort().catch((error: unknown) => errors.push(error));
 		}
 	});
 
-	const response = await page.goto(options.pathname);
+	const response = await page.goto(pathname);
 	if (!response) {
 		throw new Error('response is blank');
 	}
@@ -79,10 +68,10 @@ async function render_pdf(asset_root: string, options: RenderOptions) {
 
 async function handle_page_request(
 	asset_root: string,
-	options: RenderOptions,
 	request: PlaywrightRequest
-) {
-	const url = new URL(request.url());
+): Promise<FulfillOptions> {
+	const { fetch, url: top_level_url } = getRequestEvent();
+	const request_url = new URL(request.url());
 	const request_init: RequestInit = {
 		method: request.method(),
 		headers: await request.allHeaders(),
@@ -90,26 +79,26 @@ async function handle_page_request(
 	};
 
 	// First, try the SvelteKit-optimized fetch...
-	let response = await options.fetch(url, request_init);
+	let response = await fetch(request_url, request_init);
 
 	// ...and if that short-circuits (e.g., for Vite-bundled assets)...
-	if (url.origin === options.origin && response.status === 404) {
+	if (response.status === 404 && request_url.origin === top_level_url.origin) {
 		// ...read from the filesystem during prerendering since there's no public-facing server...
 		if (building) {
 			return {
-				body: await fs.readFile(path.join(asset_root, url.pathname)),
-				headers: { 'content-type': lookup(url.pathname) ?? '' },
+				path: path.join(asset_root, request_url.pathname),
+				contentType: lookup(request_url.pathname) ?? '',
 				status: 200
 			};
 		}
 
 		// ...otherwise, fetch from the public-facing server.
-		response = await globalThis.fetch(url, request_init);
+		response = await globalThis.fetch(request_url, request_init);
 	}
 
 	if (!response.ok) {
 		throw Object.assign(new Error('response not ok'), {
-			url: url.toString(),
+			url: request_url.toString(),
 			status: response.status
 		});
 	}

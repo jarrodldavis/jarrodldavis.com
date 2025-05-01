@@ -1,6 +1,6 @@
 import { getRequestEvent } from '$app/server';
 import type { ImageInfo } from '$lib/types';
-import { hash } from 'crypto';
+import { hash } from 'node:crypto';
 
 const ICO_OFFSET = 22;
 const PNG_OFFSET = 0;

@@ -1,15 +1,13 @@
 <script lang="ts">
 	import { dev } from '$app/environment';
 	import { page } from '$app/state';
-	import DateRange from '$lib/components/date-range.svelte';
 	import List, { type Item } from '$lib/components/list.svelte';
 	import Location from '$lib/components/location.svelte';
-	import type { Location as LocationType } from '$lib/types';
 	import type { PageProps } from './$types';
 	import './app.css';
-
-	type DateRangeType = readonly [start: string, end: string | null];
-	type Subtitle = LocationType | DateRangeType;
+	import PrimaryHeading from './PrimaryHeading.svelte';
+	import SecondaryHeading from './SecondaryHeading.svelte';
+	import TertiaryHeading from './TertiaryHeading.svelte';
 
 	const top_margin = $derived(dev ? page.url.searchParams.get('top-margin') : null);
 
@@ -28,37 +26,6 @@
 		return (url.hostname + url.pathname).replace(/\/$/, '');
 	}
 </script>
-
-{#snippet primary_heading(title: string)}
-	<h2 class="mb-1 break-inside-avoid break-after-avoid border-b text-lg font-semibold uppercase">
-		{title}
-	</h2>
-{/snippet}
-
-{#snippet secondary_heading(title: string, url: string | null, subtitle: Subtitle)}
-	<hgroup class="flex break-inside-avoid break-after-avoid justify-between">
-		<h3 class="font-semibold">
-			{#if url}
-				<a href={url}>{title}</a>
-			{:else}
-				{title}
-			{/if}
-		</h3>
-
-		{#if subtitle instanceof Array}
-			<p><DateRange start={subtitle[0]} end={subtitle[1]} /></p>
-		{:else}
-			<Location location={subtitle} />
-		{/if}
-	</hgroup>
-{/snippet}
-
-{#snippet tertiary_heading(title: string, start_date: string, end_date: string | null)}
-	<hgroup class="flex break-inside-avoid break-after-avoid justify-between">
-		<h4 class="italic">{title}</h4>
-		<p><DateRange start={start_date} end={end_date} /></p>
-	</hgroup>
-{/snippet}
 
 <main
 	style:--top-margin={top_margin}
@@ -85,15 +52,24 @@
 	</header>
 
 	<section>
-		{@render primary_heading('Work Experience')}
+		<PrimaryHeading title="Work Experience" />
 
 		{#each work as experience (experience)}
 			<section>
-				{@render secondary_heading(experience.company, experience.url, experience.location)}
+				<SecondaryHeading
+					title={experience.company}
+					url={experience.url}
+					subtitle={experience.location}
+				/>
 
 				{#each experience.positions as position (position)}
 					<section>
-						{@render tertiary_heading(position.title, position.start_date, position.end_date)}
+						<TertiaryHeading
+							title={position.title}
+							start_date={position.start_date}
+							end_date={position.end_date}
+						/>
+
 						<List items={position.highlights} tight />
 					</section>
 				{/each}
@@ -102,14 +78,23 @@
 	</section>
 
 	<section>
-		{@render primary_heading('Education')}
+		<PrimaryHeading title="Education" />
 
 		{#each education as experience (experience)}
 			<section>
-				{@render secondary_heading(experience.institution, experience.url, experience.location)}
+				<SecondaryHeading
+					title={experience.institution}
+					url={experience.url}
+					subtitle={experience.location}
+				/>
 
 				<section>
-					{@render tertiary_heading(experience.degree, experience.start_date, experience.end_date)}
+					<TertiaryHeading
+						title={experience.degree}
+						start_date={experience.start_date}
+						end_date={experience.end_date}
+					/>
+
 					<List
 						items={[
 							['Honors', experience.honors],
@@ -124,20 +109,23 @@
 	</section>
 
 	<section>
-		{@render primary_heading('Projects')}
+		<PrimaryHeading title="Projects" />
 
 		{#each projects as project (project)}
-			{@const date_range = [project.start_date, project.end_date] as const}
-
 			<section>
-				{@render secondary_heading(project.name, project.url, date_range)}
+				<SecondaryHeading
+					title={project.name}
+					url={project.url}
+					subtitle={[project.start_date, project.end_date]}
+				/>
+
 				<List items={project.highlights} tight />
 			</section>
 		{/each}
 	</section>
 
 	<section>
-		{@render primary_heading('Skills, Languages, Interests')}
+		<PrimaryHeading title="Skills, Languages, Interests" />
 		<List items={[['Languages', languages], ...skills, ['Interests', interests]]} tight />
 	</section>
 </main>
