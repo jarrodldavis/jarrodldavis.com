@@ -1,0 +1,4 @@
+overrides:
+  'eslint>@modelcontextprotocol/sdk': '-'
+  'eslint>zod': '-'
+  'glob>jackspeak': '-'

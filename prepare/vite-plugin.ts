@@ -4,18 +4,14 @@ import create_memoji_extractor from './memoji';
 import create_schema_extractor from './schema';
 import type { Extractor } from './types';
 
-type LoadPluginContext = ThisParameterType<
-	Extract<Plugin['load'], { handler: unknown }>['handler']
->;
-
-type ResolveIdPluginContext = ThisParameterType<
-	Extract<Plugin['resolveId'], { handler: unknown }>['handler']
+type PluginContext = ThisParameterType<
+	Extract<Plugin['load'] | Plugin['resolveId'], { handler: unknown }>['handler']
 >;
 
 export default function prepare(): Plugin {
 	const extractors: Extractor[] = [];
 
-	async function run_extractor(full_path: string, ctx: LoadPluginContext | ResolveIdPluginContext) {
+	async function run_extractor(full_path: string, ctx: PluginContext) {
 		const out_path = full_path.split('?')[0];
 		const extractor = extractors.find((extractor) => extractor.out_path === out_path);
 

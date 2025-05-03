@@ -24,7 +24,7 @@ export default ts.config(
 			parserOptions: {
 				projectService: {
 					loadTypeScriptPlugins: true,
-					allowDefaultProject: ['*.config.js']
+					allowDefaultProject: ['.pnpmfile.cjs', '*.config.js']
 				}
 			}
 		},
