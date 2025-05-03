@@ -2,8 +2,9 @@ import { load_resume } from '$lib/server';
 import { fetch_image_info } from '$lib/server/image';
 import type { PageServerLoad } from './$types';
 
-export const load = (async () => {
+export const load = (async ({ url }) => {
 	return {
+		base_url: url.toString(),
 		resume: load_resume(),
 		images: {
 			opengraph: await fetch_image_info('opengraph-image.png'),

@@ -1,11 +1,11 @@
 import SatoriImg, { create_response } from '$lib/satori-img';
 import type { RequestHandler } from './$types';
 
-export const GET: RequestHandler = async ({ fetch }) => {
+export const GET: RequestHandler = async () => {
 	const width = 32;
 	const height = 32;
 	const image = ({ src }: { src: ArrayBuffer }) => <SatoriImg src={src} tw="rounded-full" />;
-	const png_response = await create_response(fetch, image, { width, height });
+	const png_response = await create_response(image, { width, height });
 	const png_bytes = await png_response.bytes();
 
 	const ico_bytes = new Uint8Array(22 + png_bytes.length);

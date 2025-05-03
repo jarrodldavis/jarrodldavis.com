@@ -11,7 +11,7 @@
 	const { data }: PageProps = $props();
 </script>
 
-<Metadata profile={data.resume.profile} images={data.images} />
+<Metadata base_url={data.base_url} profile={data.resume.profile} images={data.images} />
 
 <main class="mx-auto mb-8 max-w-4xl min-w-80 p-4 sm:p-8 md:p-12">
 	<Heading profile={data.resume.profile} />

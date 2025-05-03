@@ -2,6 +2,7 @@
 	import type { ImageInfo, Profile } from '$lib/types';
 
 	interface Props {
+		base_url: string;
 		profile: Profile;
 		images: {
 			opengraph: ImageInfo;
@@ -13,14 +14,14 @@
 	}
 
 	const formatter = new Intl.ListFormat('en-US', { type: 'conjunction' });
-	const { profile, images }: Props = $props();
+	const { base_url, profile, images }: Props = $props();
 	const { opengraph, twitter, favicon_ico, favicon_png, apple } = images;
-	const base_url = profile.url;
+	const canonical_base_url = profile.url;
 	const name = profile.name;
 	const titles = formatter.format(profile.titles);
 
 	function url(info: ImageInfo): string {
-		return `${base_url}/${info.name}?${info.hash}`;
+		return new URL(href(info), base_url).toString();
 	}
 
 	function href(info: ImageInfo): string {
@@ -35,12 +36,12 @@
 <svelte:head>
 	<title>{name} | {titles}</title>
 	<meta name="description" content={profile.intro} />
-	<link rel="canonical" href={base_url} />
+	<link rel="canonical" href={canonical_base_url} />
 
 	<meta property="og:title" content={name} />
 	<meta property="og:description" content={titles} />
-	<meta property="og:url" content={base_url} />
-	<meta property="og:site_name" content={new URL(base_url).hostname} />
+	<meta property="og:url" content={canonical_base_url} />
+	<meta property="og:site_name" content={new URL(canonical_base_url).hostname} />
 	<meta property="og:type" content="website" />
 	<meta
 		property="og:image:alt"

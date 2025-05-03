@@ -5,9 +5,9 @@
 	import Location from '$lib/components/location.svelte';
 	import type { PageProps } from './$types';
 	import './app.css';
-	import PrimaryHeading from './PrimaryHeading.svelte';
-	import SecondaryHeading from './SecondaryHeading.svelte';
-	import TertiaryHeading from './TertiaryHeading.svelte';
+	import PrimaryHeading from './primary-heading.svelte';
+	import SecondaryHeading from './secondary-heading.svelte';
+	import TertiaryHeading from './tertiary-heading.svelte';
 
 	const top_margin = $derived(dev ? page.url.searchParams.get('top-margin') : null);
 
