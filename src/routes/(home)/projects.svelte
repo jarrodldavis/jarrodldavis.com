@@ -1,8 +1,8 @@
 <script lang="ts">
 	import DateRange from '$lib/components/date-range.svelte';
 	import List from '$lib/components/list.svelte';
-	import SecondarySection from '$lib/components/secondary-section.svelte';
 	import PrimarySection from '$lib/components/primary-section.svelte';
+	import SecondarySection from '$lib/components/secondary-section.svelte';
 	import type { ProjectExperience } from '$lib/types';
 
 	interface Props {

@@ -1,12 +1,12 @@
 <script lang="ts">
-	import Heading from './heading.svelte';
 	import type { PageProps } from './$types';
-	import Intro from './intro.svelte';
-	import Work from './work.svelte';
 	import Education from './education.svelte';
+	import Heading from './heading.svelte';
+	import Intro from './intro.svelte';
+	import Metadata from './metadata.svelte';
 	import Projects from './projects.svelte';
 	import Skills from './skills.svelte';
-	import Metadata from './metadata.svelte';
+	import Work from './work.svelte';
 
 	const { data }: PageProps = $props();
 </script>
