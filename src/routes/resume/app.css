@@ -1,7 +1,6 @@
-@import 'tailwindcss';
-@import '@ibm/plex-mono/css/ibm-plex-mono-all.css';
-@import '@ibm/plex-sans/css/ibm-plex-sans-all.css';
-@import '@ibm/plex-serif/css/ibm-plex-serif-all.css';
+@import 'tailwindcss' source(none);
+@import '../../app.css';
+@source '.';
 
 @theme {
 	--font-sans: 'IBM Plex Sans';

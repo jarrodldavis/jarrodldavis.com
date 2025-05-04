@@ -5,6 +5,7 @@
 	import Location from '$lib/components/location.svelte';
 	import type { PageProps } from './$types';
 	import './app.css';
+	import './fonts.scss';
 	import PrimaryHeading from './primary-heading.svelte';
 	import SecondaryHeading from './secondary-heading.svelte';
 	import TertiaryHeading from './tertiary-heading.svelte';
@@ -32,7 +33,7 @@
 	class="bg-white font-serif text-sm leading-tight text-black **:[section]:mb-2"
 >
 	<header class="mb-2 flex flex-col items-center text-center">
-		<h1 class="text-4xl font-black">{profile.name}</h1>
+		<h1 class="text-4xl font-bold">{profile.name}</h1>
 
 		<ul class="*:delimiter-slash flex gap-1 font-semibold *:contents">
 			{#each profile.titles as title (title)}

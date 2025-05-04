@@ -1,4 +1,5 @@
-@import 'tailwindcss';
+@source './app.html';
+@source './lib/components/*.svelte';
 
 @theme {
 	--breakpoint-2xs: 475px;

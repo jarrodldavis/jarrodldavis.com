@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { PageProps } from './$types';
+	import './app.css';
 	import Education from './education.svelte';
 	import Heading from './heading.svelte';
 	import Intro from './intro.svelte';

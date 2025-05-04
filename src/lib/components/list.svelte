@@ -35,7 +35,7 @@
 			{#if content.length}
 				<li class={{ 'mb-1': !tight }}>
 					{#if title}
-						<span class="font-bold">{title}</span>:
+						<span class="font-semibold">{title}</span>:
 					{/if}
 
 					{content}

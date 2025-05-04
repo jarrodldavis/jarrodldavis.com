@@ -24,7 +24,7 @@
 			class="tall:w-24 tall:p-2.5 tall:xs:w-32 tall:xs:p-3 tall:border-2 box-content w-16 rounded-full border-0 border-slate-200 bg-slate-300 p-2 shadow-inner shadow-slate-400 dark:border-zinc-950 dark:bg-zinc-700 dark:shadow-zinc-950"
 		/>
 
-		<h1 class="font-mono text-4xl font-black">{profile.name}</h1>
+		<h1 class="font-mono text-4xl font-bold">{profile.name}</h1>
 	</div>
 
 	<div
