@@ -2,7 +2,9 @@ import { load_resume } from '$lib/server';
 import { fetch_image_info } from '$lib/server/image';
 import type { PageServerLoad } from './$types';
 
-export const load = (async ({ url }) => {
+export const prerender = true;
+
+export const load: PageServerLoad = async ({ url }) => {
 	return {
 		base_url: url.toString(),
 		resume: load_resume(),
@@ -14,4 +16,4 @@ export const load = (async ({ url }) => {
 			favicon_ico: await fetch_image_info('favicon.ico')
 		}
 	};
-}) satisfies PageServerLoad;
+};

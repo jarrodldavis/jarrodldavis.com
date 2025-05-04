@@ -5,6 +5,6 @@ export const csr = false;
 
 export const prerender = true;
 
-export const load = (() => {
+export const load: PageServerLoad = () => {
 	return { resume: load_resume() };
-}) satisfies PageServerLoad;
+};
