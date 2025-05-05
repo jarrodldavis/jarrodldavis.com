@@ -14,7 +14,7 @@
 	const { title, url, subtitle }: Props = $props();
 </script>
 
-<hgroup class="flex break-inside-avoid break-after-avoid justify-between">
+<hgroup class="flex break-inside-avoid break-after-avoid justify-between text-sm">
 	<h3 class="font-semibold">
 		{#if url}
 			<a href={url}>{title}</a>
@@ -24,7 +24,7 @@
 	</h3>
 
 	{#if subtitle instanceof Array}
-		<p><DateRange start={subtitle[0]} end={subtitle[1]} /></p>
+		<p class="font-mono tracking-tight"><DateRange start={subtitle[0]} end={subtitle[1]} /></p>
 	{:else}
 		<Location location={subtitle} />
 	{/if}

@@ -30,12 +30,12 @@
 
 <main
 	style:--top-margin={top_margin}
-	class="bg-white font-serif text-sm leading-tight text-black **:[section]:mb-2"
+	class="bg-white font-serif text-xs leading-tight text-black **:[section]:mb-1"
 >
-	<header class="mb-2 flex flex-col items-center text-center">
-		<h1 class="text-4xl font-bold">{profile.name}</h1>
+	<header class="mb-2 flex flex-col items-center text-center font-sans text-sm">
+		<h1 class="font-mono text-3xl leading-none font-bold">{profile.name}</h1>
 
-		<ul class="*:delimiter-slash flex gap-1 font-semibold *:contents">
+		<ul class="*:delimiter-slash flex gap-1 font-medium *:contents">
 			{#each profile.titles as title (title)}
 				<li>{title}</li>
 			{/each}

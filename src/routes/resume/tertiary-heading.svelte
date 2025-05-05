@@ -10,7 +10,7 @@
 	const { title, start_date, end_date }: Props = $props();
 </script>
 
-<hgroup class="flex break-inside-avoid break-after-avoid justify-between">
+<hgroup class="flex break-inside-avoid break-after-avoid justify-between text-sm">
 	<h4 class="italic">{title}</h4>
-	<p><DateRange start={start_date} end={end_date} /></p>
+	<p class="font-mono tracking-tight"><DateRange start={start_date} end={end_date} /></p>
 </hgroup>
