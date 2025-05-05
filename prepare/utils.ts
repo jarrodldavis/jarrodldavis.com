@@ -1,16 +1,15 @@
 import fs from 'node:fs/promises';
 
-export function create_writer() {
-	/**
-	 * @type {Buffer | undefined}
-	 */
-	let old;
+export interface Extractor {
+	(): Promise<void>;
+	in_path: string;
+	out_path: string;
+}
 
-	/**
-	 * @param {string} file
-	 * @param {Buffer} data
-	 */
-	return async function write(file, data) {
+export function create_writer() {
+	let old: Buffer | undefined;
+
+	return async function write(file: string, data: Buffer) {
 		if (old?.equals(data)) {
 			return;
 		}

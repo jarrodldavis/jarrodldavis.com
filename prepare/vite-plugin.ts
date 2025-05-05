@@ -1,8 +1,8 @@
 import path from 'node:path';
 import type { Plugin } from 'vite';
-import create_memoji_extractor from './memoji';
-import create_schema_extractor from './schema';
-import type { Extractor } from './types';
+import create_memoji_extractor from './memoji.ts';
+import create_schema_extractor from './schema.ts';
+import type { Extractor } from './utils.ts';
 
 type PluginContext = ThisParameterType<
 	Extract<Plugin['load'] | Plugin['resolveId'], { handler: unknown }>['handler']

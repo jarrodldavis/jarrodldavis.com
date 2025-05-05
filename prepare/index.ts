@@ -1,8 +1,7 @@
-#!/bin/env node
-// @ts-check
+#!/bin/env -S node --experimental-strip-types --no-warnings
 
-import extract_memoji from './memoji.js';
-import extract_schema from './schema.js';
+import extract_memoji from './memoji.ts';
+import extract_schema from './schema.ts';
 
 const base_path = process.cwd();
 

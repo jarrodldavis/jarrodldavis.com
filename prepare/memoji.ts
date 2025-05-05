@@ -2,13 +2,9 @@ import ICAL from 'ical.js';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { create_writer } from './utils.js';
+import { type Extractor, create_writer } from './utils.ts';
 
-/**
- * @param {string} base_path
- * @returns {import('./types').Extractor}
- */
-export default function create_memoji_extractor(base_path) {
+export default function create_memoji_extractor(base_path: string): Extractor {
 	const in_path = path.join(base_path, path.join('src', 'lib', 'memoji.vcf'));
 	const out_path = path.join(base_path, path.join('src', 'lib', 'memoji.png'));
 	const write = create_writer();

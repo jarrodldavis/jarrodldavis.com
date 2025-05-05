@@ -1,4 +1,17 @@
 {
 	"extends": "../tsconfig.json",
-	"include": ["./*.js", "./*.ts"]
+
+	"compilerOptions": {
+		// https://nodejs.org/docs/latest-v22.x/api/typescript.html#type-stripping
+		"noEmit": true,
+		"target": "ESNext",
+		"module": "NodeNext",
+		"rewriteRelativeImportExtensions": true,
+		"erasableSyntaxOnly": true,
+		"verbatimModuleSyntax": true,
+
+		"moduleResolution": "NodeNext"
+	},
+
+	"include": ["./*.ts"]
 }
