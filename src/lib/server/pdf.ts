@@ -33,7 +33,7 @@ async function render_pdf(asset_root: string, pathname: string) {
 			await route.fulfill(await handle_page_request(asset_root, request));
 		} catch (error) {
 			errors.push(error);
-			await route.abort().catch((error: unknown) => errors.push(error));
+			await route.abort().catch((error) => errors.push(error));
 		}
 	});
 
