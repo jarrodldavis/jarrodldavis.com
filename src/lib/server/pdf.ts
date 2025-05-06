@@ -37,7 +37,7 @@ async function render_pdf(asset_root: string, pathname: string) {
 		}
 	});
 
-	const response = await page.goto(pathname);
+	const response = await page.goto(pathname, { waitUntil: 'networkidle' });
 	if (!response) {
 		throw new Error('response is blank');
 	}
@@ -46,6 +46,10 @@ async function render_pdf(asset_root: string, pathname: string) {
 	if (finish_error) {
 		throw new Error('response failed to finish', { cause: finish_error });
 	}
+
+	await page.evaluate(async () => {
+		await document.fonts.ready;
+	});
 
 	if (errors.length) {
 		throw new AggregateError(errors, 'one or more errors occurred during page load');
