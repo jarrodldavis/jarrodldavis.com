@@ -1,0 +1,5 @@
+overrides:
+  'eslint>@modelcontextprotocol/sdk': '-'
+  'eslint>zod': '-'
+  'glob>jackspeak': '-'
+  'sass>@parcel/watcher': '-'

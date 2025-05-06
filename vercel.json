@@ -1,4 +1,5 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "nextjs"
+	"$schema": "https://openapi.vercel.sh/vercel.json",
+	"framework": "sveltekit-1",
+	"installCommand": "./vercel-install.sh"
 }

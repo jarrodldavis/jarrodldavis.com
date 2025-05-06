@@ -1,74 +1,76 @@
 {
-  "name": "jarrodldavis.com",
-  "version": "0.1.0",
-  "private": true,
-  "packageManager": "pnpm@10.2.1",
-  "engines": {
-    "node": "22.x",
-    "pnpm": "10.2.1",
-    "npm": "0.0.0"
-  },
-  "engineStrict": true,
-  "scripts": {
-    "prepare": "./scripts/prepare.mjs",
-    "dev": "pnpm /dev:/",
-    "dev:typst": "typst watch imprecv/template.typ public/jarrod-davis-resume.pdf",
-    "dev:next": "next dev",
-    "dev:spotlight": "spotlight",
-    "build": "pnpm --sequential /build:/",
-    "build:typst": "typst compile imprecv/template.typ public/jarrod-davis-resume.pdf",
-    "build:next": "next build",
-    "start": "next start",
-    "lint": "pnpm /lint:/",
-    "lint:next": "next lint",
-    "lint:prettier": "prettier --check .",
-    "lint:loaders": "tsc -p loaders",
-    "lint:scripts": "tsc -p scripts"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@sentry/cli",
-      "@vercel/speed-insights",
-      "sharp"
-    ],
-    "patchedDependencies": {
-      "geist@1.3.1": "patches/geist@1.3.1.patch"
-    }
-  },
-  "dependencies": {
-    "@sentry/nextjs": "^8.54.0",
-    "@spotlightjs/spotlight": "^2.10.3",
-    "@vercel/analytics": "^1.4.1",
-    "@vercel/speed-insights": "^1.1.0",
-    "@vercel/toolbar": "^0.1.30",
-    "ajv": "^8.17.1",
-    "ajv-formats": "^3.0.1",
-    "geist": "^1.3.1",
-    "next": "15.1.6",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "react-markdown": "^9.0.3"
-  },
-  "devDependencies": {
-    "@eslint/eslintrc": "^3.2.0",
-    "@tailwindcss/postcss": "^4.0.4",
-    "@total-typescript/ts-reset": "^0.6.1",
-    "@types/eslint__eslintrc": "^2.1.2",
-    "@types/node": "^22.13.1",
-    "@types/react": "19.0.8",
-    "@types/react-dom": "19.0.3",
-    "eslint": "^9.20.0",
-    "eslint-config-next": "15.1.6",
-    "eslint-config-prettier": "^10.0.1",
-    "ical.js": "^2.1.0",
-    "json-schema-to-typescript": "^15.0.4",
-    "postcss": "^8.5.1",
-    "prettier": "^3.4.2",
-    "prettier-plugin-organize-imports": "^4.1.0",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "sharp": "^0.33.5",
-    "tailwindcss": "^4.0.4",
-    "typescript": "^5.7.3",
-    "yaml": "^2.7.0"
-  }
+	"name": "jarrodldavis.com",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"packageManager": "pnpm@10.10.0",
+	"engines": {
+		"node": "22.x",
+		"pnpm": "10.10.0"
+	},
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo '' && prepare/index.ts",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"format": "prettier --write .",
+		"lint": "prettier --check . && eslint ."
+	},
+	"devDependencies": {
+		"@eslint/compat": "^1.2.9",
+		"@eslint/js": "^9.26.0",
+		"@ibm/plex-mono": "^1.1.0",
+		"@ibm/plex-sans": "^1.1.0",
+		"@ibm/plex-serif": "^1.1.0",
+		"@sveltejs/adapter-vercel": "^5.7.1",
+		"@sveltejs/enhanced-img": "^0.5.0",
+		"@sveltejs/kit": "^2.20.8",
+		"@sveltejs/vite-plugin-svelte": "^5.0.3",
+		"@tailwindcss/vite": "^4.1.5",
+		"@total-typescript/ts-reset": "^0.6.1",
+		"@types/node": "^22.15.9",
+		"@types/react": "^19.1.2",
+		"@types/react-dom": "^19.1.3",
+		"@vercel/analytics": "^1.5.0",
+		"@vercel/og": "^0.6.8",
+		"@vercel/speed-insights": "^1.2.0",
+		"ajv": "^8.17.1",
+		"ajv-formats": "^3.0.1",
+		"eslint": "^9.26.0",
+		"eslint-config-prettier": "^10.1.2",
+		"eslint-plugin-svelte": "^3.5.1",
+		"globals": "^16.0.0",
+		"ical.js": "^2.1.0",
+		"json-schema-to-ts": "^3.1.1",
+		"mrmime": "^2.0.1",
+		"playwright": "^1.52.0",
+		"prettier": "^3.5.3",
+		"prettier-plugin-organize-imports": "^4.1.0",
+		"prettier-plugin-svelte": "^3.3.3",
+		"prettier-plugin-tailwindcss": "^0.6.11",
+		"react": "^19.1.0",
+		"sass": "^1.87.0",
+		"svelte": "^5.28.2",
+		"svelte-check": "^4.1.7",
+		"tailwindcss": "^4.1.5",
+		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.32.0",
+		"typescript-svelte-plugin": "^0.3.46",
+		"vite": "^6.3.5",
+		"yaml": "^2.7.1"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"@vercel/speed-insights",
+			"esbuild",
+			"sharp"
+		],
+		"ignoredBuiltDependencies": [
+			"@ibm/plex-mono",
+			"@ibm/plex-sans",
+			"@ibm/plex-serif"
+		]
+	}
 }

@@ -1,0 +1,21 @@
+@source './app.html';
+@source './lib/components/*.svelte';
+
+@theme {
+	--breakpoint-2xs: 475px;
+	--breakpoint-xs: 525px;
+}
+
+@custom-variant tall {
+	@media (min-height: 500px) {
+		@slot;
+	}
+}
+
+@utility delimiter-slash {
+	@apply after:content-['/'_/_''] last:after:content-none;
+}
+
+@utility delimiter-dot {
+	@apply after:content-['\2022'_/_''] last:after:content-none;
+}

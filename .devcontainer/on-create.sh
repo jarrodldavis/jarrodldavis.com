@@ -13,7 +13,6 @@ npm ls --global --json \
     | xargs npm uninstall --global
 
 echo '==> Setting up pnpm...'
-pnpm config set manage-package-manager-versions true
 pnpm config set store-dir ~/.local/share/pnpm/store
 
 echo '==> Installing pnpm dependencies...'

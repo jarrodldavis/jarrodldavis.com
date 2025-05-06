@@ -1,36 +1,39 @@
 {
-  // Code formatting
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.detectIndentation": false,
-  "editor.insertSpaces": true,
-  "editor.rulers": [100],
-  "editor.tabSize": 2,
-  "editor.trimAutoWhitespace": true,
-  "files.autoGuessEncoding": false,
-  "files.encoding": "utf8",
-  "files.eol": "\n",
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true,
-  "files.trimTrailingWhitespace": true,
-  "javascript.preferences.quoteStyle": "double",
-  "typescript.preferences.quoteStyle": "double",
-
-  // Tailwind
-  "files.associations": {
-    "*.css": "tailwindcss",
-  },
-  "tailwindCSS.classAttributes": ["className", "tw"],
-  "[typescriptreact]": {
-    "editor.quickSuggestions": {
-      "strings": "on",
-    },
-  },
-
-  // TypeScript
-  "typescript.check.npmIsInstalled": false,
-  "typescript.disableAutomaticTypeAcquisition": true,
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.preferences.importModuleSpecifier": "non-relative",
-  "typescript.preferences.preferTypeOnlyAutoImports": true,
-  "typescript.tsdk": "node_modules/typescript/lib",
+	"[svelte]": {
+		"editor.quickSuggestions": {
+			"strings": "on"
+		}
+	},
+	"[yaml]": {
+		"diffEditor.ignoreTrimWhitespace": false,
+		"editor.insertSpaces": true
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.detectIndentation": false,
+	"editor.formatOnSave": true,
+	"editor.insertSpaces": false,
+	"editor.rulers": [100],
+	"editor.tabSize": 2,
+	"editor.trimAutoWhitespace": true,
+	"eslint.validate": ["javascript", "typescript", "svelte"],
+	"files.associations": {
+		"app.css": "tailwindcss"
+	},
+	"files.autoGuessEncoding": false,
+	"files.encoding": "utf8",
+	"files.eol": "\n",
+	"files.insertFinalNewline": true,
+	"files.trimFinalNewlines": true,
+	"files.trimTrailingWhitespace": true,
+	"javascript.preferences.quoteStyle": "single",
+	"svelte.enable-ts-plugin": true,
+	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
+	"tailwindCSS.classAttributes": ["class", "tw"],
+	"typescript.check.npmIsInstalled": false,
+	"typescript.disableAutomaticTypeAcquisition": true,
+	"typescript.enablePromptUseWorkspaceTsdk": true,
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	"typescript.preferences.preferTypeOnlyAutoImports": true,
+	"typescript.preferences.quoteStyle": "single",
+	"typescript.tsdk": "node_modules/typescript/lib"
 }

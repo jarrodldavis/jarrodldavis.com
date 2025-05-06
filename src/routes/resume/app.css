@@ -1,0 +1,9 @@
+@import 'tailwindcss' source(none);
+@import '../../app.css';
+@source '.';
+
+@theme {
+	--font-sans: 'IBM Plex Sans';
+	--font-serif: 'IBM Plex Serif';
+	--font-mono: 'IBM Plex Mono';
+}

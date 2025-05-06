@@ -1,8 +1,7 @@
 #!/bin/zsh
 set -euo pipefail
 
-pnpm lint
+pnpm install
 pnpm build
-
-# restart dev server since `distDir` was cleared during build
-touch next.config.ts
+pnpm check
+pnpm lint
