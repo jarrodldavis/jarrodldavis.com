@@ -1,5 +1,4 @@
 overrides:
-  'eslint>@modelcontextprotocol/sdk': '-'
-  'eslint>zod': '-'
+  '@ibm/telemetry-js': '-'
   'glob>jackspeak': '-'
   'sass>@parcel/watcher': '-'
