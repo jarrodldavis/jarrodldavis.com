@@ -1,3 +1,5 @@
+import { building } from '$app/environment';
+import { VERCEL_URL } from '$env/static/private';
 import { load_resume } from '$lib/server';
 import { fetch_image_info } from '$lib/server/image';
 import type { PageServerLoad } from './$types';
@@ -6,7 +8,7 @@ export const prerender = true;
 
 export const load: PageServerLoad = async ({ url }) => {
 	return {
-		base_url: url.toString(),
+		base_url: building ? `https://${VERCEL_URL}` : url.toString(),
 		resume: load_resume(),
 		images: {
 			opengraph: await fetch_image_info('opengraph-image.png'),
