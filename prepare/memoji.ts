@@ -17,9 +17,9 @@ export default function create_memoji_extractor(base_path: string): Extractor {
 
 		const photo = parsed_vcf.getFirstPropertyValue('photo');
 		assert.ok(photo, 'expected parsed vCard photo value to be available');
-		assert.ok(typeof photo === 'string', 'expected parsed vCard photo value to be a string');
+		assert.ok(photo instanceof ICAL.Binary, 'expected parsed vCard photo value to be binary value');
 
-		const out = Buffer.from(photo, 'base64');
+		const out = Buffer.from(photo.value, 'base64');
 		await write(out_path, out);
 	}
 

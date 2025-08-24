@@ -2,6 +2,7 @@ import { building } from '$app/environment';
 import { getRequestEvent } from '$app/server';
 import type { KitConfig } from '@sveltejs/kit';
 import { lookup } from 'mrmime';
+import assert from 'node:assert/strict';
 import path from 'node:path';
 import { chromium, type Request as PlaywrightRequest, type Route } from 'playwright';
 
@@ -56,14 +57,14 @@ async function render_pdf(asset_root: string, pathname: string) {
 	}
 
 	if (!response.ok()) {
-		return new Response(await response.body(), {
+		return new Response(buffer(await response.body()), {
 			status: response.status(),
 			statusText: response.statusText(),
 			headers: await response.allHeaders()
 		});
 	}
 
-	return new Response(await page.pdf(), {
+	return new Response(buffer(await page.pdf()), {
 		headers: {
 			'content-type': 'application/pdf'
 		}
@@ -79,7 +80,7 @@ async function handle_page_request(
 	const request_init: RequestInit = {
 		method: request.method(),
 		headers: await request.allHeaders(),
-		body: request.postDataBuffer()
+		body: buffer(request.postDataBuffer())
 	};
 
 	// First, try the SvelteKit-optimized fetch...
@@ -112,4 +113,15 @@ async function handle_page_request(
 		headers: Object.fromEntries(response.headers),
 		status: response.status
 	};
+}
+
+function buffer(buffer: Buffer): ArrayBuffer;
+function buffer(buffer: Buffer | null): ArrayBuffer | null;
+function buffer(buffer: Buffer | null): ArrayBuffer | null {
+	if (!buffer) {
+		return null;
+	}
+
+	assert(buffer.buffer instanceof ArrayBuffer);
+	return buffer.buffer;
 }
