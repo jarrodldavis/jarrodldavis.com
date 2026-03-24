@@ -5,11 +5,11 @@
 		profile: Profile;
 	}
 
-	const { profile }: Props = $props();
-	const links = [
+	let { profile }: Props = $props();
+	const links = $derived([
 		{ url: `mailto:${profile.email}`, text: profile.email },
 		...profile.networks.map(({ url, network }) => ({ url, text: network }))
-	];
+	]);
 </script>
 
 <div class="2xs:gap-0 tall:2xs:gap-4 xs:gap-4 flex flex-col items-center gap-2 text-center">

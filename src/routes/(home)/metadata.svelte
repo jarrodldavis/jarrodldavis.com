@@ -14,11 +14,15 @@
 	}
 
 	const formatter = new Intl.ListFormat('en-US', { type: 'conjunction' });
-	const { base_url, profile, images }: Props = $props();
-	const { opengraph, twitter, favicon_ico, favicon_png, apple } = images;
-	const canonical_base_url = profile.url;
-	const name = profile.name;
-	const titles = formatter.format(profile.titles);
+	let { base_url, profile, images }: Props = $props();
+	const opengraph = $derived(images.opengraph);
+	const twitter = $derived(images.twitter);
+	const favicon_ico = $derived(images.favicon_ico);
+	const favicon_png = $derived(images.favicon_png);
+	const apple = $derived(images.apple);
+	const canonical_base_url = $derived(profile.url);
+	const name = $derived(profile.name);
+	const titles = $derived(formatter.format(profile.titles));
 
 	function url(info: ImageInfo): string {
 		return new URL(href(info), base_url).toString();

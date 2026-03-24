@@ -12,15 +12,15 @@
 
 	const top_margin = $derived(dev ? page.url.searchParams.get('top-margin') : null);
 
-	const { data }: PageProps = $props();
-	const resume = data.resume;
-	const profile = resume.profile;
-	const work = resume.work;
-	const education = resume.education;
-	const projects = resume.projects;
-	const skills = resume.skills.map<Item>((skill) => [skill.category, skill.skills]);
-	const languages = resume.languages.map((l) => `${l.language} (${l.proficiency})`);
-	const interests = resume.interests;
+	let { data }: PageProps = $props();
+	const resume = $derived(data.resume);
+	const profile = $derived(resume.profile);
+	const work = $derived(resume.work);
+	const education = $derived(resume.education);
+	const projects = $derived(resume.projects);
+	const skills = $derived(resume.skills.map<Item>((skill) => [skill.category, skill.skills]));
+	const languages = $derived(resume.languages.map((l) => `${l.language} (${l.proficiency})`));
+	const interests = $derived(resume.interests);
 
 	function url_display(raw_url: string) {
 		const url = new URL(raw_url);
