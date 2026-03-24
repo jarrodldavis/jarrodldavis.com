@@ -2,6 +2,7 @@ import { includeIgnoreFile } from '@eslint/compat';
 import js from '@eslint/js';
 import prettier from 'eslint-config-prettier';
 import svelte from 'eslint-plugin-svelte';
+import { defineConfig } from 'eslint/config';
 import globals from 'globals';
 import { builtinModules } from 'node:module';
 import { fileURLToPath } from 'node:url';
@@ -10,7 +11,7 @@ import svelteConfig from './svelte.config.js';
 
 const gitignorePath = fileURLToPath(new URL('./.gitignore', import.meta.url));
 
-export default ts.config(
+export default defineConfig(
 	includeIgnoreFile(gitignorePath),
 	js.configs.recommended,
 	...ts.configs.strictTypeChecked,
@@ -30,6 +31,7 @@ export default ts.config(
 		},
 		rules: {
 			'no-undef': 'off',
+			'svelte/no-navigation-without-resolve': 'off',
 			'@typescript-eslint/consistent-type-exports': 'error',
 			'@typescript-eslint/no-import-type-side-effects': 'error',
 			'@typescript-eslint/no-restricted-imports': [
