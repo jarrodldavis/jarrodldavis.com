@@ -1,4 +1,4 @@
-#!/bin/env -S node --experimental-strip-types --no-warnings
+#!/bin/env -S node
 
 import extract_memoji from './memoji.ts';
 import extract_schema from './schema.ts';

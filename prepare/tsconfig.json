@@ -2,7 +2,7 @@
 	"extends": "../tsconfig.json",
 
 	"compilerOptions": {
-		// https://nodejs.org/docs/latest-v22.x/api/typescript.html#type-stripping
+		// https://nodejs.org/docs/latest-v24.x/api/typescript.html#type-stripping
 		"noEmit": true,
 		"target": "ESNext",
 		"module": "NodeNext",

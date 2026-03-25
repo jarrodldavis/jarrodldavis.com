@@ -9,8 +9,5 @@ export default defineConfig({
 	assetsInclude: ['**/*.yaml'],
 	optimizeDeps: {
 		exclude: ['chromium-bidi']
-	},
-	esbuild: {
-		target: 'node22'
 	}
 });
