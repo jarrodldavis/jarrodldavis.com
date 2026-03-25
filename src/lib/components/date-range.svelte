@@ -18,17 +18,19 @@
 		end: string | null;
 	}
 
-	const { start, end }: Props = $props();
-	const start_date = new Date(start);
-	const end_date = end ? new Date(end) : 'Present';
+	function parse_date(raw: string, kind: 'start' | 'end'): Date {
+		const date = new Date(raw);
 
-	if (!start_date.valueOf()) {
-		throw new Error('invalid start date');
+		if (!date.valueOf()) {
+			throw new Error(`invalid ${kind} date`);
+		}
+
+		return date;
 	}
 
-	if (!end_date.valueOf()) {
-		throw new Error('invalid end date');
-	}
+	let { start, end }: Props = $props();
+	const start_date = $derived(parse_date(start, 'start'));
+	const end_date = $derived(end ? parse_date(end, 'end') : 'Present');
 </script>
 
 <time datetime={start_date.toISOString().split('T')[0]}>

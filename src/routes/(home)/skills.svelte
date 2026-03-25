@@ -11,10 +11,9 @@
 		interests: string[];
 	}
 
-	const props: Props = $props();
-	const skills = props.skills.map<Item>((skill) => [skill.category, skill.skills]);
-	const languages = props.languages.map((l) => `${l.language} (${l.proficiency})`);
-	const interests = props.interests;
+	let { skills: raw_skills, languages: raw_languages, interests }: Props = $props();
+	const skills = $derived(raw_skills.map<Item>((skill) => [skill.category, skill.skills]));
+	const languages = $derived(raw_languages.map((l) => `${l.language} (${l.proficiency})`));
 </script>
 
 <PrimarySection title="Skills, Languages, and Interests">

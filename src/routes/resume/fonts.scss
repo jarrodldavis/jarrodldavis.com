@@ -59,17 +59,17 @@ $serif-weights: (
 
 @use '@ibm/plex-mono/scss' as PlexMono with (
 	$font-prefix: '@ibm/plex-mono',
-	$font-weights: if($debug, (), $mono-weights)
+	$font-weights: if(sass($debug): () ; else: $mono-weights)
 );
 
 @use '@ibm/plex-sans/scss' as PlexSans with (
 	$font-prefix: '@ibm/plex-sans',
-	$font-weights: if($debug, (), $sans-weights)
+	$font-weights: if(sass($debug): () ; else: $sans-weights)
 );
 
 @use '@ibm/plex-serif/scss' as PlexSerif with (
 	$font-prefix: '@ibm/plex-serif',
-	$font-weights: if($debug, (), $serif-weights)
+	$font-weights: if(sass($debug): () ; else: $serif-weights)
 );
 
 @include PlexMono.all($unicode-ranges: ());
