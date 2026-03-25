@@ -161,7 +161,7 @@ work:
           - Utilized jQuery UI to create new widgets, including compositions of other widgets
 
 education:
-  - institution: Neumont College of Computer Science
+  - institution: Neumont University
     url: https://www.neumont.edu
     location:
       city: Salt Lake City
@@ -174,6 +174,21 @@ education:
     honors:
       - 3.82 / 4.0 GPA
       - President's List
+    courses: []
+    highlights: []
+
+  - institution: Neumont University
+    url: https://www.neumont.edu
+    location:
+      city: Colorado Springs
+      state: Colorado
+      remote: true
+    degree: Master of Science
+    major: Applied Artificial Intelligence
+    start_date: 2024-09-30
+    end_date: 2026-03-13
+    honors:
+      - 3.92 / 4.0 GPA
     courses: []
     highlights: []
 
@@ -211,25 +226,46 @@ skills:
       - C#
       - SQL
 
-  - category: Frameworks and Libraries
+  - category: Web Frameworks and Libraries
     skills:
       - Svelte/Sapper
       - Apollo GraphQL
       - React
       - Next.js
-      - openpyxl/exceljs/SheetJS
       - Puppeteer
-      - unified.js (remark and rehype)
       - ASP.NET Core
-      - .NET Framework
       - ASP.NET MVC
       - jQuery
       - Vue.js
       - Django
+      - FastHTML
+      - FastAPI
+
+  - category: Data Libraries
+    skills:
+      - openpyxl/exceljs/SheetJS
+      - unified.js (remark and rehype)
+      - Entity Framework Core
+      - SQLAlchemy
+
+  - category: AI Libraries
+    skills:
+      - Jupyter
+      - pandas
+      - NumPy
+      - scikit-learn
+      - Matplotlib
+      - Optuna
+      - LightGBM
+      - XGBoost
+      - Apache Arrow (pyarrow)
+      - ML.NET
+      - AutoGluon
 
   - category: Platforms and Runtimes
     skills:
       - Node.js
+      - .NET Framework
       - .NET (Core)
       - AWS Lambda
       - AWS Step Functions
@@ -256,6 +292,8 @@ skills:
       - Windows PowerShell
       - Visual Studio
       - Bash/Zsh
+      - GitHub Copilot
+      - OpenAI Codex
 
 languages:
   - language: English

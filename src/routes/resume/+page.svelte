@@ -91,7 +91,7 @@
 
 				<section>
 					<TertiaryHeading
-						title={experience.degree}
+						title="{experience.degree} in {experience.major}"
 						start_date={experience.start_date}
 						end_date={experience.end_date}
 					/>
