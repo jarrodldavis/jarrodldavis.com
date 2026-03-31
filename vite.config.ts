@@ -7,7 +7,11 @@ import prepare from './prepare/vite-plugin';
 export default defineConfig({
 	plugins: [prepare(), tailwindcss(), enhancedImages(), sveltekit()],
 	assetsInclude: ['**/*.yaml'],
-	optimizeDeps: {
-		exclude: ['chromium-bidi']
+	build: {
+		rolldownOptions: {
+			checks: {
+				pluginTimings: false
+			}
+		}
 	}
 });
