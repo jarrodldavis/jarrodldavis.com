@@ -9,6 +9,7 @@
 	import PrimaryHeading from './primary-heading.svelte';
 	import SecondaryHeading from './secondary-heading.svelte';
 	import TertiaryHeading from './tertiary-heading.svelte';
+	import { url_display } from './utils';
 
 	const top_margin = $derived(dev ? page.url.searchParams.get('top-margin') : null);
 
@@ -19,13 +20,6 @@
 	const education = $derived(resume.education);
 	const projects = $derived(resume.projects);
 	const skills = $derived(resume.skills.map<Item>((skill) => [skill.category, skill.skills]));
-	const languages = $derived(resume.languages.map((l) => `${l.language} (${l.proficiency})`));
-	const interests = $derived(resume.interests);
-
-	function url_display(raw_url: string) {
-		const url = new URL(raw_url);
-		return (url.hostname + url.pathname).replace(/\/$/, '');
-	}
 </script>
 
 <main
@@ -114,10 +108,12 @@
 
 		{#each projects as project (project)}
 			<section>
-				<SecondaryHeading
-					title={project.name}
-					url={project.url}
-					subtitle={[project.start_date, project.end_date]}
+				<SecondaryHeading title={project.name} url={project.url} subtitle={null} />
+
+				<TertiaryHeading
+					title={project.affiliation}
+					start_date={project.start_date}
+					end_date={project.end_date}
 				/>
 
 				<List items={project.highlights} tight />
@@ -126,8 +122,8 @@
 	</section>
 
 	<section>
-		<PrimaryHeading title="Skills, Languages, Interests" />
-		<List items={[['Languages', languages], ...skills, ['Interests', interests]]} tight />
+		<PrimaryHeading title="Skills" />
+		<List items={skills} tight />
 	</section>
 </main>
 

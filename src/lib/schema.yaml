@@ -29,7 +29,7 @@ definitions:
         type: boolean
 
 type: object
-required: [profile, work, education, projects, skills, languages, interests]
+required: [profile, work, education, projects, skills]
 additionalProperties: false
 properties:
   profile:
@@ -164,7 +164,7 @@ properties:
           type: [string, 'null']
           format: uri
         affiliation:
-          type: [string, 'null']
+          type: [string]
         start_date:
           type: string
           format: date
@@ -190,20 +190,3 @@ properties:
           minItems: 1
           items:
             type: string
-
-  languages:
-    type: array
-    items:
-      type: object
-      required: [language, proficiency]
-      additionalProperties: false
-      properties:
-        language:
-          type: string
-        proficiency:
-          type: string
-
-  interests:
-    type: array
-    items:
-      type: string

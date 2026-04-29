@@ -2,13 +2,14 @@
 	import DateRange from '$lib/components/date-range.svelte';
 	import Location from '$lib/components/location.svelte';
 	import type { Location as LocationType } from '$lib/types';
+	import { url_display } from './utils';
 
 	type DateRangeType = readonly [start: string, end: string | null];
 
 	interface Props {
 		title: string;
 		url?: string | null;
-		subtitle: LocationType | DateRangeType;
+		subtitle: LocationType | DateRangeType | null;
 	}
 
 	const { title, url, subtitle }: Props = $props();
@@ -18,6 +19,7 @@
 	<h3 class="font-semibold">
 		{#if url}
 			<a href={url}>{title}</a>
+			<span class="text-xs font-normal">(<a href={url}>{url_display(url)}</a>)</span>
 		{:else}
 			{title}
 		{/if}
@@ -25,7 +27,7 @@
 
 	{#if subtitle instanceof Array}
 		<p class="font-mono tracking-tight"><DateRange start={subtitle[0]} end={subtitle[1]} /></p>
-	{:else}
+	{:else if subtitle}
 		<Location location={subtitle} />
 	{/if}
 </hgroup>

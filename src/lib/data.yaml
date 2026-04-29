@@ -164,6 +164,21 @@ education:
   - institution: Neumont University
     url: https://www.neumont.edu
     location:
+      city: Colorado Springs
+      state: Colorado
+      remote: true
+    degree: Master of Science
+    major: Applied Artificial Intelligence
+    start_date: 2024-09-30
+    end_date: 2026-03-13
+    honors:
+      - 3.92 / 4.0 GPA
+    courses: []
+    highlights: []
+
+  - institution: Neumont University
+    url: https://www.neumont.edu
+    location:
       city: Salt Lake City
       state: Utah
       remote: false
@@ -178,43 +193,82 @@ education:
     courses: []
     highlights: []
 
-  - institution: Neumont University
-    url: https://www.neumont.edu
-    location:
-      city: Colorado Springs
-      state: Colorado
-      remote: true
-    degree: Master of Science
-    major: Applied Artificial Intelligence
-    start_date: 2024-09-30
-    end_date: 2026-03-13
-    honors:
-      - 3.92 / 4.0 GPA
-    courses: []
-    highlights: []
-
 projects:
+  - name: Energy and Air Quality Forecasting Dashboard
+    url: null
+    affiliation: Neumont University
+    start_date: 2026-01-05
+    end_date: 2026-03-13
+    highlights:
+      - Capstone Project for Master of Science in Applied Artificial Intelligence program
+      - A machine learning-powered dashboard that provides forecasts for energy usage and air
+        quality
+      - Uses historical weather, energy usage, and air quality data to train models that forecast
+        future energy usage and air quality based on real-time weather forecasts and historical
+        trends
+      - title: Technologies
+        content: Python, Jupyter, pandas, NumPy, scikit-learn, Matplotlib, AutoGluon, FastAPI
+
+  - name: Temperature and Electricity Machine Learning Project
+    url: null
+    affiliation: Neumont University
+    start_date: 2025-06-30
+    end_date: 2025-09-04
+    highlights:
+      - A project for a course in the Master of Science in Applied Artificial Intelligence program
+      - A machine learning-powered dashboard that provides forecasts for energy usage and indoor air
+        temperature
+      - Uses historical weather, energy usage, and indoor air temperature data to train models that
+        forecast future energy usage and indoor air temperature based on real-time weather
+        forecasts and historical trends
+      - title: Technologies
+        content: >-
+          Python, Jupyter, pandas, NumPy, scikit-learn, Matplotlib, AutoGluon, FastHTML
+
+  - name: Home Assistant Database Exporter
+    url: https://github.com/jarrodldavis/home-assistant-database-exporter
+    affiliation: Neumont University
+    start_date: 2025-06-30
+    end_date: 2025-09-04
+    highlights:
+      - A custom Home Assistant integration that exports States and Events from the primary Recorder
+        database to a secondary database
+      - Developed to support the Temperature and Electricity Machine Learning project, which
+        required exporting data from Home Assistant for use in a machine learning pipeline
+      - title: Technologies
+        content: Python, SQLAlchemy, Home Assistant integration development
+
   - name: Migrate Guru Notification Extension
     url: https://github.com/jarrodldavis/migrate-guru-notification-webext
-    affiliation: null
+    affiliation: Side Project
     start_date: 2019-02-17
     end_date: 2019-09-10
     highlights:
       - A custom Firefox extension that showed notifications for started and completed Migrate Guru
         migrations
-      - Used the WebExtension API
-      - Used Svelte and the Firefox UX team's Photon Extension Kit for UI
-      - Used webpack and webextension-toolbox for packaging
+      - title: Technologies
+        content: JavaScript, Svelte, webpack, webextension-toolbox, WebExtension API
 
   - name: Probot GPG
     url: https://github.com/jarrodldavis/probot-gpg
-    affiliation: null
+    affiliation: Side Project
     start_date: 2017-05-14
     end_date: 2019-07-19
     highlights:
       - A GitHub App that provided a Check on Pull Requests to enforce GPG-signed commits
-      - Used the GitHub Probot framework on Node.js
-      - Deployed to Heroku
+      - title: Technologies
+        content: JavaScript, Node.js, Probot framework, GitHub API, Heroku
+
+  - name: GitSmart
+    url: null
+    affiliation: Neumont University
+    start_date: 2014-06-30
+    end_date: 2014-09-10
+    highlights:
+      - Capstone Project for Bachelor of Science in Web Design and Development program
+      - A git-integrated learning management system
+      - title: Technologies
+        content: Dart, AngularDart, Ruby on Rails, Devise, Angular.js, Bootstrap, Firebase, Gulp.js
 
 skills:
   - category: Programming and Markup Languages
@@ -295,9 +349,3 @@ skills:
       - Bash/Zsh
       - GitHub Copilot
       - OpenAI Codex
-
-languages:
-  - language: English
-    proficiency: Native speaker
-
-interests: []
