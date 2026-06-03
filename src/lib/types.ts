@@ -3,6 +3,7 @@ import type { FromSchema } from 'json-schema-to-ts';
 
 export type Resume = FromSchema<typeof RESUME_SCHEMA>;
 export type Location = FromSchema<(typeof RESUME_SCHEMA)['definitions']['location']>;
+export type Omission = FromSchema<(typeof RESUME_SCHEMA)['definitions']['omit']>;
 export type Profile = Resume['profile'];
 export type WorkExperience = Resume['work'][number];
 export type EducationExperience = Resume['education'][number];
@@ -14,4 +15,8 @@ export interface ImageInfo {
 	width: string;
 	height: string;
 	name: string;
+}
+
+export interface Omissible {
+	omit?: Omission;
 }

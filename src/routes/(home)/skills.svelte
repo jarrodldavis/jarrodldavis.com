@@ -10,7 +10,9 @@
 	}
 
 	let { skills: raw_skills }: Props = $props();
-	const skills = $derived(raw_skills.map<Item>((skill) => [skill.category, skill.skills]));
+	const skills = $derived(
+		raw_skills.map<Item>((skill) => ({ title: skill.category, content: skill.skills }))
+	);
 </script>
 
 <PrimarySection title="Skills">
