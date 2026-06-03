@@ -4,7 +4,7 @@ profile:
   name: Jarrod Davis
   titles:
     - Software Engineer
-    - Scripting Specialist
+    - Applied AI Developer
     - Full Stack Web Developer
   location:
     city: Colorado Springs
@@ -20,10 +20,11 @@ profile:
       username: jarrodldavis
       url: https://github.com/jarrodldavis
   intro: >-
-    Hey! I'm Jarrod Davis, a full stack developer and software engineer who enjoys building
-    delightful experiences and helpful tools. I've worked with numerous languages, frameworks, and
-    libraries, with a significant focus on command-line utilities and web applications (both the
-    frontend and backend).
+    Hey! I'm Jarrod Davis, a software engineer and full stack developer who enjoys building useful
+    tools and reliable systems. My work spans frontend and backend web development, automation, and
+    command-line applications. I recently completed a Master's degree in Applied Artificial
+    Intelligence and enjoy exploring practical ways AI can enhance software products and developer
+    workflows.
 
 work:
   - company: Triplemint / The Agency
@@ -246,7 +247,8 @@ projects:
           quality
       - content: >-
           Uses historical weather, energy usage, and air quality data to train models that forecast
-          future energy usage and air quality based on real-time weather forecasts and historical trends
+          future energy usage and air quality based on real-time weather forecasts and historical
+          trends
       - title: Technologies
         content: [Python, Jupyter, pandas, NumPy, scikit-learn, Matplotlib, AutoGluon, FastAPI]
 
