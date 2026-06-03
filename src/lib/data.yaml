@@ -108,6 +108,23 @@ work:
           - content: >-
               Created a custom Plex Media Server plugin/agent to match TV Show and Movie media to
               metadata from the MyDramaList.com API
+          - content: >-
+              Identified and implemented solutions to resolve issues with an open source Jekyll site
+            omit: [pdf]
+          - content: >-
+              Configured a reference full stack GraphQL project using React.js, Next.js, Auth0,
+              Apollo, and Hasura
+            omit: [pdf]
+          - content: >-
+              Configured a boilerplate Craft CMS project in Docker using Docker Compose
+            omit: [pdf]
+          - content: >-
+              Investigated issues with server-side rendering deployment of a Firebase and Sapper
+              site and provided guidance on alternative deployment strategies
+            omit: [pdf]
+          - content: >-
+              Performed various administrative and data entry tasks
+            omit: [pdf]
 
   - company: Axxess Technology Solutions
     url: https://www.axxess.com
