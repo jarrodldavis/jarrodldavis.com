@@ -1,4 +1,5 @@
 overrides:
   '@ibm/telemetry-js': '-'
-  'glob>jackspeak': '-'
   'sass>@parcel/watcher': '-'
+  'sass>chokidar': '-'
+  'svelte-check>chokidar': '5'
