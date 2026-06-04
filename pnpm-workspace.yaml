@@ -1,4 +1,16 @@
 overrides:
   '@ibm/telemetry-js': '-'
-  'glob>jackspeak': '-'
   'sass>@parcel/watcher': '-'
+  'sass>chokidar': '-'
+  'svelte-check>chokidar': '5'
+
+allowBuilds:
+  '@tailwindcss/oxide': true
+  '@vercel/speed-insights': true
+  'esbuild': true
+  'sharp': true
+  '@ibm/plex-mono': false
+  '@ibm/plex-sans': false
+  '@ibm/plex-serif': false
+
+minimumReleaseAgeStrict: true
