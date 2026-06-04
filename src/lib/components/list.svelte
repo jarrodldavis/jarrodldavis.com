@@ -1,44 +1,45 @@
 <script lang="ts" module>
-	export type Item =
-		| string
-		| [title: string, content: string]
-		| { title: string; content: string }
-		| [title: string, subitems: string[]];
+	export interface Item {
+		title?: string;
+		content: string | string[];
+		omit?: 'pdf'[];
+	}
 
 	const formatter = new Intl.ListFormat('en-US', { type: 'unit' });
-
-	function extract_title_and_content(item: Item): [title: string | null, content: string] {
-		if (typeof item === 'string') {
-			return [null, item];
-		} else if (Array.isArray(item)) {
-			return [item[0], typeof item[1] === 'string' ? item[1] : formatter.format(item[1])];
-		} else {
-			return [item.title, item.content];
-		}
-	}
 </script>
 
 <script lang="ts">
 	interface Props {
 		items: Item[];
 		tight?: boolean;
+		omit?: 'pdf'[];
 	}
 
-	const { items, tight = false }: Props = $props();
+	const { items, tight = false, omit }: Props = $props();
+
+	function omitItem(item: Item): boolean {
+		if (!omit || !item.omit) {
+			return false;
+		}
+
+		return item.omit.some((omitValue) => omit.includes(omitValue));
+	}
 </script>
 
 {#if items.length}
 	<ul class="ml-4 list-outside list-disc text-pretty">
 		{#each items as item (item)}
-			{@const [title, content] = extract_title_and_content(item)}
-
-			{#if content.length}
+			{#if item.content.length && !omitItem(item)}
 				<li class={{ 'mb-1': !tight }}>
-					{#if title}
-						<span class="font-semibold">{title}</span>:
+					{#if item.title}
+						<span class="font-semibold">{item.title}</span>:
 					{/if}
 
-					{content}
+					{#if Array.isArray(item.content)}
+						{formatter.format(item.content)}
+					{:else}
+						{item.content}
+					{/if}
 				</li>
 			{/if}
 		{/each}

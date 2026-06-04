@@ -20,9 +20,5 @@
 	<Work work={data.resume.work} />
 	<Education education={data.resume.education} />
 	<Projects projects={data.resume.projects} />
-	<Skills
-		skills={data.resume.skills}
-		languages={data.resume.languages}
-		interests={data.resume.interests}
-	/>
+	<Skills skills={data.resume.skills} />
 </main>

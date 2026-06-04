@@ -30,8 +30,8 @@
 			>
 				<List
 					items={[
-						['Honors', experience.honors],
-						['Courses', experience.courses],
+						{ title: 'Honors', content: experience.honors },
+						{ title: 'Courses', content: experience.courses },
 						...experience.highlights
 					]}
 				/>

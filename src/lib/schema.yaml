@@ -6,16 +6,20 @@ title: jarrodldavis.com resume schema
 
 definitions:
   highlight:
-    oneOf:
-      - type: string
-      - type: object
-        required: [title, content]
-        additionalProperties: false
-        properties:
-          title:
-            type: string
-          content:
-            type: string
+    type: object
+    required: [content]
+    additionalProperties: false
+    properties:
+      title:
+        type: string
+      content:
+        oneOf:
+          - type: string
+          - type: array
+            items:
+              type: string
+      omit:
+        $ref: '#/definitions/omit'
   location:
     type: object
     required: [city, state, remote]
@@ -27,9 +31,14 @@ definitions:
         type: string
       remote:
         type: boolean
+  omit:
+    type: array
+    items:
+      type: string
+      enum: [pdf]
 
 type: object
-required: [profile, work, education, projects, skills, languages, interests]
+required: [profile, work, education, projects, skills]
 additionalProperties: false
 properties:
   profile:
@@ -82,6 +91,8 @@ properties:
           format: uri
         location:
           $ref: '#/definitions/location'
+        omit:
+          $ref: '#/definitions/omit'
         positions:
           type: array
           items:
@@ -99,6 +110,8 @@ properties:
               end_date:
                 type: [string, 'null']
                 format: date
+              omit:
+                $ref: '#/definitions/omit'
               highlights:
                 type: array
                 items:
@@ -146,6 +159,8 @@ properties:
           type: array
           items:
             type: string
+        omit:
+          $ref: '#/definitions/omit'
         highlights:
           type: array
           items:
@@ -164,13 +179,15 @@ properties:
           type: [string, 'null']
           format: uri
         affiliation:
-          type: [string, 'null']
+          type: [string]
         start_date:
           type: string
           format: date
         end_date:
           type: [string, 'null']
           format: date
+        omit:
+          $ref: '#/definitions/omit'
         highlights:
           type: array
           items:
@@ -190,20 +207,3 @@ properties:
           minItems: 1
           items:
             type: string
-
-  languages:
-    type: array
-    items:
-      type: object
-      required: [language, proficiency]
-      additionalProperties: false
-      properties:
-        language:
-          type: string
-        proficiency:
-          type: string
-
-  interests:
-    type: array
-    items:
-      type: string

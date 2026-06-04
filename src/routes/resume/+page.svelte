@@ -3,12 +3,26 @@
 	import { page } from '$app/state';
 	import List, { type Item } from '$lib/components/list.svelte';
 	import Location from '$lib/components/location.svelte';
+	import type { Omissible } from '$lib/types';
 	import type { PageProps } from './$types';
 	import './app.css';
 	import './fonts.scss';
 	import PrimaryHeading from './primary-heading.svelte';
 	import SecondaryHeading from './secondary-heading.svelte';
 	import TertiaryHeading from './tertiary-heading.svelte';
+	import { url_display } from './utils';
+
+	function omitItems(item: Omissible) {
+		if (!item.omit) {
+			return true;
+		}
+
+		if (item.omit.includes('pdf')) {
+			return false;
+		}
+
+		return true;
+	}
 
 	const top_margin = $derived(dev ? page.url.searchParams.get('top-margin') : null);
 
@@ -18,14 +32,9 @@
 	const work = $derived(resume.work);
 	const education = $derived(resume.education);
 	const projects = $derived(resume.projects);
-	const skills = $derived(resume.skills.map<Item>((skill) => [skill.category, skill.skills]));
-	const languages = $derived(resume.languages.map((l) => `${l.language} (${l.proficiency})`));
-	const interests = $derived(resume.interests);
-
-	function url_display(raw_url: string) {
-		const url = new URL(raw_url);
-		return (url.hostname + url.pathname).replace(/\/$/, '');
-	}
+	const skills = $derived(
+		resume.skills.map<Item>((skill) => ({ title: skill.category, content: skill.skills }))
+	);
 </script>
 
 <main
@@ -55,7 +64,7 @@
 	<section>
 		<PrimaryHeading title="Work Experience" />
 
-		{#each work as experience (experience)}
+		{#each work.filter(omitItems) as experience (experience)}
 			<section>
 				<SecondaryHeading
 					title={experience.company}
@@ -63,7 +72,7 @@
 					subtitle={experience.location}
 				/>
 
-				{#each experience.positions as position (position)}
+				{#each experience.positions.filter(omitItems) as position (position)}
 					<section>
 						<TertiaryHeading
 							title={position.title}
@@ -71,7 +80,7 @@
 							end_date={position.end_date}
 						/>
 
-						<List items={position.highlights} tight />
+						<List items={position.highlights} tight omit={['pdf']} />
 					</section>
 				{/each}
 			</section>
@@ -81,7 +90,7 @@
 	<section>
 		<PrimaryHeading title="Education" />
 
-		{#each education as experience (experience)}
+		{#each education.filter(omitItems) as experience (experience)}
 			<section>
 				<SecondaryHeading
 					title={experience.institution}
@@ -98,11 +107,12 @@
 
 					<List
 						items={[
-							['Honors', experience.honors],
-							['Courses', experience.courses],
+							{ title: 'Honors', content: experience.honors },
+							{ title: 'Courses', content: experience.courses },
 							...experience.highlights
 						]}
 						tight
+						omit={['pdf']}
 					/>
 				</section>
 			</section>
@@ -112,22 +122,24 @@
 	<section>
 		<PrimaryHeading title="Projects" />
 
-		{#each projects as project (project)}
+		{#each projects.filter(omitItems) as project (project)}
 			<section>
-				<SecondaryHeading
-					title={project.name}
-					url={project.url}
-					subtitle={[project.start_date, project.end_date]}
+				<SecondaryHeading title={project.name} url={project.url} subtitle={null} />
+
+				<TertiaryHeading
+					title={project.affiliation}
+					start_date={project.start_date}
+					end_date={project.end_date}
 				/>
 
-				<List items={project.highlights} tight />
+				<List items={project.highlights} tight omit={['pdf']} />
 			</section>
 		{/each}
 	</section>
 
 	<section>
-		<PrimaryHeading title="Skills, Languages, Interests" />
-		<List items={[['Languages', languages], ...skills, ['Interests', interests]]} tight />
+		<PrimaryHeading title="Skills" />
+		<List items={skills} tight omit={['pdf']} />
 	</section>
 </main>
 

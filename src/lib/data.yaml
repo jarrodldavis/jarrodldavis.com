@@ -4,7 +4,7 @@ profile:
   name: Jarrod Davis
   titles:
     - Software Engineer
-    - Scripting Specialist
+    - Applied AI Developer
     - Full Stack Web Developer
   location:
     city: Colorado Springs
@@ -20,10 +20,11 @@ profile:
       username: jarrodldavis
       url: https://github.com/jarrodldavis
   intro: >-
-    Hey! I'm Jarrod Davis, a full stack developer and software engineer who enjoys building
-    delightful experiences and helpful tools. I've worked with numerous languages, frameworks, and
-    libraries, with a significant focus on command-line utilities and web applications (both the
-    frontend and backend).
+    Hey! I'm Jarrod Davis, a software engineer and full stack developer who enjoys building useful
+    tools and reliable systems. My work spans frontend and backend web development, automation, and
+    command-line applications. I recently completed a Master's degree in Applied Artificial
+    Intelligence and enjoy exploring practical ways AI can enhance software products and developer
+    workflows.
 
 work:
   - company: Triplemint / The Agency
@@ -38,27 +39,36 @@ work:
         start_date: 2021-03-01
         end_date: 2024-02-09
         highlights:
-          - Participated in the rewrite, launch, and maintenance of a new codebase using Svelte,
-            Sapper, webpack, and Apollo GraphQL
-          - Assisted in maintaining code quality through pull request reviews, developer tooling
-            upgrades, unit and integration tests, and GitHub Actions-enforced W3C HTML validation
-          - Led or participated in important code architecture decisions and implementations
-          - Worked with the backend team to update the Node.js PostGraphile codebase as needed for
-            frontend features
-          - Developed the rewritten saved search UI, an important lead generation avenue and daily
-            workflow tool for clients and agents that includes an interactive and dynamic email
-            preview system
-          - Expanded the website to a global audience through the implementation of a sophisticated
-            internationalization (i18n) system, including GeoIP and browser-based region/language
-            detection and selection, value (number, date, currency, dimension) formatting, phone
-            number inputs, and language translations
-          - Improved SEO and Core Web Vitals (including CLS and LCP) using web font subsetting and
-            preloading, responsive image sets, and carefully orchestrated gallery image loading
-          - Instrumented the site with marketing tools like Facebook Pixel, Google Analytics, and
-            Google Tag Manager and upgraded Google Analytics from Universal Analytics to Google
-            Analytics 4
-          - Helped develop a new avenue for lead generation through a contextual listing inquiry
-            form
+          - content: >-
+              Participated in the rewrite, launch, and maintenance of a new codebase using Svelte,
+              Sapper, webpack, and Apollo GraphQL
+          - content: >-
+              Assisted in maintaining code quality through pull request reviews, developer tooling
+              upgrades, unit and integration tests, and GitHub Actions-enforced W3C HTML validation
+          - content: >-
+              Led or participated in important code architecture decisions and implementations
+          - content: >-
+              Worked with the backend team to update the Node.js PostGraphile codebase as needed for
+              frontend features
+          - content: >-
+              Developed the rewritten saved search UI, an important lead generation avenue and daily
+              workflow tool for clients and agents that includes an interactive and dynamic email
+              preview system
+          - content: >-
+              Expanded the website to a global audience through the implementation of a
+              sophisticated internationalization (i18n) system, including GeoIP and browser-based
+              region/language detection and selection, value (number, date, currency, dimension)
+              formatting, phone number inputs, and language translations
+          - content: >-
+              Improved SEO and Core Web Vitals (including CLS and LCP) using web font subsetting and
+              preloading, responsive image sets, and carefully orchestrated gallery image loading
+          - content: >-
+              Instrumented the site with marketing tools like Facebook Pixel, Google Analytics, and
+              Google Tag Manager and upgraded Google Analytics from Universal Analytics to Google
+              Analytics 4
+          - content: >-
+              Helped develop a new avenue for lead generation through a contextual listing inquiry
+              form
 
   - company: Freelance
     url: null
@@ -72,23 +82,49 @@ work:
         start_date: 2019-11-23
         end_date: 2021-04-10
         highlights:
-          - Developed a Chrome extension to provide keyboard shortcuts for changing the active font
-            color in Gmail's compose editor
-          - Updated a Java (Selenium and Azure Service Bus) app to run in Docker for usage in Azure
-            Container Registry
-          - Created a Cloudflare Worker to manipulate text, anchor links, and images on-the-fly for
-            a satirical/parody news site
-          - Automated system configuration management for Windows 10 machines using PowerShell
-            Desired State Configuration (DSC)
-          - Updated an existing Puppeteer-based scraping solution to use REST APIs for generating
-            and uploading CSV and Excel reports to Confluence Spaces
-          - Developed Step Functions-orchestrated AWS Lambda functions to receive webhooks, process
-            data, and interact with external REST APIs
-          - Implemented a Python script to collect information from git repository commits into a
-            CSV file for analysis
-          - Developed a script to convert Shopify blog entries to Markdown for a new Jekyll site
-          - Created a custom Plex Media Server plugin/agent to match TV Show and Movie media to
-            metadata from the MyDramaList.com API
+          - content: >-
+              Developed a Chrome extension to provide keyboard shortcuts for changing the active
+              font color in Gmail's compose editor
+          - content: >-
+              Updated a Java (Selenium and Azure Service Bus) app to run in Docker for usage in
+              Azure Container Registry
+          - content: >-
+              Created a Cloudflare Worker to manipulate text, anchor links, and images on-the-fly
+              for a satirical/parody news site
+          - content: >-
+              Automated system configuration management for Windows 10 machines using PowerShell
+              Desired State Configuration (DSC)
+          - content: >-
+              Updated an existing Puppeteer-based scraping solution to use REST APIs for generating
+              and uploading CSV and Excel reports to Confluence Spaces
+          - content: >-
+              Developed Step Functions-orchestrated AWS Lambda functions to receive webhooks,
+              process data, and interact with external REST APIs
+          - content: >-
+              Implemented a Python script to collect information from git repository commits into a
+              CSV file for analysis
+          - content: >-
+              Developed a script to convert Shopify blog entries to Markdown for a new Jekyll site
+          - content: >-
+              Created a custom Plex Media Server plugin/agent to match TV Show and Movie media to
+              metadata from the MyDramaList.com API
+          - content: >-
+              Identified and implemented solutions to resolve issues with an open source Jekyll site
+            omit: [pdf]
+          - content: >-
+              Configured a reference full stack GraphQL project using React.js, Next.js, Auth0,
+              Apollo, and Hasura
+            omit: [pdf]
+          - content: >-
+              Configured a boilerplate Craft CMS project in Docker using Docker Compose
+            omit: [pdf]
+          - content: >-
+              Investigated issues with server-side rendering deployment of a Firebase and Sapper
+              site and provided guidance on alternative deployment strategies
+            omit: [pdf]
+          - content: >-
+              Performed various administrative and data entry tasks
+            omit: [pdf]
 
   - company: Axxess Technology Solutions
     url: https://www.axxess.com
@@ -102,29 +138,43 @@ work:
         start_date: 2016-07-23
         end_date: 2018-06-01
         highlights:
-          - Transitioned to the technical team lead role
-          - Participated with project and product management in the refinement and prioritization of
-            bug fixes, enhancements, and features
-          - Initiated the introduction of new technologies (including Vue.js) for major new features
-          - Designed and developed a new ASP.NET Core API for retrieving and updating application
-            data in coordination with mobile app engineers
-          - Managed deployments for multiple environments using TeamCity and Octopus Deploy
-          - Integrated the product with multiple systems internal and external to the company
-          - Onboarded and mentored new and existing team members
-          - Wrote documentation for project setup, version control strategies, and deployment
-            workflows
+          - content: >-
+              Transitioned to the technical team lead role
+          - content: >-
+              Participated with project and product management in the refinement and prioritization
+              of bug fixes, enhancements, and features
+          - content: >-
+              Initiated the introduction of new technologies (including Vue.js) for major new
+              features
+          - content: >-
+              Designed and developed a new ASP.NET Core API for retrieving and updating application
+              data in coordination with mobile app engineers
+          - content: >-
+              Managed deployments for multiple environments using TeamCity and Octopus Deploy
+          - content: >-
+              Integrated the product with multiple systems internal and external to the company
+          - content: >-
+              Onboarded and mentored new and existing team members
+          - content: >-
+              Wrote documentation for project setup, version control strategies, and deployment
+              workflows
       - title: Web Engineer
         summary: HomeCare SaaS product for home care and private duty agencies
         start_date: 2015-03-30
         end_date: 2016-07-23
         highlights:
-          - Maintained a full stack C# ASP.NET MVC 5 and JavaScript/jQuery web application
-          - Introduced features into an existing complex codebase across the frontend, backend, and
-            database
-          - Participated in peer code reviews and quality assurance (QA) testing
-          - Increased development efficiency through optimizations of engineering workflows
-          - Defined and distributed a Docker Compose project for the backend's data services for a
-            consistent and always-available local development environment
+          - content: >-
+              Maintained a full stack C# ASP.NET MVC 5 and JavaScript/jQuery web application
+          - content: >-
+              Introduced features into an existing complex codebase across the frontend, backend,
+              and database
+          - content: >-
+              Participated in peer code reviews and quality assurance (QA) testing
+          - content: >-
+              Increased development efficiency through optimizations of engineering workflows
+          - content: >-
+              Defined and distributed a Docker Compose project for the backend's data services for a
+              consistent and always-available local development environment
 
   - company: AtTask / Workfront
     url: https://www.workfront.com
@@ -132,15 +182,17 @@ work:
       city: Lehi
       state: Utah
       remote: false
+    omit: [pdf]
     positions:
       - title: Frontend Developer Intern
         summary: Internal developer tool
         start_date: 2015-01-05
         end_date: 2015-03-17
         highlights:
-          - Developed an internal tool used by developers
+          - content: >-
+              Developed an internal tool used by developers
           - title: Technologies
-            content: Python, HTML/CSS, JavaScript, MySQL, git, PyCharm, LESS, Django, Angular.js
+            content: [Python, HTML/CSS, JavaScript, MySQL, git, PyCharm, LESS, Django, Angular.js]
 
   - company: Allegiance / MaritzCX
     url: null
@@ -148,19 +200,39 @@ work:
       city: South Jordan
       state: Utah
       remote: false
+    omit: [pdf]
     positions:
       - title: Developer Intern (UI/UX Team)
         summary: Voice of Customer and Enterprise Feedback Management services
         start_date: 2014-09-29
         end_date: 2014-12-09
         highlights:
-          - Assisted in the selection of the CSS preprocessor to include in an existing development
-            environment
-          - Integrated the Stylus CSS preprocessor into the existing build system
-          - Investigated and fixed bugs of several JavaScript UI components
-          - Utilized jQuery UI to create new widgets, including compositions of other widgets
+          - content: >-
+              Assisted in the selection of the CSS preprocessor to include in an existing
+              development environment
+          - content: >-
+              Integrated the Stylus CSS preprocessor into the existing build system
+          - content: >-
+              Investigated and fixed bugs of several JavaScript UI components
+          - content: >-
+              Utilized jQuery UI to create new widgets, including compositions of other widgets
 
 education:
+  - institution: Neumont University
+    url: https://www.neumont.edu
+    location:
+      city: Colorado Springs
+      state: Colorado
+      remote: true
+    degree: Master of Science
+    major: Applied Artificial Intelligence
+    start_date: 2024-09-30
+    end_date: 2026-03-13
+    honors:
+      - 3.92 / 4.0 GPA
+    courses: []
+    highlights: []
+
   - institution: Neumont University
     url: https://www.neumont.edu
     location:
@@ -178,43 +250,96 @@ education:
     courses: []
     highlights: []
 
-  - institution: Neumont University
-    url: https://www.neumont.edu
-    location:
-      city: Colorado Springs
-      state: Colorado
-      remote: true
-    degree: Master of Science
-    major: Applied Artificial Intelligence
-    start_date: 2024-09-30
-    end_date: 2026-03-13
-    honors:
-      - 3.92 / 4.0 GPA
-    courses: []
-    highlights: []
-
 projects:
+  - name: Energy and Air Quality Forecasting Dashboard
+    url: null
+    affiliation: Neumont University
+    start_date: 2026-01-05
+    end_date: 2026-03-13
+    highlights:
+      - content: >-
+          Capstone Project for Master of Science in Applied Artificial Intelligence program
+      - content: >-
+          A machine learning-powered dashboard that provides forecasts for energy usage and air
+          quality
+      - content: >-
+          Uses historical weather, energy usage, and air quality data to train models that forecast
+          future energy usage and air quality based on real-time weather forecasts and historical
+          trends
+      - title: Technologies
+        content: [Python, Jupyter, pandas, NumPy, scikit-learn, Matplotlib, AutoGluon, FastAPI]
+
+  - name: Temperature and Electricity Machine Learning Project
+    url: null
+    affiliation: Neumont University
+    start_date: 2025-06-30
+    end_date: 2025-09-04
+    highlights:
+      - content: >-
+          A project for a course in the Master of Science in Applied Artificial Intelligence program
+      - content: >-
+          A machine learning-powered dashboard that provides forecasts for energy usage and indoor
+          air temperature
+      - content: >-
+          Uses historical weather, energy usage, and indoor air temperature data to train models
+          that forecast future energy usage and indoor air temperature based on real-time weather
+          forecasts and historical trends
+      - title: Technologies
+        content: [Python, Jupyter, pandas, NumPy, scikit-learn, Matplotlib, AutoGluon, FastHTML]
+
+  - name: Home Assistant Database Exporter
+    url: https://github.com/jarrodldavis/home-assistant-database-exporter
+    affiliation: Neumont University
+    start_date: 2025-06-30
+    end_date: 2025-09-04
+    highlights:
+      - content: >-
+          A custom Home Assistant integration that exports States and Events from the primary
+          Recorder database to a secondary database
+      - content: >-
+          Developed to support the Temperature and Electricity Machine Learning project, which
+          required exporting data from Home Assistant for use in a machine learning pipeline
+      - title: Technologies
+        content: [Python, SQLAlchemy, Home Assistant integration development]
+
   - name: Migrate Guru Notification Extension
     url: https://github.com/jarrodldavis/migrate-guru-notification-webext
-    affiliation: null
+    affiliation: Side Project
     start_date: 2019-02-17
     end_date: 2019-09-10
+    omit: [pdf]
     highlights:
-      - A custom Firefox extension that showed notifications for started and completed Migrate Guru
-        migrations
-      - Used the WebExtension API
-      - Used Svelte and the Firefox UX team's Photon Extension Kit for UI
-      - Used webpack and webextension-toolbox for packaging
+      - content: >-
+          A custom Firefox extension that showed notifications for started and completed Migrate
+          Guru migrations
+      - title: Technologies
+        content: [JavaScript, Svelte, webpack, webextension-toolbox, WebExtension API]
 
   - name: Probot GPG
     url: https://github.com/jarrodldavis/probot-gpg
-    affiliation: null
+    affiliation: Side Project
     start_date: 2017-05-14
     end_date: 2019-07-19
+    omit: [pdf]
     highlights:
-      - A GitHub App that provided a Check on Pull Requests to enforce GPG-signed commits
-      - Used the GitHub Probot framework on Node.js
-      - Deployed to Heroku
+      - content: >-
+          A GitHub App that provided a Check on Pull Requests to enforce GPG-signed commits
+      - title: Technologies
+        content: [JavaScript, Node.js, Probot framework, GitHub API, Heroku]
+
+  - name: GitSmart
+    url: null
+    affiliation: Neumont University
+    start_date: 2014-06-30
+    end_date: 2014-09-10
+    highlights:
+      - content: >-
+          Capstone Project for Bachelor of Science in Web Design and Development program
+      - content: >-
+          A git-integrated learning management system
+      - title: Technologies
+        content:
+          [Dart, AngularDart, Ruby on Rails, Devise, Angular.js, Bootstrap, Firebase, Gulp.js]
 
 skills:
   - category: Programming and Markup Languages
@@ -295,9 +420,3 @@ skills:
       - Bash/Zsh
       - GitHub Copilot
       - OpenAI Codex
-
-languages:
-  - language: English
-    proficiency: Native speaker
-
-interests: []

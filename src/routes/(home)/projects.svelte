@@ -1,8 +1,8 @@
 <script lang="ts">
-	import DateRange from '$lib/components/date-range.svelte';
 	import List from '$lib/components/list.svelte';
 	import PrimarySection from '$lib/components/primary-section.svelte';
 	import SecondarySection from '$lib/components/secondary-section.svelte';
+	import TertiarySection from '$lib/components/tertiary-section.svelte';
 	import type { ProjectExperience } from '$lib/types';
 
 	interface Props {
@@ -15,13 +15,16 @@
 <PrimarySection title="Projects">
 	{#each projects as project (project)}
 		<SecondarySection title={project.name} url={project.url}>
-			{#snippet subtitle()}
-				<p class="font-mono tracking-tight text-nowrap">
-					<DateRange start={project.start_date} end={project.end_date} />
-				</p>
-			{/snippet}
+			{#snippet subtitle()}{/snippet}
 
-			<List items={project.highlights} />
+			<TertiarySection
+				title={project.affiliation}
+				subtitle={null}
+				start_date={project.start_date}
+				end_date={project.end_date}
+			>
+				<List items={project.highlights} />
+			</TertiarySection>
 		</SecondarySection>
 	{/each}
 </PrimarySection>
