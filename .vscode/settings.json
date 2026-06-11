@@ -4,6 +4,9 @@
 			"strings": "on"
 		}
 	},
+	"[typst]": {
+		"editor.defaultFormatter": "myriad-dreamin.tinymist"
+	},
 	"[yaml]": {
 		"diffEditor.ignoreTrimWhitespace": false,
 		"editor.insertSpaces": true
@@ -29,6 +32,12 @@
 	"svelte.enable-ts-plugin": true,
 	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
 	"tailwindCSS.classAttributes": ["class", "tw"],
+	"tinymist.fontPaths": [
+		"${workspaceFolder}/node_modules/source-sans/VF",
+		"${workspaceFolder}/node_modules/source-serif/VAR",
+		"${workspaceFolder}/node_modules/source-code-pro/VF"
+	],
+	"tinymist.systemFonts": false,
 	"typescript.check.npmIsInstalled": false,
 	"typescript.disableAutomaticTypeAcquisition": true,
 	"typescript.enablePromptUseWorkspaceTsdk": true,

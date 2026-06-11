@@ -318,6 +318,15 @@ importers:
       sass:
         specifier: ^1.100.0
         version: 1.100.0
+      source-code-pro:
+        specifier: ^2.42.0
+        version: 2.42.0
+      source-sans:
+        specifier: ^3.52.0
+        version: 3.52.0
+      source-serif:
+        specifier: ^4.5.1
+        version: 4.5.1
       svelte:
         specifier: ^5.56.1
         version: 5.56.1(@typescript-eslint/types@8.60.1)
@@ -2055,9 +2064,18 @@ packages:
     resolution: {integrity: sha512-2wcC/oGxHis/BoHkkPwldgiPSYcpZK3JU28WoMVv55yHJgcZ8rlXvuG9iZggz+sU1d4bRgIGASwyWqjxu3FM0g==}
     engines: {node: '>=18'}
 
+  source-code-pro@2.42.0:
+    resolution: {integrity: sha512-18isp9l4xtOL3r61TwL9m1hjYX9qb1+i7iK0pSHEeWADKuQCOdQkBzhFiv8pBfOP7u9lNTBN75yYif2HUdyiyg==}
+
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
+
+  source-sans@3.52.0:
+    resolution: {integrity: sha512-xsm7qlMI/JwxwNdp6pvpR6l+aZjn90fzOzoeUz/qoohIYbKbDwQNRIz5/ItYs7/hvqLirQNUoDFGXSVA3TU9tw==}
+
+  source-serif@4.5.1:
+    resolution: {integrity: sha512-NUAh5IzF7KiUu2gTpqE+ed9MNbMe4st7LIIXZ0OHHSPc6gg86H67j04M8sIhU2qqFd26btXaFQ2ge5u/p72j0Q==}
 
   string.prototype.codepointat@0.2.1:
     resolution: {integrity: sha512-2cBVCj6I4IOvEnjgO/hWqXjqBGsY+zwPmHl12Srk9IXSZ56Jwwmy+66XO5Iut/oQVR7t5ihYdLB0GMa4alEUcg==}
@@ -3634,7 +3652,13 @@ snapshots:
       mrmime: 2.0.1
       totalist: 3.0.1
 
+  source-code-pro@2.42.0: {}
+
   source-map-js@1.2.1: {}
+
+  source-sans@3.52.0: {}
+
+  source-serif@4.5.1: {}
 
   string.prototype.codepointat@0.2.1: {}
 
