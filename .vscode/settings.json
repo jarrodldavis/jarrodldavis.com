@@ -33,9 +33,9 @@
 	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
 	"tailwindCSS.classAttributes": ["class", "tw"],
 	"tinymist.fontPaths": [
-		"${workspaceFolder}/node_modules/source-sans/VF",
-		"${workspaceFolder}/node_modules/source-serif/VAR",
-		"${workspaceFolder}/node_modules/source-code-pro/VF"
+		"${workspaceFolder}/node_modules/source-sans/OTF",
+		"${workspaceFolder}/node_modules/source-serif/OTF",
+		"${workspaceFolder}/node_modules/source-code-pro/OTF"
 	],
 	"tinymist.systemFonts": false,
 	"typescript.check.npmIsInstalled": false,

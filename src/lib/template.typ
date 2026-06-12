@@ -1,9 +1,8 @@
 #set page(paper: "us-letter")
 
-// TODO: Typst v0.15 required for proper variable font support
-#let sans = "SourceSans3VF"
-#let serif = "Source Serif 4 Variable"
-#let mono = "SourceCodeVF"
+#let sans = "Source Sans 3"
+#let serif = "Source Serif 4"
+#let mono = "Source Code Pro"
 
 // 1px = 0.75pt
 #let text-3xl = 22.5pt // 1.875rem = 30px
@@ -12,7 +11,7 @@
 #let text-xs = 9pt // 0.75rem = 12px
 
 #set page("us-letter", margin: 0.5in)
-#set text(size: text-xs, font: serif)
+#set text(size: 9.75pt, font: serif)
 #set par(leading: 0.5em)
 
 // unset default heading sizes
@@ -35,7 +34,7 @@
 #let location(location) = {
   [#location.city, #location.state]
   if location.remote {
-    [ _(remote)_]
+    text(weight: "regular", size: text-xs, [ _(remote)_])
   }
 }
 
@@ -55,10 +54,8 @@
 }
 
 #let primary-heading(title) = {
-  text(size: text-base, {
-    block(width: 100%, sticky: true, below: 6pt, stroke: (bottom: 0.5pt), inset: (bottom: 4pt), {
-      heading(upper(title), level: 1)
-    })
+  block(width: 100%, sticky: true, below: 6pt, stroke: (bottom: 0.5pt), inset: (bottom: 4pt), {
+    heading(upper(text(size: text-base, title)), level: 1)
   })
 }
 
@@ -67,29 +64,25 @@
   let url = if "url" in item { item.url } else { none }
   let location = if "location" in item { location(item.location) } else { none }
 
-  text(size: text-sm, {
-    block(width: 100%, sticky: true, below: 6pt, {
-      heading(text(name), level: 2)
-      if some(url) {
-        text(size: text-xs, [ (#url-link(url))])
-      }
-      h(1fr)
-      if some(location) {
-        strong(location)
-      }
-    })
+  block(width: 100%, sticky: true, below: 6pt, {
+    heading(text(size: text-sm, weight: "semibold", name), level: 2)
+    if some(url) {
+      text(size: text-xs, [ (#url-link(url))])
+    }
+    h(1fr)
+    if some(location) {
+      text(size: text-sm, weight: "semibold", location)
+    }
   })
 }
 
 #let tertiary-heading(item) = {
   let title = coalesce(item, ("title", "affiliation"))
 
-  text(size: text-sm, {
-    block(width: 100%, sticky: true, below: 6pt, {
-      heading(emph(title), level: 3)
-      h(1fr)
-      text(font: mono, dates(item.start_date, item.end_date))
-    })
+  block(width: 100%, sticky: true, below: 6pt, {
+    heading(emph(text(size: text-sm, weight: "regular", title)), level: 3)
+    h(1fr)
+    text(size: text-sm, font: mono, tracking: -0.05em, dates(item.start_date, item.end_date))
   })
 }
 
@@ -115,8 +108,8 @@
 #let header = text(size: text-sm, font: sans, align(center, stack(
   spacing: 8pt,
   title(text(size: text-3xl, font: mono, resume.profile.name)),
-  strong(resume.profile.titles.join([ #sym.slash ])),
-  strong(location(resume.profile.location)),
+  text(weight: "semibold", resume.profile.titles.join([ #sym.slash ])),
+  text(weight: "semibold", location(resume.profile.location)),
   (
     link("mailto:" + resume.profile.email),
     url-link(resume.profile.url),
