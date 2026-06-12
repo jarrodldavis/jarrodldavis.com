@@ -31,7 +31,10 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
+		"lint": "pnpm --sequential /lint:/",
+		"lint:typstyle": "./scripts/typstyle.ts --check",
+		"lint:prettier": "prettier --check .",
+		"lint:eslint": "eslint ."
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
@@ -50,6 +53,7 @@
 		"@types/node": "^24.12.4",
 		"@types/react": "^19.2.16",
 		"@types/react-dom": "^19.2.3",
+		"@typstyle/typstyle-wasm-bundler": "^0.14.4",
 		"@vercel/analytics": "^2.0.1",
 		"@vercel/og": "^0.11.1",
 		"@vercel/speed-insights": "^2.0.0",

@@ -37,6 +37,10 @@
 		"${workspaceFolder}/node_modules/source-serif/OTF",
 		"${workspaceFolder}/node_modules/source-code-pro/OTF"
 	],
+	"tinymist.formatterIndentSize": 2,
+	"tinymist.formatterMode": "typstyle",
+	"tinymist.formatterPrintWidth": 120,
+	"tinymist.formatterProseWrap": false,
 	"tinymist.systemFonts": false,
 	"typescript.check.npmIsInstalled": false,
 	"typescript.disableAutomaticTypeAcquisition": true,
