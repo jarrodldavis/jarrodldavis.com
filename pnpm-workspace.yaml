@@ -1,7 +1,4 @@
 overrides:
-  '@ibm/telemetry-js': '-'
-  'sass>@parcel/watcher': '-'
-  'sass>chokidar': '-'
   'svelte-check>chokidar': '5'
 
 allowBuilds:
@@ -9,8 +6,5 @@ allowBuilds:
   '@vercel/speed-insights': true
   'esbuild': true
   'sharp': true
-  '@ibm/plex-mono': false
-  '@ibm/plex-sans': false
-  '@ibm/plex-serif': false
 
 minimumReleaseAgeStrict: true
