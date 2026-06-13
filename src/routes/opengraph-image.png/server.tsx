@@ -1,7 +1,7 @@
 import { read } from '$app/server';
 import SatoriImg, { create_handler, type ImageComponentProps } from '$lib/satori-img';
 import SourceCodeBold from 'source-code-pro/OTF/SourceCodePro-Bold.otf';
-import SourceCodeSemiBold from 'source-code-pro/OTF/SourceCodePro-SemiBold.otf';
+import SourceCodeSemibold from 'source-code-pro/OTF/SourceCodePro-Semibold.otf';
 import type { RequestHandler } from './$types';
 
 const OpenGraphImage = ({ profile, src }: ImageComponentProps) => (
@@ -29,7 +29,7 @@ const width = 1200;
 const height = 630;
 const fonts = [
 	{ data: await read(SourceCodeBold).arrayBuffer(), name: 'Source Code', weight: 700 } as const,
-	{ data: await read(SourceCodeSemiBold).arrayBuffer(), name: 'Source Code', weight: 600 } as const
+	{ data: await read(SourceCodeSemibold).arrayBuffer(), name: 'Source Code', weight: 600 } as const
 ];
 
 export const GET: RequestHandler = create_handler(OpenGraphImage, { width, height, fonts });
