@@ -3,10 +3,10 @@
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
-	"packageManager": "pnpm@11.5.1",
+	"packageManager": "pnpm@12.4.2",
 	"engines": {
 		"node": "24.x",
-		"pnpm": "11.5.1"
+		"pnpm": "12.4.2"
 	},
 	"devEngines": {
 		"runtime": {
@@ -16,7 +16,7 @@
 		},
 		"packageManager": {
 			"name": "pnpm",
-			"version": "11.5.1",
+			"version": "12.4.2",
 			"onFail": "download"
 		}
 	},
@@ -24,7 +24,7 @@
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"prepare": "pnpm --sequential /prepare:/",
+		"prepare": "pnpm --workspace-concurrency=1 /prepare:/",
 		"prepare:env": "cp -n .env.example .env",
 		"prepare:svelte": "svelte-kit sync || echo ''",
 		"prepare:extract": "prepare/index.ts",
