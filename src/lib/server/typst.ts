@@ -1,7 +1,6 @@
-import { read } from '$app/server';
 import { fontPaths } from '$lib/fonts';
 import memoji_path from '$lib/memoji.png';
-import { load_resume } from '$lib/server';
+import { load_resume, read_buffer } from '$lib/server';
 import type { Resume } from '$lib/types';
 import {
 	NodeCompiler as Compiler,
@@ -38,7 +37,7 @@ function handleErrors(compiler: Compiler, result: Result): asserts result is Suc
 	}
 }
 
-const fonts = await Promise.all(fontPaths.map(async (f) => Buffer.from(await read(f).bytes())));
+const fonts = await Promise.all(fontPaths.map(read_buffer));
 
 async function compile(
 	template: string,
@@ -47,7 +46,7 @@ async function compile(
 	render: RenderFn
 ): Promise<ArrayBuffer> {
 	resume ??= load_resume();
-	memoji ??= Buffer.from(await read(memoji_path).bytes());
+	memoji ??= await read_buffer(memoji_path);
 
 	const compiler = Compiler.create({ fontArgs: [{ fontBlobs: fonts }], workspace: '/' });
 	compiler.addSource('/src/lib/data.yaml', JSON.stringify(resume));

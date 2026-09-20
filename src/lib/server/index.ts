@@ -1,3 +1,5 @@
+import { dev } from '$app/environment';
+import { getRequestEvent, read } from '$app/server';
 import raw_data from '$lib/data.yaml?raw';
 import { RESUME_SCHEMA } from '$lib/schema';
 import type { Resume } from '$lib/types';
@@ -19,4 +21,11 @@ export function load_resume(): Resume {
 	}
 
 	return parsed_data;
+}
+
+export async function read_buffer(path: string): Promise<Buffer> {
+	const fetch = dev ? getRequestEvent().fetch : read;
+	const response = await fetch(path);
+	const bytes = await response.bytes();
+	return Buffer.from(bytes);
 }
