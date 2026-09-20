@@ -144,7 +144,7 @@
   for project in resume.projects.filter(not-omitted) {
     secondary-heading(project)
     tertiary-heading(project)
-    list(..project.highlights.map(list-item))
+    list(..project.highlights.filter(not-omitted).map(list-item))
   }
 }
 
