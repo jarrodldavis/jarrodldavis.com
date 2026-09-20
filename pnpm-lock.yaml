@@ -259,6 +259,9 @@ importers:
       react:
         specifier: ^19.2.7
         version: 19.2.7
+      sharp:
+        specifier: ^0.34.5
+        version: 0.34.5
       source-code-pro:
         specifier: ^2.42.0
         version: 2.42.0

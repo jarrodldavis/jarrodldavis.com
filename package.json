@@ -67,6 +67,7 @@
 		"prettier-plugin-svelte": "^4.1.0",
 		"prettier-plugin-tailwindcss": "^0.8.0",
 		"react": "^19.2.7",
+		"sharp": "^0.34.5",
 		"source-code-pro": "^2.42.0",
 		"source-sans": "^3.52.0",
 		"source-serif": "^4.5.1",
