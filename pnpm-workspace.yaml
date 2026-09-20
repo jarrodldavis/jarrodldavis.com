@@ -8,3 +8,8 @@ allowBuilds:
   'sharp': true
 
 minimumReleaseAgeStrict: true
+
+peerDependencyRules:
+  allowedVersions:
+    '@csstools/media-query-list-parser@2.0.4>@csstools/css-parser-algorithms': '3.0.4'
+    '@csstools/media-query-list-parser@2.0.4>@csstools/css-tokenizer': '3.0.3'

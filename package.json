@@ -34,6 +34,7 @@
 		"lint": "pnpm --workspace-concurrency=1 /lint:/",
 		"lint:typstyle": "./scripts/typstyle.ts --check",
 		"lint:prettier": "prettier --check .",
+		"lint:tailwind": "tailwind-lint --config src/app.css --auto --verbose",
 		"lint:eslint": "eslint ."
 	},
 	"devDependencies": {
@@ -69,6 +70,7 @@
 		"source-serif": "^4.5.1",
 		"svelte": "^5.57.1",
 		"svelte-check": "^4.7.6",
+		"tailwind-lint": "^0.12.1",
 		"tailwindcss": "^4.3.3",
 		"typescript": "^6.0.3",
 		"typescript-eslint": "^8.70.0",
