@@ -37,7 +37,7 @@ function handleErrors(compiler: Compiler, result: Result): asserts result is Suc
 	}
 }
 
-const fonts = await Promise.all(fontPaths.map(read_buffer));
+let fonts: Buffer[] | undefined = undefined;
 
 async function compile(
 	template: string,
@@ -48,6 +48,7 @@ async function compile(
 	resume ??= load_resume();
 	memoji ??= await read_buffer(memoji_path);
 
+	fonts ??= await Promise.all(fontPaths.map(read_buffer));
 	const compiler = Compiler.create({ fontArgs: [{ fontBlobs: fonts }], workspace: '/' });
 	compiler.addSource('/src/lib/data.yaml', JSON.stringify(resume));
 	compiler.mapShadow('/src/lib/memoji.png', memoji);
