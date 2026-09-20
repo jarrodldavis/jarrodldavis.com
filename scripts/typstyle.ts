@@ -39,7 +39,7 @@ async function typstyle(options: Options = {}): Promise<ExitCode> {
 		const content = await readFile(filePath, 'utf-8');
 
 		try {
-			const formatted = format(content, { tab_spaces: 2, max_width: 120, wrap_text: false });
+			const formatted = format(content, { tab_spaces: 2, max_width: 120, wrap_mode: 'none' });
 
 			if (content !== formatted) {
 				if (check) {

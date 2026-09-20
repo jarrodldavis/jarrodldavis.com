@@ -6,6 +6,7 @@
 		"noEmit": true,
 		"target": "ESNext",
 		"module": "NodeNext",
+		"types": ["node"],
 		"rewriteRelativeImportExtensions": true,
 		"erasableSyntaxOnly": true,
 		"verbatimModuleSyntax": true,
