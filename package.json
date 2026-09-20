@@ -3,10 +3,10 @@
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
-	"packageManager": "pnpm@11.5.1",
+	"packageManager": "pnpm@12.5.1",
 	"engines": {
 		"node": "24.x",
-		"pnpm": "11.5.1"
+		"pnpm": "12.5.1"
 	},
 	"devEngines": {
 		"runtime": {
@@ -16,22 +16,22 @@
 		},
 		"packageManager": {
 			"name": "pnpm",
-			"version": "11.5.1",
-			"onFail": "error"
+			"version": "12.5.1",
+			"onFail": "download"
 		}
 	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
-		"prepare": "pnpm --sequential /prepare:/",
+		"prepare": "pnpm --workspace-concurrency=1 /prepare:/",
 		"prepare:env": "cp -n .env.example .env",
 		"prepare:svelte": "svelte-kit sync || echo ''",
 		"prepare:extract": "prepare/index.ts",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
-		"lint": "pnpm --sequential /lint:/",
+		"lint": "pnpm --workspace-concurrency=1 /lint:/",
 		"lint:typstyle": "./scripts/typstyle.ts --check",
 		"lint:prettier": "prettier --check .",
 		"lint:eslint": "eslint ."
