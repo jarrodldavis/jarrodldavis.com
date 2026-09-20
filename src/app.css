@@ -13,9 +13,9 @@
 }
 
 @utility delimiter-slash {
-	@apply after:content-['/'_/_''] last:after:content-none;
+	@apply after:content-['/'/''] last:after:content-none;
 }
 
 @utility delimiter-dot {
-	@apply after:content-['\2022'_/_''] last:after:content-none;
+	@apply after:content-['\2022'/''] last:after:content-none;
 }

@@ -141,14 +141,14 @@ work:
           - content: >-
               Transitioned to the technical team lead role
           - content: >-
-              Participated with project and product management in the refinement and prioritization
-              of bug fixes, enhancements, and features
+              Worked with project and product management to refine and prioritize bug fixes,
+              enhancements, and features
           - content: >-
               Initiated the introduction of new technologies (including Vue.js) for major new
               features
           - content: >-
-              Designed and developed a new ASP.NET Core API for retrieving and updating application
-              data in coordination with mobile app engineers
+              Developed a new ASP.NET Core API for retrieving and updating application data in
+              coordination with the mobile app team
           - content: >-
               Managed deployments for multiple environments using TeamCity and Octopus Deploy
           - content: >-

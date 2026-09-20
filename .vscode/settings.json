@@ -4,6 +4,9 @@
 			"strings": "on"
 		}
 	},
+	"[typst]": {
+		"editor.defaultFormatter": "myriad-dreamin.tinymist"
+	},
 	"[yaml]": {
 		"diffEditor.ignoreTrimWhitespace": false,
 		"editor.insertSpaces": true
@@ -25,15 +28,23 @@
 	"files.insertFinalNewline": true,
 	"files.trimFinalNewlines": true,
 	"files.trimTrailingWhitespace": true,
-	"javascript.preferences.quoteStyle": "single",
+	"js/ts.preferences.importModuleSpecifier": "non-relative",
+	"js/ts.preferences.preferTypeOnlyAutoImports": true,
+	"js/ts.preferences.quoteStyle": "single",
+	"js/ts.tsdk.path": "node_modules/typescript/lib",
+	"js/ts.tsdk.promptToUseWorkspaceVersion": true,
+	"js/ts.tsserver.automaticTypeAcquisition.enabled": true,
+	"js/ts.tsserver.checkNpmIsInstalled": false,
 	"svelte.enable-ts-plugin": true,
 	"svelte.plugin.svelte.defaultScriptLanguage": "ts",
-	"tailwindCSS.classAttributes": ["class", "tw"],
-	"typescript.check.npmIsInstalled": false,
-	"typescript.disableAutomaticTypeAcquisition": true,
-	"typescript.enablePromptUseWorkspaceTsdk": true,
-	"typescript.preferences.importModuleSpecifier": "non-relative",
-	"typescript.preferences.preferTypeOnlyAutoImports": true,
-	"typescript.preferences.quoteStyle": "single",
-	"typescript.tsdk": "node_modules/typescript/lib"
+	"tinymist.fontPaths": [
+		"${workspaceFolder}/node_modules/source-sans/OTF",
+		"${workspaceFolder}/node_modules/source-serif/OTF",
+		"${workspaceFolder}/node_modules/source-code-pro/OTF"
+	],
+	"tinymist.formatterIndentSize": 2,
+	"tinymist.formatterMode": "typstyle",
+	"tinymist.formatterPrintWidth": 120,
+	"tinymist.formatterProseWrap": false,
+	"tinymist.systemFonts": false
 }

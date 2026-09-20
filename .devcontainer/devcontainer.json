@@ -3,7 +3,7 @@
 {
 	"name": "Node.js & TypeScript",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/typescript-node:4.0.7-24-bookworm",
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:5.2.1-24-trixie",
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -13,7 +13,6 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"onCreateCommand": "./.devcontainer/on-create.sh",
-	"postCreateCommand": "./.devcontainer/post-create.sh",
 
 	// Configure tool-specific properties.
 	"customizations": {
@@ -22,6 +21,7 @@
 				"bradlc.vscode-tailwindcss",
 				"dbaeumer.vscode-eslint",
 				"esbenp.prettier-vscode",
+				"myriad-dreamin.tinymist",
 				"redhat.vscode-yaml",
 				"svelte.svelte-vscode"
 			]

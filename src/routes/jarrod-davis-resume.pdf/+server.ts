@@ -1,8 +1,12 @@
-import make_pdf_renderer from '$lib/server/pdf';
+import { render_pdf } from '$lib/server/typst';
 import type { RequestHandler } from './$types';
+import template from './template.typ?raw';
 
 export const prerender = true;
 
-const render_pdf = make_pdf_renderer();
-
-export const GET: RequestHandler = () => render_pdf('/resume');
+export const GET: RequestHandler = async () =>
+	new Response(await render_pdf(template), {
+		headers: {
+			'content-type': 'application/pdf'
+		}
+	});
