@@ -19,7 +19,7 @@
 #show heading.where(level: 1): set text(size: 1em / 1.4)
 #show heading.where(level: 2): set text(size: 1em / 1.2)
 
-#let resume = yaml("data.yaml")
+#let resume = yaml("/src/lib/data.yaml")
 
 #let coalesce(item, keys) = {
   return item.at(keys.find(key => key in item))

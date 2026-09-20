@@ -1,5 +1,7 @@
 import { read } from '$app/server';
 import { fontPaths } from '$lib/fonts';
+import memoji_path from '$lib/memoji.png';
+import { load_resume } from '$lib/server';
 import type { Resume } from '$lib/types';
 import {
 	NodeCompiler as Compiler,
@@ -38,22 +40,42 @@ function handleErrors(compiler: Compiler, result: Result): asserts result is Suc
 
 const fonts = await Promise.all(fontPaths.map(async (f) => Buffer.from(await read(f).bytes())));
 
-async function compile(template: string, resume: Resume, render: RenderFn): Promise<ArrayBuffer> {
+async function compile(
+	template: string,
+	resume: Resume | undefined,
+	memoji: Buffer | undefined,
+	render: RenderFn
+): Promise<ArrayBuffer> {
+	resume ??= load_resume();
+	memoji ??= Buffer.from(await read(memoji_path).bytes());
+
 	const compiler = Compiler.create({ fontArgs: [{ fontBlobs: fonts }], workspace: '/' });
-	compiler.addSource('/data.yaml', JSON.stringify(resume));
+	compiler.addSource('/src/lib/data.yaml', JSON.stringify(resume));
+	compiler.mapShadow('/src/lib/memoji.png', memoji);
 	const compiled = compiler.compile({ mainFileContent: template });
 	handleErrors(compiler, compiled);
+
 	const rendered = await render(compiler, compiled.result);
 	assert(rendered.buffer instanceof ArrayBuffer, 'expected render result to be an ArrayBuffer');
 	return rendered.buffer;
 }
 
-export async function render_pdf(template: string, resume: Resume): Promise<ArrayBuffer> {
-	return await compile(template, resume, (compiler, document) => compiler.pdf(document));
+export async function render_pdf(
+	template: string,
+	resume?: Resume,
+	memoji?: Buffer
+): Promise<ArrayBuffer> {
+	return compile(template, resume, memoji, (compiler, document) => {
+		return compiler.pdf(document);
+	});
 }
 
-export async function render_png(template: string, resume: Resume): Promise<ArrayBuffer> {
-	return await compile(template, resume, (compiler, document) =>
-		sharp(Buffer.from(compiler.plainSvg(document))).toBuffer()
-	);
+export async function render_png(
+	template: string,
+	resume?: Resume,
+	memoji?: Buffer
+): Promise<ArrayBuffer> {
+	return compile(template, resume, memoji, (compiler, document) => {
+		return sharp(Buffer.from(compiler.plainSvg(document))).toBuffer();
+	});
 }
